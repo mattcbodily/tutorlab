@@ -5,6 +5,8 @@
   "main": "server/index.js",
   "proxy": "http://localhost:4040",
   "dependencies": {
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
@@ -12,8 +14,10 @@
     "massive": "^5.7.5",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
+    "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
