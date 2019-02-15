@@ -1,16 +1,39 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import TutorProfileDisplay from './../ProfileDisplay/TutorProfileDisplay';
 
 class TutorProfile extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            tutor: []
+        }
+    }
+
+    componentDidMount(){
+        return this.getTutorProfile();
+    }
+
+    getTutorProfile(){
+        axios.get('/api/tutorprofile')
+        .then(res => {
+            this.setState({
+                tutor: res.data
+            })
+        })
+    }
+
     render(){
+        const tutorProfile = this.state.tutor.map(tutorObj => {
+            return(
+                <TutorProfileDisplay key = {tutorObj.id} 
+                                     tutor = {tutorObj}/>
+            )
+        })
         return(
             <div>
-                <div>
-                    Profile Pic goes here
-                </div>
-                <div>
-                    Tutor Info goes here
-                </div>
+                {tutorProfile}
                 <div>
                     <button>Update Info</button>
                 </div>

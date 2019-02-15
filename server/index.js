@@ -29,3 +29,6 @@ app.post('/auth/tutor/login', ac.tutorLogin);
 //data endpoints
 app.get('/api/subjects', mc.getSubjectsHome);
 app.get('/api/allsubjects', mc.getAllSubjects);
+
+app.get('/api/studentprofile', mc.getStudentProfile);
+app.get('/api/tutorprofile', mc.getTutorProfile);

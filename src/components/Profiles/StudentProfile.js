@@ -1,16 +1,39 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import StudentProfileDisplay from './../ProfileDisplay/StudentProfileDisplay';
 
 class StudentProfile extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            student: []
+        }
+    }
+
+    componentDidMount(){
+        return this.getStudentInfo()
+    }
+
+    getStudentInfo(){
+        axios.get('/api/studentprofile')
+        .then(res => {
+            this.setState({
+                student: res.data
+            })
+        })
+    }
+
     render(){
+        const studentProfile = this.state.student.map(studentObj => {
+            return(
+                <StudentProfileDisplay key = {studentObj.student_id} 
+                                       student = {studentObj}/>
+            )
+        })
         return(
             <div>
-                <div>
-                    Profile Pic goes here
-                </div>
-                <div>
-                    User Info goes here
-                </div>
+                {studentProfile}
                 <div>
                     <button>Update Info</button>
                 </div>
