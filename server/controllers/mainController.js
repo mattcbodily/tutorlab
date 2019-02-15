@@ -21,5 +21,11 @@ module.exports = {
         req.app.get('db').get_tutor_profile()
         .then(tutor => res.status(200).send(tutor))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getTutorList: (req, res) => {
+        req.app.get('db').get_tutor_list()
+        .then(list => res.status(200).send(list))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }

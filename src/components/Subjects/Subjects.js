@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SubjectDisplay from './../SubjectDisplay/SubjectDisplay';
+import { Link } from 'react-router-dom';
 
 class Subjects extends Component {
     constructor(props){
@@ -34,6 +35,9 @@ class Subjects extends Component {
             <div>
                 <p>Select a subject below</p>
                 {subjectList}
+                <div>
+                    Back to <Link to = '/home'>home</Link>
+                </div>
             </div>
         )
     }

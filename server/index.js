@@ -32,3 +32,4 @@ app.get('/api/allsubjects', mc.getAllSubjects); //this is in the Subjects compon
 
 app.get('/api/studentprofile', mc.getStudentProfile); //this is in the StudentProfile component
 app.get('/api/tutorprofile', mc.getTutorProfile); //this is in the TutorProfile component
+app.get('/api/tutorlist', mc.getTutorList) //this is in the TutorList component
