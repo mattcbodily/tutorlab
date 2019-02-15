@@ -1,0 +1,1 @@
+select * from subjects limit 3;

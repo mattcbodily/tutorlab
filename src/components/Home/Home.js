@@ -1,7 +1,38 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import SubjectDisplay from './../SubjectDisplay/SubjectDisplay';
 
 class Home extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            subjects: []
+        }
+    }
+
+    componentDidMount(){
+        return this.getSubjects()
+    }
+
+    getSubjects(){
+        axios.get('/api/subjects')
+        .then(res => {
+            this.setState({
+                subjects: res.data
+            })
+        })
+    }
+
     render(){
+        const subjectList = this.state.subjects.map(subjectObj => {
+            return(
+                <SubjectDisplay key = {subjectObj.index}
+                                subjects = {subjectObj}
+                                />
+                                
+            )
+        })
         return(
             <div>
                 <div>
@@ -13,8 +44,9 @@ class Home extends Component {
                 </div>
                 <div>
                     <p>Popular Subjects</p>
-                    {/* first three subjects go here */}
+                    {subjectList}
                 </div>
+                View more subjects <Link to ='/subjects'>here.</Link>
             </div>
         )
     }
