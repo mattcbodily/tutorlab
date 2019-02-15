@@ -25,9 +25,9 @@ class StudentProfile extends Component {
     }
 
     render(){
-        const studentProfile = this.state.student.map(studentObj => {
+        const studentProfile = this.state.student.map((studentObj, i) => {
             return(
-                <StudentProfileDisplay key = {studentObj.student_id} 
+                <StudentProfileDisplay key = {i} 
                                        student = {studentObj}/>
             )
         })

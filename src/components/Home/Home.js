@@ -25,9 +25,9 @@ class Home extends Component {
     }
 
     render(){
-        const subjectList = this.state.subjects.map(subjectObj => {
+        const subjectList = this.state.subjects.map((subjectObj, i) => {
             return(
-                <SubjectDisplay key = {subjectObj.index}
+                <SubjectDisplay key = {i}
                                 subjects = {subjectObj}
                                 />
                                 

@@ -25,9 +25,9 @@ class TutorProfile extends Component {
     }
 
     render(){
-        const tutorProfile = this.state.tutor.map(tutorObj => {
+        const tutorProfile = this.state.tutor.map((tutorObj, i) => {
             return(
-                <TutorProfileDisplay key = {tutorObj.id} 
+                <TutorProfileDisplay key = {i} 
                                      tutor = {tutorObj}/>
             )
         })
