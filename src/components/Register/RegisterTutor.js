@@ -25,32 +25,12 @@ class RegisterTutor extends Component {
                 <input />
                 <p>Password</p>
                 <input />
-                <p>What do you teach?</p>
-                <div>
-                    <button>I'm a drop down</button>
-                </div>
-                <div>
-                    <button>I'm a drop down</button>
-                </div>
-                <div>
-                    <button>I'm a drop down</button>
-                </div>
-                <p>Where do you teach?</p>
-                <div>
-                    <button>I'm a drop down</button>
-                </div>
-                <div>
-                    <button>I'm a drop down</button>
-                </div>
-                <div>
-                    <button>I'm a drop down</button>
-                </div>
                 <p>What is your rate?</p>
                 <input />
                 <p>Tell us about yourself and your teaching experience</p>
                 <input />
                 <div>
-                    <button>Create Account</button>
+                    <Link to = '/registertutorsubject'><button>Create Account</button></Link>
                 </div>
                 <p>Have an account? <Link to = '/'>Log in here.</Link></p>
                 <p>Signing up as a student? <Link to = '/registerstudent'>Sign up here.</Link></p>

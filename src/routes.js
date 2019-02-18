@@ -13,11 +13,15 @@ import StudentProfile from './components/Profiles/StudentProfile';
 import TutorProfile from './components/Profiles/TutorProfile';
 import StudentList from './components/StudentList/StudentList';
 import MyTutors from './components/MyTutors/MyTutors';
+import RegisterTutorStepTwo from './components/Register/RegisterTutorStepTwo';
+import RegisterTutorStepThree from './components/Register/RegisterTutorStepThree';
 
 export default (
     <Switch>
         <Route exact path = '/' component = {Login}/>
         <Route path = '/registerstudent' component = {RegisterStudent}/>
+        <Route path = '/registertutorsubject' component = {RegisterTutorStepTwo}/>
+        <Route path = '/registertutorlocation' component = {RegisterTutorStepThree}/>
         <Route path = '/registertutor' component = {RegisterTutor}/>
         <Route path = '/home' component = {Home}/>
         <Route path = '/about' component = {About}/>

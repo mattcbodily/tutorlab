@@ -27,5 +27,12 @@ module.exports = {
         req.app.get('db').get_tutor_list()
         .then(list => res.status(200).send(list))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getOneSubject: (req, res) => {
+        const {subject} = req.params;
+        req.app.get('db').get_one_subject([subject])
+        .then(subject => res.status(200).send(subject))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }
