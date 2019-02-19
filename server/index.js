@@ -23,8 +23,13 @@ massive(CONNECTION_STRING).then(db => {
 })
 
 //authentication endpoints
-app.post('/auth/student/login', ac.studentLogin);
-app.post('/auth/tutor/login', ac.tutorLogin);
+app.post('/auth/registerstudent', ac.registerStudent); //This is in the register student component
+app.post('/auth/registertutor', ac.registerTutor); //This is in the register tutor component
+app.post('/auth/loginstudent', ac.loginStudent); //This is in the login component
+app.post('/auth/logintutor', ac.loginTutor); //This is in the login component
+app.post('/auth/logout', ac.logout); //This is in the nav component
+app.get('/api/student', ac.getStudent); //This is in the home component
+app.get('/api/tutor', ac.getTutor); //This is in the home component
 
 //data endpoints
 app.get('/api/subjects', mc.getSubjectsHome); //this is in the Home component

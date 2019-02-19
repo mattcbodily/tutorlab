@@ -1,11 +1,17 @@
 const initialState = {
     student: {
         id: 0,
+        firstName: '',
+        lastName: '',
         email: ''
     },
     tutor: {
         id: 0,
-        email: ''
+        firstName: '',
+        lastName: '', 
+        email: '',
+        price: 0,
+        tutorDescription: ''
     }
 }
 
@@ -30,13 +36,18 @@ export default function reducer(state = initialState, action){
     const {type, payload} = action;
     switch(type){
         case UPDATE_STUDENT:
-            const {id, email} = payload;
-            const student = {id, email};
-            return {...state, student};
-        // case UPDATE_TUTOR:
-        //     const {id, email} = payload;
-        //     const tutor = {id, email};
-        //     return {...state, tutor};
+            // const {id, firstName, lastName, email} = payload;
+            // const student = {id, firstName, lastName, email};
+            let studentObj = {
+                student: payload
+            }
+            return {...state, studentObj};
+        case UPDATE_TUTOR:
+            let tutorObj = {
+                tutor: payload
+            }
+            return {...state, tutorObj};
+            
         default:
             return state;
     }

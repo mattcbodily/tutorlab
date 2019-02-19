@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import SubjectDisplay from './../SubjectDisplay/SubjectDisplay';
 
@@ -52,4 +53,11 @@ class Home extends Component {
     }
 }
 
-export default Home;
+const mapStateToProps = reduxState => {
+    const {id} = reduxState;
+    return {
+        id
+    }
+}
+
+export default connect(mapStateToProps)(Home);

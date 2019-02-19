@@ -3,7 +3,7 @@ create table if not exists students (
     first_name varchar(50),
     last_name varchar(50),
     email varchar(100),
-    password varchar(50),
+    password varchar(200),
     profile_pic varchar(200),
     age integer
 );
@@ -13,7 +13,7 @@ create table if not exists tutors (
     first_name varchar(50),
     last_name varchar(50),
     email varchar(100),
-    password varchar(50),
+    password varchar(200),
     profile_pic varchar(200),
     age integer,
     price integer,

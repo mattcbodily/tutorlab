@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { updateStudent } from './../../ducks/reducer';
+import { updateStudent, updateTutor } from './../../ducks/reducer';
 
 class Login extends Component {
     constructor(props){
@@ -29,33 +29,33 @@ class Login extends Component {
         })
     }
 
+    loginStudent(){
+        const {email, password} = this.state;
+        axios.post('/auth/loginstudent', {email, password})
+        .then(res => {
+            this.props.updateStudent(res.data);
+            this.props.history.push('/home');
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
+    loginTutor(){
+        const {email, password} = this.state;
+        axios.post('/auth/logintutor', {email, password})
+        .then(res => {
+            this.props.updateTutor(res.data);
+            this.props.history.push('/home');
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
     toggleTutor(){
         this.setState({isTutor: !this.state.isTutor})
     }
-
-    // studentLogin(){
-    //     const {email, password} = this.state;
-    //     axios.post('/auth/student/login', {email, password})
-    //     .then(res => {
-    //         this.props.updateUser(res.data);
-    //         this.props.history.push('/home');
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     })
-    // }
-
-    // tutorLogin(){
-    //     const {email, password} = this.state;
-    //     axios.post('/auth/tutor/login', {email, password})
-    //     .then(res => {
-    //         this.props.updateUser(res.data);
-    //         this.props.history.push('/home');
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     })
-    // }
 
     render(){
         const {email, password, isTutor} = this.state;
@@ -77,7 +77,7 @@ class Login extends Component {
                             onChange = {e => this.handleChange('password', e.target.value)}
                         />
                         <div>
-                            <button>Log In</button>
+                            <button onClick = {() => this.loginStudent()}>Log In</button>
                             <input 
                                 type='checkbox' 
                                 value = {isTutor}
@@ -102,7 +102,7 @@ class Login extends Component {
                             onChange = {e => this.handleChange('password', e.target.value)}
                         />
                         <div>
-                            <button onClick = {() => this.tutorLogin()}>Log In</button>
+                            <button onClick = {() => this.loginTutor()}>Log In</button>
                             <input 
                                 type='checkbox' 
                                 value = {isTutor}
@@ -125,7 +125,8 @@ const mapStateToProps = reduxState => {
 }
 
 const mapDispatchToProps = {
-    updateStudent
+    updateStudent,
+    updateTutor
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
