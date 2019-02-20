@@ -12,7 +12,8 @@ module.exports = {
     },
 
     getStudentProfile: (req, res) => {
-        req.app.get('db').get_student_profile()
+        const {id} = req.params;
+        req.app.get('db').get_student_profile([id])
         .then(student => res.status(200).send(student))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
@@ -28,6 +29,29 @@ module.exports = {
         const {subject} = req.params;
         req.app.get('db').get_tutor_list([subject])
         .then(list => res.status(200).send(list))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    updateStudent: (req, res) => {
+        const {firstName, lastName, email} = req.body;
+        const {id} = req.params;
+        req.app.get('db').update_student([firstName, lastName, email, id])
+        .then(student => res.status(200).send(student))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    deleteStudent: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').delete_student([id])
+        .then(res.sendStatus(200))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    updateTutor: (req, res) => {
+        const {firstName, lastName, email, price, tutorDescription} = req.body;
+        const {id} = req.params;
+        req.app.get('db').update_tutor([firstName, lastName, email, price, tutorDescription, id])
+        .then(tutor => res.status(200).send(tutor))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }

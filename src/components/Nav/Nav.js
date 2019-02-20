@@ -1,14 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Nav = props => {
+class Nav extends Component {
+    render(){
+        const {student, tutor} = this.props;
         return (
             <div>
-                <Link to = '/home'>Home</Link>
-                <Link to = '/about'>About</Link>
-                <Link to = '/contact'>Contact</Link>
+                {student.id ? (
+                <div>
+                    <Link to = '/home'>Home</Link>
+                    <Link to = '/about'>About</Link>
+                    <Link to = '/contact'>Contact</Link>
+                    <Link to = {`/studentprofile/${student.id}`}>Profile</Link>
+                </div> ) : (
+                <div>
+                    <Link to = '/home'>Home</Link>
+                    <Link to = '/about'>About</Link>
+                    <Link to = '/contact'>Contact</Link>
+                    <Link to = {`/tutorprofile/${tutor.id}`}>Profile</Link>
+                </div>  
+                )
+            }
             </div>
         )
+    }
 }
 
-export default Nav;
+const mapStateToProps = reduxState => {
+    const {student, tutor} = reduxState;
+    return {
+        student,
+        tutor
+    }
+}
+
+export default connect(mapStateToProps)(Nav);
