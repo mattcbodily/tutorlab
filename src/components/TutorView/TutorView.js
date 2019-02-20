@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Nav from './../Nav/Nav';
-import TutorProfileDisplay from './../ProfileDisplay/TutorProfileDisplay';
+import TutorViewDisplay from './TutorViewDisplay';
 
 class TutorView extends Component {
     constructor(props){
@@ -17,7 +17,7 @@ class TutorView extends Component {
     }
 
     getTutorProfile(){
-        axios.get('/api/tutorprofile')
+        axios.get(`/api/tutorprofile/${this.props.match.params.tutorid}`)
         .then(res => {
             this.setState({
                 tutor: res.data
@@ -28,7 +28,7 @@ class TutorView extends Component {
     render(){
         const tutorProfile = this.state.tutor.map((tutorObj, i) => {
             return(
-                <TutorProfileDisplay key = {i} 
+                <TutorViewDisplay key = {i} 
                                      tutor = {tutorObj}/>
             )
         })
@@ -39,7 +39,6 @@ class TutorView extends Component {
                 <div>
                     <button>Request a Lesson</button>
                 </div>
-                Back to <Link to = '/tutors/:subjectid'>List</Link>
             </div>
         )
     }

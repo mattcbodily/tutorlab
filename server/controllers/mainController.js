@@ -18,7 +18,8 @@ module.exports = {
     },
 
     getTutorProfile: (req, res) => {
-        req.app.get('db').get_tutor_profile()
+        const {id} = req.params; 
+        req.app.get('db').get_tutor_profile([id])
         .then(tutor => res.status(200).send(tutor))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },

@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-const TutorDisplay = props => {
-    return (
-        <div>
-            <p>{props.tutors.first_name} {props.tutors.last_name}</p>
-            <p>{props.tutors.email} {props.tutors.price}</p>
-        </div>
-    )
-}
+class TutorDisplay extends Component {
+    render(){
+        return (
+            <div>
+                <Link to = {`/tutor/${this.props.tutors.tutor_id}`}>
+                <p>{this.props.tutors.first_name} {this.props.tutors.last_name}</p>
+                <p>{this.props.tutors.email} {this.props.tutors.price}</p>
+                </Link>
+            </div>
+        )
+    }
+}    
 
 export default TutorDisplay;
