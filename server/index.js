@@ -42,3 +42,4 @@ app.put('/api/updatestudent/:id', mc.updateStudent); //this is in the student pr
 app.put('/api/updatetutor/:id', mc.updateTutor); //this is in the tutor profile component
 
 app.delete('/api/deletestudent/:id', mc.deleteStudent); //this is in the student profile component
+app.delete('/api/deletetutor/:id', mc.deleteTutor); // this is in the tutor profile component

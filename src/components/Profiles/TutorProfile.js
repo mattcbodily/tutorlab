@@ -62,6 +62,16 @@ class TutorProfile extends Component {
         })
     }
 
+    deleteAccount(){
+        axios.delete(`/api/deletetutor/${this.props.tutor.id}`)
+        .then(
+            this.props.history.push('/registertutor')
+        )
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
     render(){
         const tutorProfile = this.state.tutor.map((tutorObj, i) => {
             return(
@@ -85,7 +95,7 @@ class TutorProfile extends Component {
                         <button>Your tutors</button>
                     </div>
                     <div>
-                        <button>Delete Account</button>
+                        <button onClick = {() => this.deleteAccount()}>Delete Account</button>
                     </div>
                     Back to <Link to = '/home'>home</Link>
                 </div>) : (

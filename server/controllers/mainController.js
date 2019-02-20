@@ -53,5 +53,12 @@ module.exports = {
         req.app.get('db').update_tutor([firstName, lastName, email, price, tutorDescription, id])
         .then(tutor => res.status(200).send(tutor))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    deleteTutor: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').delete_tutor([id])
+        .then(res.sendStatus(200))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }
