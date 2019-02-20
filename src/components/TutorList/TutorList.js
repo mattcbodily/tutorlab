@@ -8,18 +8,16 @@ class TutorList extends Component {
     constructor(props){
         super(props);
         this.state = {
-            subject: [],
             tutors: []
         }
     }
 
     componentDidMount(){
         this.getTutorList()
-        this.getOneSubject()
     }
 
     getTutorList(){
-        axios.get(`/api/tutorlist/`)
+        axios.get(`/api/tutorlist/${this.props.match.params.subject}`)
         .then(res => {
             this.setState({
                 tutors: res.data
@@ -27,17 +25,7 @@ class TutorList extends Component {
         })
     }
 
-    getOneSubject(){
-        axios.get(`/api/onesubject/${this.props.match.params.subject}`)
-        .then(res => {
-            this.setState ({
-                subject: res.data
-            })
-        })
-    }
-
     render(){
-        console.log(this.state.subject)
         const listedTutors = this.state.tutors.map((tutorObj, i) => {
             return(
                 <TutorDisplay key = {i} 

@@ -34,8 +34,7 @@ app.get('/api/tutor', ac.getTutor); //This is in the home component
 //data endpoints
 app.get('/api/subjects', mc.getSubjectsHome); //this is in the Home component
 app.get('/api/allsubjects', mc.getAllSubjects); //this is in the Subjects component
-app.get('/api/onesubject/:subject', mc.getOneSubject); //this is in the tutorlist component
 
 app.get('/api/studentprofile', mc.getStudentProfile); //this is in the StudentProfile component
 app.get('/api/tutorprofile', mc.getTutorProfile); //this is in the TutorProfile component
-app.get('/api/tutorlist/', mc.getTutorList) //this is in the TutorList component
+app.get('/api/tutorlist/:subject', mc.getTutorList) //this is in the TutorList component
