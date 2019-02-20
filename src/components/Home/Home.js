@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Nav from './../Nav/Nav';
 import axios from 'axios';
 import SubjectDisplay from './../SubjectDisplay/SubjectDisplay';
+import {updateStudent, updateTutor} from './../../ducks/reducer';
 
 class Home extends Component {
     constructor(props){
@@ -14,6 +15,18 @@ class Home extends Component {
     }
 
     componentDidMount(){
+        const {student, tutor} = this.props;
+        if(!student.id){
+            axios.get('/api/student')
+            .then(res => {
+               this.props.updateStudent(res.data) 
+            })
+        } else if(!tutor.id){
+            axios.get('/api/tutor')
+            .then(res => {
+                this.props.updateTutor(res.data)
+            })
+        }
         return this.getSubjects()
     }
 
@@ -23,6 +36,18 @@ class Home extends Component {
             this.setState({
                 subjects: res.data
             })
+        })
+    }
+
+    logout = () => {
+        axios.post('/auth/logout')
+        .then(res => {
+            this.props.updateStudent({});
+            this.props.updateTutor({});
+            this.props.history.push('/');
+        })
+        .catch(err => {
+            console.log(err)
         })
     }
 
@@ -52,6 +77,7 @@ class Home extends Component {
                     {subjectList}
                 </div>
                 View more subjects <Link to ='/subjects'>here.</Link>
+                <button onClick = {() => this.logout()}>Log out</button>
             </div>
         )
     }
@@ -64,5 +90,9 @@ const mapStateToProps = reduxState => {
         tutor
     }
 }
+const mapDispatchToProps = {
+    updateStudent,
+    updateTutor
+}
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

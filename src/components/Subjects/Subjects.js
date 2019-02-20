@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Nav from './../Nav/Nav';
 import SubjectDisplay from './../SubjectDisplay/SubjectDisplay';
 import { Link } from 'react-router-dom';
 

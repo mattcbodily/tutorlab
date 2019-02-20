@@ -16,10 +16,19 @@ class Login extends Component {
 
     componentDidMount(){
         const {student, tutor} = this.props;
-        if(student.id, tutor.id) {
+        if(student.id) {
+            this.props.history.push('/home')
+        } else if(tutor.id) {
             this.props.history.push('/home')
         } else {
-            
+            axios.get('/api/student')
+            .then(res => {
+                this.props.updateStudent(res.data);
+            })
+            axios.get('/api/tutor')
+            .then(res => {
+                this.props.updateTutor(res.data);
+            })
         }
     }
 

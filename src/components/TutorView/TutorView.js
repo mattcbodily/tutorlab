@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Nav from './../Nav/Nav';
 import TutorProfileDisplay from './../ProfileDisplay/TutorProfileDisplay';
 
 class TutorView extends Component {

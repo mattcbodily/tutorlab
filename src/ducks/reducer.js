@@ -38,15 +38,23 @@ export default function reducer(state = initialState, action){
         case UPDATE_STUDENT:
             // const {id, firstName, lastName, email} = payload;
             // const student = {id, firstName, lastName, email};
-            let studentObj = {
-                student: payload
+            let student = {
+                    id: payload.student_id,
+                    firstName: payload.first_name,
+                    lastName: payload.last_name,
+                    email: payload.email
             }
-            return {...state, studentObj};
-        case UPDATE_TUTOR:
-            let tutorObj = {
-                tutor: payload
+            return {...state, student};
+        case UPDATE_TUTOR: 
+            let tutor = {
+                id: payload.tutor_id,
+                firstName: payload.first_name,
+                lastName: payload.last_name,
+                email: payload.email,
+                price: payload.price,
+                tutorDescription: payload.tutor_description
             }
-            return {...state, tutorObj};
+            return {...state, tutor};
             
         default:
             return state;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Nav from './../Nav/Nav';
 import StudentProfileDisplay from './../ProfileDisplay/StudentProfileDisplay';
 
 class StudentProfile extends Component {
