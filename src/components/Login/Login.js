@@ -15,8 +15,8 @@ class Login extends Component {
     }
 
     componentDidMount(){
-        const {id} = this.props;
-        if(id) {
+        const {student, tutor} = this.props;
+        if(student.id, tutor.id) {
             this.props.history.push('/home')
         } else {
             
@@ -120,7 +120,8 @@ class Login extends Component {
 
 const mapStateToProps = reduxState => {
     return {
-        id: reduxState.id
+        student: reduxState.student,
+        tutor: reduxState.tutor
     }
 }
 

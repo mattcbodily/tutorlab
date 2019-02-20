@@ -33,6 +33,7 @@ class TutorView extends Component {
         })
         return(
             <div>
+                <Nav />
                 {tutorProfile}
                 <div>
                     <button>Request a Lesson</button>

@@ -33,6 +33,7 @@ class TutorProfile extends Component {
         })
         return(
             <div>
+                <Nav />
                 {tutorProfile}
                 <div>
                     <button>Update Info</button>

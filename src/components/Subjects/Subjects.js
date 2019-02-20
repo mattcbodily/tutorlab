@@ -33,6 +33,7 @@ class Subjects extends Component {
         })
         return(
             <div>
+                <Nav />
                 <p>Select a subject below</p>
                 {subjectList}
                 <div>

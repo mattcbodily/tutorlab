@@ -45,6 +45,7 @@ class TutorList extends Component {
         })
         return(
             <div>
+                <Nav />
                 <p>{this.props.match.params.subject}</p>
                 <p>Select a tutor</p>
                 {listedTutors}

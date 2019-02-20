@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Nav from './../Nav/Nav';
 import axios from 'axios';
 import SubjectDisplay from './../SubjectDisplay/SubjectDisplay';
 
@@ -26,6 +27,8 @@ class Home extends Component {
     }
 
     render(){
+        console.log(this.props.student)
+        console.log(this.props.tutor)
         const subjectList = this.state.subjects.map((subjectObj, i) => {
             return(
                 <SubjectDisplay key = {i}
@@ -36,6 +39,7 @@ class Home extends Component {
         })
         return(
             <div>
+            <Nav />
                 <div>
                     <p>Welcome! Start by searching for a subject to learn.</p>
                     <input />
@@ -54,9 +58,10 @@ class Home extends Component {
 }
 
 const mapStateToProps = reduxState => {
-    const {id} = reduxState;
+    const {student, tutor} = reduxState;
     return {
-        id
+        student,
+        tutor
     }
 }
 

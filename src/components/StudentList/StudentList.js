@@ -5,6 +5,7 @@ class StudentList extends Component {
     render(){
         return(
             <div>
+                <Nav />
                 <p>Your Students</p>
                 <div>
                     This is where the list of the tutors students go
