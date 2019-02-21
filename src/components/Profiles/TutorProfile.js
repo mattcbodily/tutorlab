@@ -89,11 +89,11 @@ class TutorProfile extends Component {
                         <button onClick = {() => this.handleEditToggle()}>Update Info</button>
                     </div>
                     <div>
-                        <button>Your students</button>
+                        <Link to = {`/studentlist/${this.props.tutor.id}`}><button>Your students</button></Link>
                     </div>
-                    <div>
+                    {/* <div>
                         <button>Your tutors</button>
-                    </div>
+                    </div> */}
                     <div>
                         <button onClick = {() => this.deleteAccount()}>Delete Account</button>
                     </div>

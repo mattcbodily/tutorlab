@@ -94,5 +94,12 @@ module.exports = {
         req.app.get('db').post_lesson_request([student, classid])
         .then(res.sendStatus(200))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getPendingStudents: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').pending_students([id])
+        .then(students => res.status(200).send(students))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }
