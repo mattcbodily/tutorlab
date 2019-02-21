@@ -50,8 +50,8 @@ app.post('/api/lessonrequest', mc.postLessonRequest); // this is in the lesson r
 
 app.put('/api/updatestudent/:id', mc.updateStudent); //this is in the student profile component
 app.put('/api/updatetutor/:id', mc.updateTutor); //this is in the tutor profile component
-app.put('/api/acceptrequest/:id', mc.acceptRequest); // this is in the pending students component
+app.put('/api/acceptrequest/:student/:classid', mc.acceptRequest); // this is in the pending students component
 
 app.delete('/api/deletestudent/:id', mc.deleteStudent); //this is in the student profile component
 app.delete('/api/deletetutor/:id', mc.deleteTutor); // this is in the tutor profile component
-app.delete('/api/dropstudent/:id', mc.dropStudent); // this is in the pending students and accepted students components
+app.delete('/api/dropstudent/:student/:classid', mc.dropStudent); // this is in the pending students, accepted students, my tutor display, and pending tutor components

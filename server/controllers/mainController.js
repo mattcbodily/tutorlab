@@ -111,15 +111,15 @@ module.exports = {
     },
 
     acceptRequest: (req, res) => {
-        const {id} = req.params;
-        req.app.get('db').accept_request([id])
+        const {student, classid} = req.params;
+        req.app.get('db').accept_request([student, classid])
         .then(student => res.status(200).send(student))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
 
     dropStudent: (req, res) => {
-        const {id} = req.params;
-        req.app.get('db').drop_student_from_list([id])
+        const {student, classid} = req.params;
+        req.app.get('db').drop_student_from_list([student, classid])
         .then(res.sendStatus(200))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },

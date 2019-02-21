@@ -3,14 +3,14 @@ import axios from 'axios';
 
 class PendingStudents extends Component {
     handleAcceptRequest(){
-        axios.put(`/api/acceptrequest/${this.props.student.student_id}`)
+        axios.put(`/api/acceptrequest/${this.props.student.student_id}/${this.props.student.class_id}`)
         .then(
             this.props.getList()
         )
     }
 
     handleDeleteRequest(){
-        axios.delete(`/api/dropstudent/${this.props.student.student_id}`)
+        axios.delete(`/api/dropstudent/${this.props.student.student_id}/${this.props.student.class_id}`)
         .then(
             this.props.getList()
         )
@@ -19,7 +19,7 @@ class PendingStudents extends Component {
     render(){
         return(
             <div>
-                <p>Pending Student Requests</p>
+                
                 <p>{this.props.student.first_name} {this.props.student.last_name} {this.props.student.email}</p>
                 <button onClick = {() => this.handleAcceptRequest()}>Accept</button>
                 <button onClick = {() => this.handleDeleteRequest()}>Decline</button>

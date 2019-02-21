@@ -57,7 +57,9 @@ class StudentList extends Component {
         return(
             <div>
                 <Nav />
+                <p>Pending Student Requests</p>
                 {pendingList}
+                <p>Your Students</p>
                 {acceptedList}
                 Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
             </div>
