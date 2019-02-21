@@ -41,6 +41,8 @@ app.get('/api/tutorlist/:subject', mc.getTutorList) //this is in the TutorList c
 app.get('/api/classid/:subject/:tutor', mc.getClassId) //this is in the tutorview component
 app.get('/api/pendingstudents/:id', mc.getPendingStudents) //this is in the student list component
 app.get('/api/acceptedstudents/:id', mc.getAcceptedStudents) // this is in the student list component
+app.get('/api/mytutors/:id', mc.getMyTutors); // this is in the my tutors component
+app.get('/api/pendingtutors/:id', mc.getPendingTutors); //this is in the my tutors component
 
 app.post('/api/addclass', mc.addClass); //this is in the register subject display component
 app.post('/api/addlocation', mc.addTutorLocation); //this is in the location display component

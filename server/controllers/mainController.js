@@ -122,5 +122,19 @@ module.exports = {
         req.app.get('db').drop_student_from_list([id])
         .then(res.sendStatus(200))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getMyTutors: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').my_tutors([id])
+        .then(tutors => res.status(200).send(tutors))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getPendingTutors: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').pending_tutors([id])
+        .then(tutors => res.status(200).send(tutors))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }
