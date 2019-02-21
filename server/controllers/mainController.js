@@ -60,5 +60,25 @@ module.exports = {
         req.app.get('db').delete_tutor([id])
         .then(res.sendStatus(200))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    addClass: (req, res) => {
+        const {tutor, subject} = req.body;
+        req.app.get('db').add_class([tutor, subject])
+        .then(res.sendStatus(200))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getLocations: (req, res) => {
+        req.app.get('db').get_locations()
+        .then(locations => res.status(200).send(locations))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    addTutorLocation: (req, res) => {
+        const {tutor, location} = req.body;
+        req.app.get('db').add_tutor_location([tutor, location])
+        .then(res.sendStatus(200))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }

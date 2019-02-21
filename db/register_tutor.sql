@@ -12,4 +12,5 @@ insert into tutors (
     $4,
     $5,
     $6
-);
+) 
+returning tutor_id, first_name, last_name, email, price, tutor_description;

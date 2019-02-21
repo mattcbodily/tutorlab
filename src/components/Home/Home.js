@@ -52,8 +52,6 @@ class Home extends Component {
     }
 
     render(){
-        console.log(this.props.student)
-        console.log(this.props.tutor)
         const subjectList = this.state.subjects.map((subjectObj, i) => {
             return(
                 <SubjectDisplay key = {i}

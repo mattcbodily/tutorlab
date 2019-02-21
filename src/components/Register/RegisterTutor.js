@@ -66,7 +66,7 @@ class RegisterTutor extends Component {
                     value = {tutorDescription}
                     onChange = {e => this.handleChange('tutorDescription', e.target.value)}/>
                 <div>
-                    <Link to = '/registertutorsubject'><button onClick = {() => this.register()}>Create Account</button></Link>
+                    <button onClick = {() => this.register()}>Create Account</button>
                 </div>
                 <p>Have an account? <Link to = '/'>Log in here.</Link></p>
                 <p>Signing up as a student? <Link to = '/registerstudent'>Sign up here.</Link></p>
@@ -76,8 +76,9 @@ class RegisterTutor extends Component {
 }
 
 const mapStateToProps = reduxState => {
+    const {tutor} = reduxState;
     return {
-        id: reduxState.tutor.id
+        tutor
     }
 }
 
