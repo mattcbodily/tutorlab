@@ -8,4 +8,5 @@ insert into students (
     $2,
     $3,
     $4
-);
+)
+returning student_id, first_name, last_name, email;

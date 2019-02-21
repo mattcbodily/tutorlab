@@ -66,8 +66,9 @@ class RegisterStudent extends Component {
 }
 
 const mapStateToProps = reduxState =>{
+    const {student} = reduxState;
     return {
-        id: reduxState.student.id
+        student
     }
 }
 

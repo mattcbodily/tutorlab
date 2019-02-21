@@ -80,5 +80,19 @@ module.exports = {
         req.app.get('db').add_tutor_location([tutor, location])
         .then(res.sendStatus(200))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getClassId: (req, res) => {
+        const {subject, tutor} = req.params;
+        req.app.get('db').get_class_id([subject, tutor])
+        .then(classId => res.status(200).send(classId))
+        .catch(err => res.status(500).send({errorMessage: 'Error'}, console.log(err)))
+    },
+
+    postLessonRequest: (req, res) => {
+        const {student, classid} = req.body;
+        req.app.get('db').post_lesson_request([student, classid])
+        .then(res.sendStatus(200))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }

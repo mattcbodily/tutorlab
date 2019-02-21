@@ -29,7 +29,8 @@ class TutorList extends Component {
         const listedTutors = this.state.tutors.map((tutorObj, i) => {
             return(
                 <TutorDisplay key = {i} 
-                              tutors = {tutorObj}/>
+                              tutors = {tutorObj}
+                              subject = {this.props.match.params.subject}/>
             )
         })
         return(

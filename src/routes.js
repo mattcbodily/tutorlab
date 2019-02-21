@@ -28,7 +28,7 @@ export default (
         <Route path = '/contact' component = {Contact}/>
         <Route path = '/subjects' component = {Subjects}/>
         <Route path = '/tutors/:subject' component = {TutorList}/>
-        <Route path = '/tutor/:tutorid' component = {TutorView}/>
+        <Route path = '/tutor/:subject/:tutorid' component = {TutorView}/>
         <Route path = '/studentprofile/:studentid' component = {StudentProfile}/>
         <Route path = '/tutorprofile/:tutorid' component = {TutorProfile}/>
         <Route path = '/studentlist/:tutorid' component = {StudentList}/>
