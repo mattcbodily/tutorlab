@@ -101,5 +101,19 @@ module.exports = {
         req.app.get('db').pending_students([id])
         .then(students => res.status(200).send(students))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getAcceptedStudents: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').accepted_students([id])
+        .then(students => res.status(200).send(students))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    acceptRequest: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').accept_request([id])
+        .then(student => res.status(200).send(student))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }
