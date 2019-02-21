@@ -52,3 +52,4 @@ app.put('/api/acceptrequest/:id', mc.acceptRequest); // this is in the pending s
 
 app.delete('/api/deletestudent/:id', mc.deleteStudent); //this is in the student profile component
 app.delete('/api/deletetutor/:id', mc.deleteTutor); // this is in the tutor profile component
+app.delete('/api/dropstudent/:id', mc.dropStudent); // this is in the pending students and accepted students components

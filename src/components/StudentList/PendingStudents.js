@@ -9,13 +9,20 @@ class PendingStudents extends Component {
         )
     }
 
+    handleDeleteRequest(){
+        axios.delete(`/api/dropstudent/${this.props.student.student_id}`)
+        .then(
+            this.props.getList()
+        )
+    }
+
     render(){
         return(
             <div>
                 <p>Pending Student Requests</p>
                 <p>{this.props.student.first_name} {this.props.student.last_name} {this.props.student.email}</p>
                 <button onClick = {() => this.handleAcceptRequest()}>Accept</button>
-                <button>Decline</button>
+                <button onClick = {() => this.handleDeleteRequest()}>Decline</button>
             </div>
         )
     }
