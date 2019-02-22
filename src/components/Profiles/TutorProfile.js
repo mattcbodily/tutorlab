@@ -91,9 +91,9 @@ class TutorProfile extends Component {
                     <div>
                         <Link to = {`/studentlist/${this.props.tutor.id}`}><button>Your students</button></Link>
                     </div>
-                    {/* <div>
-                        <button>Your tutors</button>
-                    </div> */}
+                    <div>
+                        <Link to = {`/mytutors/${this.props.tutor.id}`}><button>Your tutors</button></Link>
+                    </div>
                     <div>
                         <button onClick = {() => this.deleteAccount()}>Delete Account</button>
                     </div>

@@ -9,19 +9,19 @@ class PendingTutorStudents extends Component {
         )
     }
 
-    // handleDeleteRequest(){
-    //     axios.delete(`/api/dropstudent/${this.props.student.student_id}/${this.props.student.class_id}`)
-    //     .then(
-    //         this.props.getList()
-    //     )
-    // }
+    handleDeleteRequest(){
+        axios.delete(`/api/droptutorstudent/${this.props.tutor.student_id}/${this.props.tutor.class_id}`)
+        .then(
+            this.props.getList()
+        )
+    }
 
     render(){
         return(
             <div>
                 <p>{this.props.tutor.first_name} {this.props.tutor.last_name} {this.props.tutor.email}</p>
                 <button onClick = {() => this.handleAcceptRequest()}>Accept</button>
-                <button>Decline</button>
+                <button onClick = {() => this.handleDeleteRequest()}>Decline</button>
             </div>
         )
     }

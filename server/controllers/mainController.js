@@ -152,6 +152,13 @@ module.exports = {
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
 
+    dropTutorStudent: (req, res) => {
+        const {tutor, classid} = req.params;
+        req.app.get('db').drop_tutor_student([tutor, classid])
+        .then(res.sendStatus(200))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
     getMyTutors: (req, res) => {
         const {id} = req.params;
         req.app.get('db').my_tutors([id])
@@ -159,9 +166,23 @@ module.exports = {
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
 
+    getMyTutorTutors: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').my_tutor_tutors([id])
+        .then(tutors => res.status(200).send(tutors))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
     getPendingTutors: (req, res) => {
         const {id} = req.params;
         req.app.get('db').pending_tutors([id])
+        .then(tutors => res.status(200).send(tutors))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getPendingTutortutors: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').pending_tutor_tutors([id])
         .then(tutors => res.status(200).send(tutors))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }

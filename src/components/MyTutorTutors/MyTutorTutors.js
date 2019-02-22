@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Nav from './../Nav/Nav';
-import MyTutorsDisplay from './MyTutorsDisplay';
-import PendingTutors from './PendingTutors';
+import MyTutorTutorDisplay from './MyTutorTutorDisplay';
+import PendingTutorTutors from './PendingTutorTutors';
 
-class MyTutors extends Component {
+class MyTutorTutors extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -22,7 +22,7 @@ class MyTutors extends Component {
     }
 
     handleGetMyTutors(){
-        axios.get(`/api/mytutors/${this.props.student.id}`)
+        axios.get(`/api/mytutortutors/${this.props.tutor.id}`)
         .then(res => {
             this.setState({
                 tutors: res.data
@@ -31,7 +31,7 @@ class MyTutors extends Component {
     }
 
     handlePendingTutors(){
-        axios.get(`/api/pendingtutors/${this.props.student.id}`)
+        axios.get(`/api/pendingtutortutors/${this.props.tutor.id}`)
         .then(res => {
             this.setState({
                 pendingTutors: res.data
@@ -42,15 +42,15 @@ class MyTutors extends Component {
     render(){
         const pendingList = this.state.pendingTutors.map((pendingObj, i) => {
             return (
-                <PendingTutors key = {i}
-                               tutor = {pendingObj}
+                <PendingTutorTutors key = {i}
+                               tutors = {pendingObj}
                                getList = {this.componentDidMount}/>
             )
         })
         const tutorList = this.state.tutors.map((tutorObj, i) => {
             return (
-                <MyTutorsDisplay key = {i}
-                                 tutor = {tutorObj}
+                <MyTutorTutorDisplay key = {i}
+                                 tutors = {tutorObj}
                                  getList = {this.componentDidMount}/>
             )
         })
@@ -61,17 +61,17 @@ class MyTutors extends Component {
                 {pendingList}
                 <p>Your Tutors</p>
                 {tutorList}
-                Back to <Link to = '/studentprofile/:studentid'>profile</Link>
+                Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
             </div>
         )
     }
 }
 
 const mapStateToProps = reduxState => {
-    const {student} = reduxState;
+    const {tutor} = reduxState;
     return {
-        student
+        tutor
     }
 }
 
-export default connect(mapStateToProps)(MyTutors);
+export default connect(mapStateToProps)(MyTutorTutors);

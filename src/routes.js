@@ -13,6 +13,7 @@ import StudentProfile from './components/Profiles/StudentProfile';
 import TutorProfile from './components/Profiles/TutorProfile';
 import StudentList from './components/StudentList/StudentList';
 import MyTutors from './components/MyTutors/MyTutors';
+import MyTutorTutors from './components/MyTutorTutors/MyTutorTutors';
 import RegisterTutorStepTwo from './components/Register/RegisterTutorStepTwo';
 import RegisterTutorStepThree from './components/Register/RegisterTutorStepThree';
 
@@ -33,6 +34,6 @@ export default (
         <Route path = '/tutorprofile/:tutorid' component = {TutorProfile}/>
         <Route path = '/studentlist/:tutorid' component = {StudentList}/>
         <Route path = '/tutorlist/:studentid' component = {MyTutors}/>
-        {/* <Route path = '/tutorlist/:tutorid' component = {TutorList}/> */}
+        <Route path = '/mytutors/:tutorid' component = {MyTutorTutors}/>
     </Switch>
 )
