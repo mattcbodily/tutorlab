@@ -124,10 +124,24 @@ module.exports = {
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
 
+    getAcceptedTutorStudents: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').accepted_tutor_students([id])
+        .then(tutors => res.status(200).send(tutors))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
     acceptRequest: (req, res) => {
         const {student, classid} = req.params;
         req.app.get('db').accept_request([student, classid])
         .then(student => res.status(200).send(student))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    acceptTutorStudentRequest: (req, res) => {
+        const {tutor, classid} = req.params;
+        req.app.get('db').accept_tutor_student_request([tutor, classid])
+        .then(tutor => res.status(200).send(tutor))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
 

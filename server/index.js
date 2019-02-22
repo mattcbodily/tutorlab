@@ -41,6 +41,7 @@ app.get('/api/tutorlist/:subject', mc.getTutorList) //this is in the TutorList c
 app.get('/api/classid/:subject/:tutor', mc.getClassId) //this is in the tutorview component
 app.get('/api/pendingstudents/:id', mc.getPendingStudents) //this is in the student list component
 app.get('/api/acceptedstudents/:id', mc.getAcceptedStudents) // this is in the student list component
+app.get('/api/acceptedtutorstudents/:id', mc.getAcceptedTutorStudents); // this is in the student list component
 app.get('/api/mytutors/:id', mc.getMyTutors); // this is in the my tutors component
 app.get('/api/pendingtutors/:id', mc.getPendingTutors); //this is in the my tutors component
 app.get('/api/pendingtutorstudents/:id', mc.getPendingTutorStudents); //this is in the student list component
@@ -53,6 +54,7 @@ app.post('/api/tutorlessonrequest', mc.postTutorLessonRequest); // this is in th
 app.put('/api/updatestudent/:id', mc.updateStudent); //this is in the student profile component
 app.put('/api/updatetutor/:id', mc.updateTutor); //this is in the tutor profile component
 app.put('/api/acceptrequest/:student/:classid', mc.acceptRequest); // this is in the pending students component
+app.put('/api/accepttutorstudentrequest/:tutor/:classid', mc.acceptTutorStudentRequest); //this is in the pending tutor students component
 
 app.delete('/api/deletestudent/:id', mc.deleteStudent); //this is in the student profile component
 app.delete('/api/deletetutor/:id', mc.deleteTutor); // this is in the tutor profile component

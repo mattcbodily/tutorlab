@@ -49,9 +49,9 @@ create table if not exists tutor_location_join (
     location int references lesson_location(lesson_location_id)
 );
 
--- create table if not exists tutor_class_join (
---     tutor_class_join_id serial primary key,
---     tutor_student int references tutors(tutor_id),
---     class int references class(class_id),
---     accepted boolean
--- );
+create table if not exists tutor_class_join (
+    tutor_class_join_id serial primary key,
+    tutor_student int references tutors(tutor_id),
+    class int references class(class_id),
+    accepted boolean
+);

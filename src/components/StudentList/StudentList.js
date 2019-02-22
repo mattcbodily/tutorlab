@@ -6,6 +6,7 @@ import Nav from './../Nav/Nav';
 import PendingStudents from './PendingStudents';
 import AcceptedStudents from './AcceptedStudents';
 import PendingTutorStudents from './PendingTutorStudents';
+import AcceptedTutorStudents from './AcceptedTutorStudents';
 
 class StudentList extends Component {
     constructor(props){
@@ -21,6 +22,7 @@ class StudentList extends Component {
 
     componentDidMount(){
         this.getAcceptedStudents();
+        this.getAcceptedTutorStudents();
         this.getPendingStudents();
         this.getPendingTutorStudents();
     }
@@ -30,6 +32,15 @@ class StudentList extends Component {
         .then(res => {
             this.setState ({
                 acceptedStudents: res.data
+            })
+        })
+    }
+
+    getAcceptedTutorStudents(){
+        axios.get(`/api/acceptedtutorstudents/${this.props.tutor.id}`)
+        .then(res => {
+            this.setState ({
+                acceptedTutorStudents: res.data
             })
         })
     }
@@ -60,6 +71,13 @@ class StudentList extends Component {
                                   getList = {this.componentDidMount}/>
             )
         })
+        const acceptedTutorStudentList = this.state.acceptedTutorStudents.map((acceptedTutorObj, i) => {
+            return(
+                <AcceptedTutorStudents key = {i}
+                                       tutor = {acceptedTutorObj}
+                                       getList = {this.componentDidMount}/>
+            )
+        })
         const pendingList = this.state.pendingStudents.map((pendingObj, i) => {
             return(
                 <PendingStudents key = {i}
@@ -82,6 +100,7 @@ class StudentList extends Component {
                 {pendingTutorStudentList}
                 <p>Your Students</p>
                 {acceptedList}
+                {acceptedTutorStudentList}
                 Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
             </div>
         )
