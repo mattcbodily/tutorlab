@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { updateStudent } from './../../ducks/reducer';
 import Nav from './../Nav/Nav';
 import StudentProfileDisplay from './../ProfileDisplay/StudentProfileDisplay';
 
@@ -68,6 +69,17 @@ class StudentProfile extends Component {
         })
     }
 
+    logout = () => {
+        axios.post('/auth/logout')
+        .then(res => {
+            this.props.updateStudent({});
+            this.props.history.push('/');
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
     render(){
         const studentProfile = this.state.student.map((studentObj, i) => {
             return(
@@ -89,6 +101,9 @@ class StudentProfile extends Component {
                     </div>
                     <div>
                         <button onClick = {() => this.deleteAccount()}>Delete Account</button>
+                    </div>
+                    <div>
+                        <button onClick = {() => this.logout()}>Log Out</button>
                     </div>
                     Back to <Link to = '/home'>home</Link>
                 </div>) : (
@@ -130,4 +145,8 @@ const mapStateToProps = reduxState => {
     }
 }
 
-export default connect(mapStateToProps)(StudentProfile);
+const mapDispatchToProps = {
+    updateStudent
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(StudentProfile);

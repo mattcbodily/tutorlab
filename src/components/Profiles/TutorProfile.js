@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { updateTutor } from './../../ducks/reducer';
 import Nav from './../Nav/Nav';
 import TutorProfileDisplay from './../ProfileDisplay/TutorProfileDisplay';
 
@@ -72,6 +73,17 @@ class TutorProfile extends Component {
         })
     }
 
+    logout = () => {
+        axios.post('/auth/logout')
+        .then(res => {
+            this.props.updateTutor({});
+            this.props.history.push('/');
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
     render(){
         const tutorProfile = this.state.tutor.map((tutorObj, i) => {
             return(
@@ -96,6 +108,9 @@ class TutorProfile extends Component {
                     </div>
                     <div>
                         <button onClick = {() => this.deleteAccount()}>Delete Account</button>
+                    </div>
+                    <div>
+                        <button onClick = {() => this.logout()}>Log Out</button>
                     </div>
                     Back to <Link to = '/home'>home</Link>
                 </div>) : (
@@ -146,4 +161,8 @@ const mapStateToProps = reduxState => {
     }
 }
 
-export default connect(mapStateToProps)(TutorProfile);
+const mapDispatchToProps = {
+    updateTutor
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TutorProfile);

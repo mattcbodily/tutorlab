@@ -1,1 +1,2 @@
-select * from subjects;
+select * from subjects
+order by subject_name;

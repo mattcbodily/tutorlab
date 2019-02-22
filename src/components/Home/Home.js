@@ -39,17 +39,17 @@ class Home extends Component {
         })
     }
 
-    logout = () => {
-        axios.post('/auth/logout')
-        .then(res => {
-            this.props.updateStudent({});
-            this.props.updateTutor({});
-            this.props.history.push('/');
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }
+    // logout = () => {
+    //     axios.post('/auth/logout')
+    //     .then(res => {
+    //         this.props.updateStudent({});
+    //         this.props.updateTutor({});
+    //         this.props.history.push('/');
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
+    // }
 
     render(){
         const subjectList = this.state.subjects.map((subjectObj, i) => {
@@ -75,7 +75,7 @@ class Home extends Component {
                     {subjectList}
                 </div>
                 View more subjects <Link to ='/subjects'>here.</Link>
-                <button onClick = {() => this.logout()}>Log out</button>
+                {/* <button onClick = {() => this.logout()}>Log out</button> */}
             </div>
         )
     }

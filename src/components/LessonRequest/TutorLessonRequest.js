@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class TutorLessonRequest extends Component {
@@ -14,7 +15,7 @@ class TutorLessonRequest extends Component {
     render(){
         return(
             <div>
-                <button onClick = {() => this.handleLessonRequest()}>Request a Lesson</button>
+                <Link to = '/home'><button onClick = {() => this.handleLessonRequest()}>Request a Lesson</button></Link>
             </div>
         )
     }
