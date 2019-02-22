@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import Nav from './../Nav/Nav';
 import TutorViewDisplay from './TutorViewDisplay';
 import LessonRequest from './../LessonRequest/LessonRequest';
+import TutorLessonRequest from './../LessonRequest/TutorLessonRequest';
 
 class TutorView extends Component {
     constructor(props){
@@ -50,14 +52,43 @@ class TutorView extends Component {
                                   tutor = {tutorObj}/>
             )
         })
+        const tutorLessonRequest = this.state.class.map((classObj, i) => {
+            return (
+                <TutorLessonRequest key = {i}
+                                    class = {classObj}/>
+            )
+        })
         return(
             <div>
-                <Nav />
-                {tutorProfile}
-                {lessonRequest}
+                {this.props.student.id ?
+                (<div>
+                    <Nav />
+                    <div>
+                        {tutorProfile}
+                        {lessonRequest}
+                    </div>
+                </div>
+                ) : (
+                <div>    
+                    <Nav />
+                    <div>
+                        {tutorProfile}
+                        {tutorLessonRequest}
+                    </div>
+                </div>
+                )
+            }
             </div>
         )
     }
 }
 
-export default TutorView;
+const mapStateToProps = reduxState => {
+    const {student, tutor} = reduxState;
+    return {
+        student,
+        tutor
+    }
+}
+
+export default connect(mapStateToProps)(TutorView);

@@ -96,10 +96,24 @@ module.exports = {
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
 
+    postTutorLessonRequest: (req, res) => {
+        const {tutor, classid} = req.body;
+        req.app.get('db').tutor_lesson_request([tutor, classid])
+        .then(res.sendStatus(200))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
     getPendingStudents: (req, res) => {
         const {id} = req.params;
         req.app.get('db').pending_students([id])
         .then(students => res.status(200).send(students))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getPendingTutorStudents: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').pending_tutor_students([id])
+        .then(tutorStudents => res.status(200).send(tutorStudents))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
 

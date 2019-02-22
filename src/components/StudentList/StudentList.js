@@ -5,13 +5,16 @@ import axios from 'axios';
 import Nav from './../Nav/Nav';
 import PendingStudents from './PendingStudents';
 import AcceptedStudents from './AcceptedStudents';
+import PendingTutorStudents from './PendingTutorStudents';
 
 class StudentList extends Component {
     constructor(props){
         super(props);
         this.state = {
             acceptedStudents: [],
-            pendingStudents: []
+            pendingStudents: [],
+            acceptedTutorStudents: [],
+            pendingTutorStudents: []
         }
         this.componentDidMount = this.componentDidMount.bind(this);
     }
@@ -19,6 +22,7 @@ class StudentList extends Component {
     componentDidMount(){
         this.getAcceptedStudents();
         this.getPendingStudents();
+        this.getPendingTutorStudents();
     }
 
     getAcceptedStudents(){
@@ -39,6 +43,15 @@ class StudentList extends Component {
         })
     }
 
+    getPendingTutorStudents(){
+        axios.get(`/api/pendingtutorstudents/${this.props.tutor.id}`)
+        .then(res => {
+            this.setState({
+                pendingTutorStudents: res.data
+            })
+        })
+    }
+
     render(){
         const acceptedList = this.state.acceptedStudents.map((acceptedObj, i) => {
             return(
@@ -54,11 +67,19 @@ class StudentList extends Component {
                                  getList = {this.componentDidMount}/>
             )
         })
+        const pendingTutorStudentList = this.state.pendingTutorStudents.map((pendingTutorObj, i) => {
+            return(
+                <PendingTutorStudents key = {i}
+                                      tutor = {pendingTutorObj}
+                                      getList = {this.componentDidMount}/>
+            )
+        })
         return(
             <div>
                 <Nav />
                 <p>Pending Student Requests</p>
                 {pendingList}
+                {pendingTutorStudentList}
                 <p>Your Students</p>
                 {acceptedList}
                 Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
