@@ -1,0 +1,20 @@
+#Authprompts {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+    font-weight: bold;
+    text-align: left;
+}
+
+#Authinputs {
+    height: 50px;
+    width: 90%;
+    border-radius: 5px;
+}
+
+#Authbuttons {
+    height: 55px;
+    width: 92%;
+    margin-top: 25px;
+    border-radius: 5px;
+}

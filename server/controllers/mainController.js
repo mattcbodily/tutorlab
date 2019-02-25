@@ -185,5 +185,19 @@ module.exports = {
         req.app.get('db').pending_tutor_tutors([id])
         .then(tutors => res.status(200).send(tutors))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getStudentRoomInfo: (req, res) => {
+        const {student, tutor} = req.params;
+        req.app.get('db').get_student_room_info([student, tutor])
+        .then(info => res.status(200).send(info))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getStudentRoomId: (req, res) => {
+        const {student, tutor, classid} = req.params;
+        req.app.get('db').sockets.get_student_room_id([student, tutor, classid])
+        .then(room => res.status(200).send(room))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }

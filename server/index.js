@@ -3,23 +3,28 @@ const express = require('express');
 const { json } = require('body-parser');
 const massive = require('massive');
 const sessions = require('express-session');
+const socket = require('socket.io');
 const ac = require('./controllers/authController');
 const mc = require('./controllers/mainController');
 
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
 
 const app = express();
-app.use(json());
 
+const io = socket(
+    app.listen(SERVER_PORT, () => console.log(`Coding is happening on port ${SERVER_PORT}`))
+)
+    
+app.use(json());
+    
 app.use(sessions({
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false
 }))
-
+    
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db);
-    app.listen(SERVER_PORT, () => console.log(`Coding is happening on port ${SERVER_PORT}`))
 })
 
 //authentication endpoints
@@ -47,6 +52,8 @@ app.get('/api/mytutortutors/:id', mc.getMyTutorTutors); //this is in the MyTutor
 app.get('/api/pendingtutors/:id', mc.getPendingTutors); //this is in the my tutors component
 app.get('/api/pendingtutortutors/:id', mc.getPendingTutortutors); // this is in the MyTutorTutors component
 app.get('/api/pendingtutorstudents/:id', mc.getPendingTutorStudents); //this is in the student list component
+app.get('/api/studentinfo/:student/:tutor', mc.getStudentRoomInfo); //this is in the student sockets component
+app.get('/api/studentroom/:student/:tutor/:classid', mc.getStudentRoomId); // this is in the student sockets display component
 
 app.post('/api/addclass', mc.addClass); //this is in the register subject display component
 app.post('/api/addlocation', mc.addTutorLocation); //this is in the location display component
@@ -62,3 +69,31 @@ app.delete('/api/deletestudent/:id', mc.deleteStudent); //this is in the student
 app.delete('/api/deletetutor/:id', mc.deleteTutor); // this is in the tutor profile component
 app.delete('/api/dropstudent/:student/:classid', mc.dropStudent); // this is in the pending students, accepted students, my tutor display, and pending tutor components
 app.delete('/api/droptutorstudent/:tutor/:classid', mc.dropTutorStudent); // this is in the pending tutor students, accepted tutor students components
+
+// SOCKETS
+io.on('connection', socket => {
+    console.log('User Connected');
+    
+    socket.on('join room', async data => {
+        const { room, student, tutor, classid } = data;
+        const db = app.get('db');
+        console.log('Room Joined', room);
+        let existingRoom = await db.sockets.check_room([student, tutor, classid]);
+        !existingRoom.length ? db.sockets.create_room([student, tutor, classid]) : null;
+        let messages = await db.sockets.fetch_message_history([room]);
+        socket.join(room);
+        io.to(room).emit('room joined', messages)
+    });
+    
+    socket.on('message sent', async data => {
+        const { room, message } = data;
+        const db = app.get('db');
+        await db.sockets.create_message([room, message]);
+        let messages = await db.sockets.fetch_message_history([room]);
+        io.to(data.room).emit('message dispatched', messages);
+    });
+    
+    socket.on('disconnect', () => {
+        console.log('User Disconnected')
+    });
+});

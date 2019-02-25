@@ -55,3 +55,16 @@ create table if not exists tutor_class_join (
     class int references class(class_id),
     accepted boolean
 );
+
+create table if not exists student_socket_room (
+    room_id serial primary key,
+    student int references students(student_id),
+    tutor  int references tutors(tutor_id),
+    class  int references class(class_id)
+);
+
+create table if not exists student_socket_message_join (
+    message_id serial primary key,
+    room int references student_socket_room(room_id),
+    message text
+);

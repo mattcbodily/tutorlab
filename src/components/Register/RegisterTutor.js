@@ -40,28 +40,28 @@ class RegisterTutor extends Component {
         return(
             <div>
                 <h1>Create Your Account</h1>
-                <p>First Name</p>
+                <p id = 'Authprompts'>First Name</p>
                 <input 
                     value = {firstName}
                     onChange = {e => this.handleChange('firstName', e.target.value)}/>
-                <p>Last Name</p>
+                <p id = 'Authprompts'>Last Name</p>
                 <input 
                     value = {lastName}
                     onChange = {e => this.handleChange('lastName', e.target.value)}/>
-                <p>Email</p>
+                <p id = 'Authprompts'>Email</p>
                 <input 
                     value = {email}
                     onChange = {e => this.handleChange('email', e.target.value)}/>
-                <p>Password</p>
+                <p id = 'Authprompts'>Password</p>
                 <input 
                     type = 'password'
                     value = {password}
                     onChange = {e => this.handleChange('password', e.target.value)}/>
-                <p>What is your rate?</p>
+                <p id = 'Authprompts'>What is your rate?</p>
                 <input 
                     value = {price}
                     onChange = {e => this.handleChange('price', e.target.value)}/>
-                <p>Tell us about yourself and your teaching experience</p>
+                <p id = 'Authprompts'>Tell us about yourself and your teaching experience</p>
                 <input 
                     value = {tutorDescription}
                     onChange = {e => this.handleChange('tutorDescription', e.target.value)}/>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateStudent, updateTutor } from './../../ducks/reducer';
+import './Login.css';
 
 class Login extends Component {
     constructor(props){
@@ -73,45 +74,51 @@ class Login extends Component {
                 {!isTutor
                 ? ( <div>
                         <h1>Welcome</h1>
-                        <p>Student Login</p>
-                        <p>Email Address</p>
-                        <input 
+                        <h3>Student Login</h3>
+                        <p id = 'Authprompts'>Email Address</p>
+                        <input
+                            id = 'Authinputs' 
                             value = {email}
                             onChange = {e => this.handleChange('email', e.target.value)}
                         />
-                        <p>Password</p>
+                        <p id = 'Authprompts'>Password</p>
                         <input
+                            id = 'Authinputs'
                             type = 'password' 
                             value = {password}
                             onChange = {e => this.handleChange('password', e.target.value)}
                         />
                         <div>
-                            <button onClick = {() => this.loginStudent()}>Log In</button>
+                            <button id = 'Authbuttons' onClick = {() => this.loginStudent()}>Log In</button>
+                        </div>
                             <input 
                                 type='checkbox' 
                                 value = {isTutor}
                                 onClick = {() => this.toggleTutor()}    
                             />
-                        </div>
                         <p>Don't have an account? <Link to = '/registerstudent'>Sign up here.</Link></p>
                         <p>Signing up as a tutor? <Link to = '/registertutor'>Sign up here.</Link></p>
                     </div>)
                 : ( <div>
                         <h1>Welcome</h1> 
-                        <p>Tutor Login</p>
-                        <p>Email Address</p>
-                        <input 
+                        <h3>Tutor Login</h3>
+                        <p id = 'Authprompts'>Email Address</p>
+                        <input
+                            id = 'Authinputs' 
                             value = {email}
                             onChange = {e => this.handleChange('email', e.target.value)}
                         />
-                        <p>Password</p>
+                        <p id = 'Authprompts'>Password</p>
                         <input
+                            id = 'Authinputs'
                             type = 'password' 
                             value = {password}
                             onChange = {e => this.handleChange('password', e.target.value)}
                         />
                         <div>
-                            <button onClick = {() => this.loginTutor()}>Log In</button>
+                            <button id = 'Authbuttons' onClick = {() => this.loginTutor()}>Log In</button>
+                        </div>
+                        <div>
                             <input 
                                 type='checkbox' 
                                 value = {isTutor}

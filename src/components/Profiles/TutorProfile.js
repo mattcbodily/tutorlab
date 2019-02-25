@@ -5,6 +5,7 @@ import axios from 'axios';
 import { updateTutor } from './../../ducks/reducer';
 import Nav from './../Nav/Nav';
 import TutorProfileDisplay from './../ProfileDisplay/TutorProfileDisplay';
+import './Profile.css';
 
 class TutorProfile extends Component {
     constructor(props){
@@ -98,19 +99,19 @@ class TutorProfile extends Component {
                     <Nav />
                     {tutorProfile}
                     <div>
-                        <button onClick = {() => this.handleEditToggle()}>Update Info</button>
+                        <button id = 'Profilebuttons' onClick = {() => this.handleEditToggle()}>Update Info</button>
                     </div>
                     <div>
-                        <Link to = {`/studentlist/${this.props.tutor.id}`}><button>Your students</button></Link>
+                        <Link to = {`/studentlist/${this.props.tutor.id}`}><button id = 'Profilebuttons'>Your students</button></Link>
                     </div>
-                    <div>
-                        <Link to = {`/mytutors/${this.props.tutor.id}`}><button>Your tutors</button></Link>
+                    <div>    
+                        <Link to = {`/mytutors/${this.props.tutor.id}`}><button id = 'Profilebuttons'>Your tutors</button></Link>
                     </div>
-                    <div>
-                        <button onClick = {() => this.deleteAccount()}>Delete Account</button>
+                    <div>    
+                        <button  id = 'Profilebuttons' onClick = {() => this.deleteAccount()}>Delete Account</button>
                     </div>
-                    <div>
-                        <button onClick = {() => this.logout()}>Log Out</button>
+                    <div>    
+                        <button  id = 'Profilebuttons' onClick = {() => this.logout()}>Log Out</button>
                     </div>
                     Back to <Link to = '/home'>home</Link>
                 </div>) : (
@@ -141,10 +142,10 @@ class TutorProfile extends Component {
                             onChange = {e => this.handleChange('tutorDescription', e.target.value)}/>
                     </div>
                     <div>
-                        <button onClick = {() => this.updateTutorInfo()}>Submit</button>
+                        <button  id = 'Profilebuttons' onClick = {() => this.updateTutorInfo()}>Submit</button>
                     </div>
                     <div>
-                        <button onClick = {() => this.handleEditToggle()}>Cancel</button>
+                        <button  id = 'Profilebuttons' onClick = {() => this.handleEditToggle()}>Cancel</button>
                     </div>
                 </div>
                 )

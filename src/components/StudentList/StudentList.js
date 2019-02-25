@@ -68,6 +68,7 @@ class StudentList extends Component {
             return(
                 <AcceptedStudents key = {i}
                                   student = {acceptedObj}
+                                  user = {this.props.tutor.id}
                                   getList = {this.componentDidMount}/>
             )
         })
@@ -75,6 +76,7 @@ class StudentList extends Component {
             return(
                 <AcceptedTutorStudents key = {i}
                                        tutor = {acceptedTutorObj}
+                                       user = {this.props.tutor.id}
                                        getList = {this.componentDidMount}/>
             )
         })
@@ -82,6 +84,7 @@ class StudentList extends Component {
             return(
                 <PendingStudents key = {i}
                                  student = {pendingObj}
+                                 user = {this.props.tutor.id}
                                  getList = {this.componentDidMount}/>
             )
         })
@@ -89,6 +92,7 @@ class StudentList extends Component {
             return(
                 <PendingTutorStudents key = {i}
                                       tutor = {pendingTutorObj}
+                                      user = {this.props.tutor.id}
                                       getList = {this.componentDidMount}/>
             )
         })
