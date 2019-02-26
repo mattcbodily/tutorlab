@@ -43,7 +43,6 @@ class TutorStudentSocketsDisplay extends Component {
         this.socket.emit('message sent', {
             message: this.state.input,
             room: this.state.room,
-            tutor: this.props.class.tutor,
             tutor_student: this.props.class.tutor_student
         })
         this.setState({

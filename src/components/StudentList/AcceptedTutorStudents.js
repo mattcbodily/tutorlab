@@ -14,7 +14,7 @@ class AcceptedTutorStudents extends Component {
         return(
             <div>
                 <p>{this.props.tutor.first_name} {this.props.tutor.last_name} {this.props.tutor.email}</p>
-                <Link to = {`/tutormessage/${this.props.tutor.tutor_id}`}><button>Message</button></Link>
+                <Link to = {`/tutorstudent/${this.props.tutor.tutor_id}`}><button>Message</button></Link>
                 <button onClick = {() => this.handleDropTutorStudent()}>Drop Student</button>
             </div>
         )

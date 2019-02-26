@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
 
-class TutorSocketsDisplay extends Component {
+class TutorTutorSocketDisplay extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -20,9 +20,9 @@ class TutorSocketsDisplay extends Component {
         this.socket = io();
         this.socket.emit('join room', {
             room: this.state.room,
-            student: this.props.class.student,
             tutor: this.props.class.tutor,
-            classid: this.props.class.class_id
+            classid: this.props.class.class_id,
+            tutor_student: this.props.class.tutor_student
         })
         this.socket.on('room joined', data => {
             this.joinSuccess(data)
@@ -43,7 +43,7 @@ class TutorSocketsDisplay extends Component {
         this.socket.emit('message sent', {
             message: this.state.input,
             room: this.state.room,
-            student: this.props.class.student
+            tutor: this.props.class.tutor
         })
         this.setState({
             input: ''
@@ -60,9 +60,9 @@ class TutorSocketsDisplay extends Component {
         if(this.state.room){
             this.socket.emit('join room', {
                 room: this.state.room,
-                student: this.props.class.student,
                 tutor: this.props.class.tutor,
-                classid: this.props.class.class_id
+                classid: this.props.class.class_id,
+                tutor_student: this.props.class.tutor_student
             })
         }
     }
@@ -102,4 +102,4 @@ class TutorSocketsDisplay extends Component {
     }
 }
 
-export default TutorSocketsDisplay;
+export default TutorTutorSocketDisplay;
