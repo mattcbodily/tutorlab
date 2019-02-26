@@ -91,9 +91,9 @@ io.on('connection', socket => {
     });
     
     socket.on('message sent', async data => {
-        const { room, message, tutor, student } = data;
+        const { room, message, tutor, student, tutor_student } = data;
         const db = app.get('db');
-        await db.sockets.create_message([room, message, tutor, student]);
+        await db.sockets.create_message([room, message, tutor, student, tutor_student]);
         let messages = await db.sockets.fetch_message_history([room]);
         io.to(data.room).emit('message dispatched', messages);
     });

@@ -30,7 +30,7 @@ class TutorStudentSocketsDisplay extends Component {
         this.socket.on('room created', data => {
             this.joinRoom(data)
         })
-        this.socket.on('student message dispatched', data => {
+        this.socket.on('message dispatched', data => {
             this.updateMessages(data)
         })
     }
@@ -40,11 +40,11 @@ class TutorStudentSocketsDisplay extends Component {
     }
 
     sendMessage(){
-        this.socket.emit('student', {
+        this.socket.emit('message sent', {
             message: this.state.input,
             room: this.state.room,
             tutor: this.props.class.tutor,
-            student: this.props.class.tutor_student
+            tutor_student: this.props.class.tutor_student
         })
         this.setState({
             input: ''
