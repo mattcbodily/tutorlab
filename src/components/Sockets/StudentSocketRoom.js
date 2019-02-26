@@ -9,14 +9,34 @@ class StudentSocketRoom extends Component {
             room: []
         }
         this.getStudentRoomId = this.getStudentRoomId.bind(this);
+        this.createRoom = this.createRoom.bind(this);
     }
 
     componentDidMount(){
-        this.getStudentRoomId()
+        this.getStudentRoomId();
     }
-
+    
     getStudentRoomId(){
         axios.get(`/api/studentroom/${this.props.class.student}/${this.props.class.tutor}/${this.props.class.class_id}`)
+        .then(res => {
+            const room = res.data;
+            if(!room.length){
+                this.createRoom();
+            } else {
+                this.setState({
+                    room: res.data
+                })
+            }
+        })
+    }
+
+    createRoom(){
+        const newRoom = {
+            student: this.props.class.student,
+            tutor: this.props.class.tutor,
+            classid: this.props.class.class_id
+        };
+        axios.post(`/api/createroom`, newRoom)
         .then(res => {
             this.setState({
                 room: res.data
@@ -25,6 +45,7 @@ class StudentSocketRoom extends Component {
     }
 
     render(){
+        console.log(this.state.room)
         const mappedRoom = this.state.room.map((roomObj, i) => {
             return (
                 <StudentSocketsDisplay key = {i}

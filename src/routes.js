@@ -18,6 +18,7 @@ import RegisterTutorStepTwo from './components/Register/RegisterTutorStepTwo';
 import RegisterTutorStepThree from './components/Register/RegisterTutorStepThree';
 import StudentSockets from './components/Sockets/StudentSockets';
 import TutorSockets from './components/Sockets/TutorSockets';
+import TutorStudentSockets from './components/Sockets/TutorStudentSockets';
 
 export default (
     <Switch>
@@ -39,5 +40,6 @@ export default (
         <Route path = '/mytutors/:tutorid' component = {MyTutorTutors}/>
         <Route path = '/studentmessage/:studentid' component = {StudentSockets}/>
         <Route path = '/tutormessage/:tutorid' component = {TutorSockets}/>
+        <Route path = '/mytutormessage/:tutorid' component = {TutorStudentSockets}/>
     </Switch>
 )

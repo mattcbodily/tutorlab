@@ -199,5 +199,19 @@ module.exports = {
         req.app.get('db').sockets.get_student_room_id([student, tutor, classid])
         .then(room => res.status(200).send(room))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getTutorStudentRoomInfo: (req, res) => {
+        const {student, tutor} = req.params;
+        req.app.get('db').get_tutor_student_room_info([student, tutor])
+        .then(info => res.status(200).send(info))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    createStudentRoom: (req, res) => {
+        const {student, tutor, classid} = req.body;
+        req.app.get('db').create_new_room([student, tutor, classid])
+        .then(room => res.status(200).send(room))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }

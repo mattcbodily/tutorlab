@@ -54,11 +54,13 @@ app.get('/api/pendingtutortutors/:id', mc.getPendingTutortutors); // this is in 
 app.get('/api/pendingtutorstudents/:id', mc.getPendingTutorStudents); //this is in the student list component
 app.get('/api/studentinfo/:student/:tutor', mc.getStudentRoomInfo); //this is in the student sockets component
 app.get('/api/studentroom/:student/:tutor/:classid', mc.getStudentRoomId); // this is in the student sockets display component
+app.get('/api/tutorinfo/:student/:tutor', mc.getTutorStudentRoomInfo); // this is in the tutor student sockets component
 
 app.post('/api/addclass', mc.addClass); //this is in the register subject display component
 app.post('/api/addlocation', mc.addTutorLocation); //this is in the location display component
 app.post('/api/lessonrequest', mc.postLessonRequest); // this is in the lesson request component
 app.post('/api/tutorlessonrequest', mc.postTutorLessonRequest); // this is in the tutor lesson request component
+app.post('/api/createroom', mc.createStudentRoom) //this is in the tutor socket room component
 
 app.put('/api/updatestudent/:id', mc.updateStudent); //this is in the student profile component
 app.put('/api/updatetutor/:id', mc.updateTutor); //this is in the tutor profile component

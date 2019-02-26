@@ -7,7 +7,7 @@ class TutorSocketsDisplay extends Component {
         this.state = {
             input: '',
             messages: [],
-            room: '',
+            room: this.props.room.room_id,
             joined: false
         }
         this.joinRoom = this.joinRoom.bind(this);
@@ -18,13 +18,19 @@ class TutorSocketsDisplay extends Component {
 
     componentDidMount(){
         this.socket = io();
+        this.socket.emit('join room', {
+            room: this.state.room,
+            student: this.props.class.student,
+            tutor: this.props.class.tutor,
+            classid: this.props.class.class_id
+        })
         this.socket.on('room joined', data => {
             this.joinSuccess(data)
         })
         this.socket.on('room created', data => {
             this.joinRoom(data)
         })
-        this.socket.on('message dispatched', data => {
+        this.socket.on('student message dispatched', data => {
             this.updateMessages(data)
         })
     }
@@ -34,9 +40,11 @@ class TutorSocketsDisplay extends Component {
     }
 
     sendMessage(){
-        this.socket.emit('message sent', {
+        this.socket.emit('student', {
             message: this.state.input,
-            room: this.state.room
+            room: this.state.room,
+            tutor: this.props.class.tutor,
+            student: this.props.class.student
         })
         this.setState({
             input: ''
@@ -87,12 +95,7 @@ class TutorSocketsDisplay extends Component {
                         </div>
                         :
                         <div>
-                            {/* <input value = {this.state.room} onChange = {e => {
-                                this.setState({
-                                    room: e.target.value
-                                })
-                            }} />
-                            <button onClick = {this.joinRoom}>Join</button> */}
+                            Loading...
                         </div>
                 }
             </div>

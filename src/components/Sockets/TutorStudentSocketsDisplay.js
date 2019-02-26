@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import io from 'socket.io-client';
-// import axios from 'axios';
 
-class StudentSocketsDisplay extends Component {
+class TutorStudentSocketsDisplay extends Component {
     constructor(props) {
         super(props);
         this.state = {
             input: '',
             messages: [],
-            room: this.props.room.room_id,
+            room: '',
             joined: false
         }
         this.joinRoom = this.joinRoom.bind(this);
@@ -22,17 +20,17 @@ class StudentSocketsDisplay extends Component {
         this.socket = io();
         this.socket.emit('join room', {
             room: this.state.room,
-            student: this.props.class.student,
+            student: this.props.class.tutor_student,
             tutor: this.props.class.tutor,
             classid: this.props.class.class_id
-        })
-        this.socket.on('room created', data => {
-            this.joinRoom(data)
         })
         this.socket.on('room joined', data => {
             this.joinSuccess(data)
         })
-        this.socket.on('message dispatched', data => {
+        this.socket.on('room created', data => {
+            this.joinRoom(data)
+        })
+        this.socket.on('student message dispatched', data => {
             this.updateMessages(data)
         })
     }
@@ -42,11 +40,11 @@ class StudentSocketsDisplay extends Component {
     }
 
     sendMessage(){
-        this.socket.emit('message sent', {
+        this.socket.emit('student', {
             message: this.state.input,
             room: this.state.room,
             tutor: this.props.class.tutor,
-            student: this.props.class.student
+            student: this.props.class.tutor_student
         })
         this.setState({
             input: ''
@@ -63,7 +61,7 @@ class StudentSocketsDisplay extends Component {
         if(this.state.room){
             this.socket.emit('join room', {
                 room: this.state.room,
-                student: this.props.class.student,
+                student: this.props.class.tutor_student,
                 tutor: this.props.class.tutor,
                 classid: this.props.class.class_id
             })
@@ -78,7 +76,6 @@ class StudentSocketsDisplay extends Component {
     }
 
     render(){
-        console.log(this.props.room.room_id)
         return(
             <div>
                 {this.state.joined ? <h1>My Room: {this.state.room}</h1> : null}
@@ -106,11 +103,4 @@ class StudentSocketsDisplay extends Component {
     }
 }
 
-const mapStateToProps = reduxState => {
-    const {tutor} = reduxState;
-    return {
-        tutor
-    }
-}
-
-export default connect(mapStateToProps)(StudentSocketsDisplay);
+export default TutorStudentSocketsDisplay;
