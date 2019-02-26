@@ -78,7 +78,6 @@ class StudentSocketsDisplay extends Component {
     }
 
     render(){
-        console.log(this.props.room.room_id)
         return(
             <div>
                 {this.state.joined ? <h1>My Room: {this.state.room}</h1> : null}

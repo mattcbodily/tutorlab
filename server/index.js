@@ -54,6 +54,7 @@ app.get('/api/pendingtutortutors/:id', mc.getPendingTutortutors); // this is in 
 app.get('/api/pendingtutorstudents/:id', mc.getPendingTutorStudents); //this is in the student list component
 app.get('/api/studentinfo/:student/:tutor', mc.getStudentRoomInfo); //this is in the student sockets component
 app.get('/api/studentroom/:student/:tutor/:classid', mc.getStudentRoomId); // this is in the student sockets display component
+app.get('/api/tutorstudentroom/:tutor/:classid/:tutor_student', mc.getTutorStudentRoomId); //this is in the tutor student socket room component
 app.get('/api/tutorinfo/:student/:tutor', mc.getTutorStudentRoomInfo); // this is in the tutor student sockets component
 
 app.post('/api/addclass', mc.addClass); //this is in the register subject display component
@@ -61,6 +62,7 @@ app.post('/api/addlocation', mc.addTutorLocation); //this is in the location dis
 app.post('/api/lessonrequest', mc.postLessonRequest); // this is in the lesson request component
 app.post('/api/tutorlessonrequest', mc.postTutorLessonRequest); // this is in the tutor lesson request component
 app.post('/api/createroom', mc.createStudentRoom) //this is in the tutor socket room component
+app.post('/api/createtutorroom', mc.createTutorStudentRoom) //this is in the tutor student socket room component
 
 app.put('/api/updatestudent/:id', mc.updateStudent); //this is in the student profile component
 app.put('/api/updatetutor/:id', mc.updateTutor); //this is in the tutor profile component
@@ -77,12 +79,12 @@ io.on('connection', socket => {
     console.log('User Connected');
     
     socket.on('join room', async data => {
-        const { room, student, tutor, classid } = data;
+        const { room, student, tutor, classid, tutor_student } = data;
         const db = app.get('db');
         console.log('Room Joined', room);
-        let existingRoom = await db.sockets.check_room([student, tutor, classid]);
+        let existingRoom = await db.sockets.check_room([room]);
         const {room_id} = existingRoom[0];
-        !existingRoom.length ? db.sockets.create_room([student, tutor, classid]) : null;
+        !existingRoom.length ? db.sockets.create_room([student, tutor, classid, tutor_student]) : null;
         let messages = await db.sockets.fetch_message_history(room_id);
         socket.join(room_id);
         io.to(room_id).emit('room joined', messages, room_id)

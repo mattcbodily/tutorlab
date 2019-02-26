@@ -201,6 +201,13 @@ module.exports = {
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
 
+    getTutorStudentRoomId: (req, res) => {
+        const {tutor, classid, tutor_student} = req.params;
+        req.app.get('db').sockets.get_tutor_student_room([tutor, classid, tutor_student])
+        .then(room => res.status(200).send(room))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
     getTutorStudentRoomInfo: (req, res) => {
         const {student, tutor} = req.params;
         req.app.get('db').get_tutor_student_room_info([student, tutor])
@@ -211,6 +218,13 @@ module.exports = {
     createStudentRoom: (req, res) => {
         const {student, tutor, classid} = req.body;
         req.app.get('db').create_new_room([student, tutor, classid])
+        .then(room => res.status(200).send(room))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    createTutorStudentRoom: (req, res) => {
+        const {tutor, classid, tutor_student} = req.body;
+        req.app.get('db').create_new_tutor_student_room([tutor, classid, tutor_student])
         .then(room => res.status(200).send(room))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }

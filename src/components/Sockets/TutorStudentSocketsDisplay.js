@@ -7,7 +7,7 @@ class TutorStudentSocketsDisplay extends Component {
         this.state = {
             input: '',
             messages: [],
-            room: '',
+            room: this.props.room.room_id,
             joined: false
         }
         this.joinRoom = this.joinRoom.bind(this);
@@ -20,9 +20,9 @@ class TutorStudentSocketsDisplay extends Component {
         this.socket = io();
         this.socket.emit('join room', {
             room: this.state.room,
-            student: this.props.class.tutor_student,
             tutor: this.props.class.tutor,
-            classid: this.props.class.class_id
+            classid: this.props.class.class_id,
+            tutor_student: this.props.class.tutor_student
         })
         this.socket.on('room joined', data => {
             this.joinSuccess(data)
@@ -61,9 +61,9 @@ class TutorStudentSocketsDisplay extends Component {
         if(this.state.room){
             this.socket.emit('join room', {
                 room: this.state.room,
-                student: this.props.class.tutor_student,
                 tutor: this.props.class.tutor,
-                classid: this.props.class.class_id
+                classid: this.props.class.class_id,
+                tutor_student: this.props.class.tutor_student
             })
         }
     }

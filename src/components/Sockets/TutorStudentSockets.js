@@ -35,7 +35,6 @@ class TutorStudentSockets extends Component {
         return (
             <div>
                 {tutorSockets}
-                I am the tutor student sockets component
             </div>
         )
     }
