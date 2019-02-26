@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import StudentSocketRoom from './StudentSocketRoom';
-// import StudentSocketsDisplay from './StudentSocketsDisplay';
 
 class StudentSockets extends Component {
     constructor(props){

@@ -45,7 +45,6 @@ class StudentSocketRoom extends Component {
     }
 
     render(){
-        console.log(this.state.room)
         const mappedRoom = this.state.room.map((roomObj, i) => {
             return (
                 <StudentSocketsDisplay key = {i}
