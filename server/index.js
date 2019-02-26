@@ -79,16 +79,17 @@ io.on('connection', socket => {
         const db = app.get('db');
         console.log('Room Joined', room);
         let existingRoom = await db.sockets.check_room([student, tutor, classid]);
+        const {room_id} = existingRoom[0];
         !existingRoom.length ? db.sockets.create_room([student, tutor, classid]) : null;
-        let messages = await db.sockets.fetch_message_history([room]);
-        socket.join(room);
-        io.to(room).emit('room joined', messages)
+        let messages = await db.sockets.fetch_message_history(room_id);
+        socket.join(room_id);
+        io.to(room_id).emit('room joined', messages, room_id)
     });
     
     socket.on('message sent', async data => {
-        const { room, message } = data;
+        const { room, message, tutor, student } = data;
         const db = app.get('db');
-        await db.sockets.create_message([room, message]);
+        await db.sockets.create_message([room, message, tutor, student]);
         let messages = await db.sockets.fetch_message_history([room]);
         io.to(data.room).emit('message dispatched', messages);
     });

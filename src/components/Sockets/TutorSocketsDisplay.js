@@ -10,12 +10,19 @@ class TutorSocketsDisplay extends Component {
             room: '',
             joined: false
         }
+        this.joinRoom = this.joinRoom.bind(this);
+        this.joinSuccess = this.joinSuccess.bind(this);
+        this.sendMessage = this.sendMessage.bind(this);
+        this.updateMessages = this.updateMessages.bind(this);
     }
 
     componentDidMount(){
         this.socket = io();
         this.socket.on('room joined', data => {
             this.joinSuccess(data)
+        })
+        this.socket.on('room created', data => {
+            this.joinRoom(data)
         })
         this.socket.on('message dispatched', data => {
             this.updateMessages(data)
@@ -45,7 +52,10 @@ class TutorSocketsDisplay extends Component {
     joinRoom(){
         if(this.state.room){
             this.socket.emit('join room', {
-                room: this.state.room
+                room: this.state.room,
+                student: this.props.class.student,
+                tutor: this.props.class.tutor,
+                classid: this.props.class.class_id
             })
         }
     }
@@ -77,12 +87,12 @@ class TutorSocketsDisplay extends Component {
                         </div>
                         :
                         <div>
-                            <input value = {this.state.room} onChange = {e => {
+                            {/* <input value = {this.state.room} onChange = {e => {
                                 this.setState({
                                     room: e.target.value
                                 })
                             }} />
-                            <button onClick = {this.joinRoom}>Join</button>
+                            <button onClick = {this.joinRoom}>Join</button> */}
                         </div>
                 }
             </div>

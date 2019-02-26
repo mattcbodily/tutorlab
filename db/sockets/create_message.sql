@@ -1,7 +1,11 @@
 insert into student_socket_message_join (
     room,
-    message
+    message,
+    tutor,
+    student
 ) values (
     $1,
-    $2
+    $2,
+    $3,
+    $4
 );

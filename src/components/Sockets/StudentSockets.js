@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import StudentSocketsDisplay from './StudentSocketsDisplay';
+import StudentSocketRoom from './StudentSocketRoom';
+// import StudentSocketsDisplay from './StudentSocketsDisplay';
 
 class StudentSockets extends Component {
     constructor(props){
@@ -28,7 +29,7 @@ class StudentSockets extends Component {
     render(){
         const studentSockets = this.state.class.map((classObj, i) => {
             return (
-                <StudentSocketsDisplay key = {i}
+                <StudentSocketRoom key = {i}
                                        class = {classObj}/>
             )
         })

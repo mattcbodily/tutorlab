@@ -38,6 +38,6 @@ export default (
         <Route path = '/tutorlist/:studentid' component = {MyTutors}/>
         <Route path = '/mytutors/:tutorid' component = {MyTutorTutors}/>
         <Route path = '/studentmessage/:studentid' component = {StudentSockets}/>
-        <Route path = '/tutormessage/:studentid' component = {TutorSockets}/>
+        <Route path = '/tutormessage/:tutorid' component = {TutorSockets}/>
     </Switch>
 )
