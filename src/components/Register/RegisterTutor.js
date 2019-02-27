@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { updateTutor } from './../../ducks/reducer';
+import './Register.css'
 
 class RegisterTutor extends Component {
     constructor(props){
@@ -38,35 +39,41 @@ class RegisterTutor extends Component {
     render(){
         const {firstName, lastName, email, password, price, tutorDescription} = this.state;
         return(
-            <div>
+            <div className = 'Registertutordiv'>
                 <h1>Create Your Account</h1>
-                <p id = 'Authprompts'>First Name</p>
+                <p className = 'Authprompts'>First Name</p>
                 <input 
+                    className = 'Authinputs'
                     value = {firstName}
                     onChange = {e => this.handleChange('firstName', e.target.value)}/>
-                <p id = 'Authprompts'>Last Name</p>
+                <p className = 'Authprompts'>Last Name</p>
                 <input 
+                    className = 'Authinputs'
                     value = {lastName}
                     onChange = {e => this.handleChange('lastName', e.target.value)}/>
-                <p id = 'Authprompts'>Email</p>
+                <p className = 'Authprompts'>Email</p>
                 <input 
+                    className = 'Authinputs'
                     value = {email}
                     onChange = {e => this.handleChange('email', e.target.value)}/>
-                <p id = 'Authprompts'>Password</p>
-                <input 
+                <p className = 'Authprompts'>Password</p>
+                <input
+                    className = 'Authinputs' 
                     type = 'password'
                     value = {password}
                     onChange = {e => this.handleChange('password', e.target.value)}/>
-                <p id = 'Authprompts'>What is your rate?</p>
-                <input 
+                <p className = 'Authprompts'>What is your rate?</p>
+                <input
+                    className = 'Authinputs' 
                     value = {price}
                     onChange = {e => this.handleChange('price', e.target.value)}/>
-                <p id = 'Authprompts'>Tell us about yourself and your teaching experience</p>
+                <p className = 'Authprompts'>Tell us about yourself and your teaching experience</p>
                 <input 
+                    className = 'Authinputs'
                     value = {tutorDescription}
                     onChange = {e => this.handleChange('tutorDescription', e.target.value)}/>
                 <div>
-                    <button onClick = {() => this.register()}>Create Account</button>
+                    <button className = 'Authbuttons' onClick = {() => this.register()}>Create Account</button>
                 </div>
                 <p>Have an account? <Link to = '/'>Log in here.</Link></p>
                 <p>Signing up as a student? <Link to = '/registerstudent'>Sign up here.</Link></p>

@@ -16,7 +16,7 @@ class AddNewSubjectDisplay extends Component {
         return (
             <div>
                 <p>{this.props.subjects.subject_name}</p>
-                <Link to = {`/tutorprofile/${this.props.tutor.id}`}><button onClick = {() => this.handleAddClass()}>Select</button></Link>
+                <Link to = {`/tutorprofile/${this.props.tutor.id}`}><button className = 'Subjectbuttons' onClick = {() => this.handleAddClass()}>Select</button></Link>
             </div>
         )
     }

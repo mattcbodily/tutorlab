@@ -227,5 +227,19 @@ module.exports = {
         req.app.get('db').create_new_tutor_student_room([tutor, classid, tutor_student])
         .then(room => res.status(200).send(room))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    uploadProfilePic: (req, res) => {
+        const {profile_pic, student} = req.body;
+        req.app.get('db').upload_profile_pic([profile_pic, student])
+        .then(res.sendStatus(200))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    uploadTutorProfilePic: (req, res) => {
+        const {profile_pic, tutor} = req.body;
+        req.app.get('db').upload_tutor_profile_pic([profile_pic, tutor])
+        .then(res.sendStatus(200))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }

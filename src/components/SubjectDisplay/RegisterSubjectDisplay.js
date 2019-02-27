@@ -16,7 +16,7 @@ class RegisterSubjectDisplay extends Component {
         return (
             <div>
                 <p>{this.props.subjects.subject_name}</p>
-                <Link to = '/registertutorlocation'><button onClick = {() => this.handleAddClass()}>Select</button></Link>
+                <Link to = '/registertutorlocation'><button className = 'Subjectbuttons' onClick = {() => this.handleAddClass()}>Select</button></Link>
             </div>
         )
     }

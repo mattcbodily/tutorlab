@@ -92,6 +92,7 @@ class StudentProfile extends Component {
                 {!this.state.editProfile ?
                 (<div>
                     <Nav />
+                    <Link to = '/uploadphoto'><button>Add a Photo</button></Link>
                     {studentProfile}
                     <div>
                         <button onClick = {() => this.handleEditToggle()}>Update Info</button>

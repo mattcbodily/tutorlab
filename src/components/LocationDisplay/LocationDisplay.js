@@ -16,7 +16,7 @@ class LocationDisplay extends Component {
         return(
             <div>
                 <p>{this.props.locations.lesson_location_name}</p>
-                <Link to = '/home'><button onClick = {() => this.handleAddLocation()}>Select</button></Link>
+                <Link to = '/home'><button className = 'Subjectbuttons' onClick = {() => this.handleAddLocation()}>Select</button></Link>
             </div>
         )
     }

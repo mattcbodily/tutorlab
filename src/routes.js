@@ -22,6 +22,8 @@ import TutorSockets from './components/Sockets/TutorSockets';
 import TutorStudentSockets from './components/Sockets/TutorStudentSockets';
 import TutorTutorSockets from './components/Sockets/TutorTutorSockets';
 import AddNewLocation from './components/Register/AddNewLocation';
+import UploadProfilePic from './components/ProfilePic/UploadProfilePic';
+import UploadTutorProfilePic from './components/ProfilePic/UploadTutorProfilePic';
 
 export default (
     <Switch>
@@ -39,6 +41,8 @@ export default (
         <Route path = '/tutors/:subject' component = {TutorList}/>
         <Route path = '/tutor/:subject/:tutorid' component = {TutorView}/>
         <Route path = '/studentprofile/:studentid' component = {StudentProfile}/>
+        <Route path = '/uploadphoto' component = {UploadProfilePic}/>
+        <Route path = '/uploadtutorphoto' component = {UploadTutorProfilePic}/>
         <Route path = '/tutorprofile/:tutorid' component = {TutorProfile}/>
         <Route path = '/studentlist/:tutorid' component = {StudentList}/>
         <Route path = '/tutorlist/:studentid' component = {MyTutors}/>

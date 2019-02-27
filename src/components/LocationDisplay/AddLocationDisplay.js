@@ -16,7 +16,7 @@ class AddLocationDisplay extends Component {
         return(
             <div>
                 <p>{this.props.locations.lesson_location_name}</p>
-                <Link to = {`/tutorprofile/${this.props.tutor.id}`}><button onClick = {() => this.handleAddLocation()}>Select</button></Link>
+                <Link to = {`/tutorprofile/${this.props.tutor.id}`}><button className = 'Subjectbuttons' onClick = {() => this.handleAddLocation()}>Select</button></Link>
             </div>
         )
     }

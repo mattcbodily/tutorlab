@@ -3,11 +3,12 @@ const express = require('express');
 const { json } = require('body-parser');
 const massive = require('massive');
 const sessions = require('express-session');
+const aws = require('aws-sdk');
 const socket = require('socket.io');
 const ac = require('./controllers/authController');
 const mc = require('./controllers/mainController');
 
-const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
+const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env;
 
 const app = express();
 
@@ -25,6 +26,38 @@ app.use(sessions({
     
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db);
+})
+
+app.get('/api/signs3', (req, res) => {
+    aws.config = {
+        region: 'us-west-1',
+        accessKeyId: AWS_ACCESS_KEY_ID,
+        secretAccessKey: AWS_SECRET_ACCESS_KEY
+    };
+
+    const s3 = new aws.S3();
+    const fileName = req.query['file-name'];
+    const fileType = req.query['file-type'];
+    const s3Params = {
+        Bucket: S3_BUCKET,
+        Key: fileName,
+        // Expires: 60,
+        ContentType: fileType,
+        ACL: 'public-read'
+    };
+
+    s3.getSignedUrl('putObject', s3Params, (err, data) => {
+        if (err) {
+            console.log(err);
+            return res.end();
+        }
+        const returnData = {
+            signedRequest: data,
+            url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`,
+        };
+
+        return res.send(returnData);
+    })
 })
 
 //authentication endpoints
@@ -68,6 +101,8 @@ app.put('/api/updatestudent/:id', mc.updateStudent); //this is in the student pr
 app.put('/api/updatetutor/:id', mc.updateTutor); //this is in the tutor profile component
 app.put('/api/acceptrequest/:student/:classid', mc.acceptRequest); // this is in the pending students component
 app.put('/api/accepttutorstudentrequest/:tutor/:classid', mc.acceptTutorStudentRequest); //this is in the pending tutor students component
+app.put('/api/profilepic', mc.uploadProfilePic); //this is in the upload profile pic component
+app.put('/api/tutorprofilepic', mc.uploadTutorProfilePic); // this is in the upload tutor profule pic component
 
 app.delete('/api/deletestudent/:id', mc.deleteStudent); //this is in the student profile component
 app.delete('/api/deletetutor/:id', mc.deleteTutor); // this is in the tutor profile component
