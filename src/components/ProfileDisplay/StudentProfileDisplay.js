@@ -7,7 +7,10 @@ const StudentProfileDisplay = props => {
         {props.student.profile_pic ?
             (<div>
                 <div>
-                    <img src = {props.student.profile_pic} alt = 'Profile Pic'/>
+                    <img
+                        className = 'Profilepicture' 
+                        src = {props.student.profile_pic} 
+                        alt = 'Profile Pic'/>
                 </div>
                 <div>
                     <p>{props.student.first_name} {props.student.last_name}</p>

@@ -94,41 +94,47 @@ class StudentProfile extends Component {
                     <Nav />
                     {studentProfile}
                     <div>
-                        <button onClick = {() => this.handleEditToggle()}>Update Info</button>
+                        <button className = 'Profilebuttons' onClick = {() => this.handleEditToggle()}>Update Info</button>
                     </div>
                     <div>
-                        <Link to = {`/tutorlist/${this.props.student.id}`}><button>Your Tutors</button></Link>
+                        <Link to = {`/tutorlist/${this.props.student.id}`}><button className = 'Profilebuttons'>Your Tutors</button></Link>
                     </div>
                     <div>
-                        <button onClick = {() => this.deleteAccount()}>Delete Account</button>
+                        <button className = 'Profilebuttons' onClick = {() => this.deleteAccount()}>Delete Account</button>
                     </div>
                     <div>
-                        <button onClick = {() => this.logout()}>Log Out</button>
+                        <button className = 'Profilebuttons' onClick = {() => this.logout()}>Log Out</button>
                     </div>
                     Back to <Link to = '/home'>home</Link>
                 </div>) : (
                 <div>
                     <Nav />
                     <div>
-                        <input 
+                        <input
+                            className = 'Profileinputs'
+                            placeholder = 'First Name' 
                             value = {this.state.firstName}
                             onChange = {e => this.handleChange('firstName', e.target.value)}/>
                     </div>
                     <div>
-                        <input 
+                        <input
+                            className = 'Profileinputs' 
+                            placeholder = 'Last Name'
                             value = {this.state.lastName}
                             onChange = {e => this.handleChange('lastName', e.target.value)}/>
                     </div>
                     <div>
-                        <input 
+                        <input
+                            className = 'Profileinputs'
+                            placeholder = 'Email'
                             value = {this.state.email}
                             onChange = {e => this.handleChange('email', e.target.value)}/>
                     </div>
                     <div>
-                        <button onClick = {() => this.updateStudentInfo()}>Submit</button>
+                        <button className = 'Profilebuttons' onClick = {() => this.updateStudentInfo()}>Submit</button>
                     </div>
                     <div>
-                        <button onClick = {() => this.handleEditToggle()}>Cancel</button>
+                        <button className = 'Profilebuttons' onClick = {() => this.handleEditToggle()}>Cancel</button>
                     </div>
                 </div>
                 )

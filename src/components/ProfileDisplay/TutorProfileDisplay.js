@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './ProfileDisplay.css'
 
 const TutorProfileDisplay = props => {
     return (
@@ -7,7 +8,10 @@ const TutorProfileDisplay = props => {
         {props.tutor.profile_pic ?
             (<div>
                 <div>
-                    <img src = {props.tutor.profile_pic} alt = 'Profile Pic'/>
+                    <img
+                        className = 'Profilepicture' 
+                        src = {props.tutor.profile_pic} 
+                        alt = 'Profile Pic'/>
                 </div>
                 <div>
                     <p>{props.tutor.first_name} {props.tutor.last_name}</p>
