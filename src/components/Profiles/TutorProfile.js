@@ -97,7 +97,6 @@ class TutorProfile extends Component {
                 {!this.state.editProfile ?
                 (<div>
                     <Nav />
-                    <Link to = '/uploadtutorphoto'><button>Add a Photo</button></Link>
                     {tutorProfile}
                     <div>
                         <button id = 'Profilebuttons' onClick = {() => this.handleEditToggle()}>Update Info</button>
