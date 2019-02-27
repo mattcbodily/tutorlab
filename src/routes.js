@@ -21,6 +21,7 @@ import StudentSockets from './components/Sockets/StudentSockets';
 import TutorSockets from './components/Sockets/TutorSockets';
 import TutorStudentSockets from './components/Sockets/TutorStudentSockets';
 import TutorTutorSockets from './components/Sockets/TutorTutorSockets';
+import AddNewLocation from './components/Register/AddNewLocation';
 
 export default (
     <Switch>
@@ -34,6 +35,7 @@ export default (
         <Route path = '/contact' component = {Contact}/>
         <Route path = '/subjects' component = {Subjects}/>
         <Route path = '/addsubject' component = {AddNewSubject}/>
+        <Route path = '/addlocation' component = {AddNewLocation}/>
         <Route path = '/tutors/:subject' component = {TutorList}/>
         <Route path = '/tutor/:subject/:tutorid' component = {TutorView}/>
         <Route path = '/studentprofile/:studentid' component = {StudentProfile}/>

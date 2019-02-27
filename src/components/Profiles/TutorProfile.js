@@ -145,6 +145,9 @@ class TutorProfile extends Component {
                         <Link to = '/addsubject'><button>Add a Subject</button></Link>
                     </div>
                     <div>
+                        <Link to = '/addlocation'><button>Add a Location</button></Link>
+                    </div>
+                    <div>
                         <button  id = 'Profilebuttons' onClick = {() => this.updateTutorInfo()}>Submit</button>
                     </div>
                     <div>
