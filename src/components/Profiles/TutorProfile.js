@@ -99,7 +99,7 @@ class TutorProfile extends Component {
                     <Nav />
                     {tutorProfile}
                     <div>
-                        <button className = 'Profilebuttons' onClick = {() => this.handleEditToggle()}>Update Info</button>
+                        <button className = 'Profilebuttons' onClick = {() => this.handleEditToggle()}>Edit Profile</button>
                     </div>
                     <div>
                         <Link to = {`/studentlist/${this.props.tutor.id}`}><button className = 'Profilebuttons'>Your students</button></Link>
@@ -116,40 +116,44 @@ class TutorProfile extends Component {
                     Back to <Link to = '/home'>home</Link>
                 </div>) : (
                 <div>
+                    <h1>Edit Your Profile</h1>
                     <div>
+                        <p className = 'Profileprompts'>First Name</p>
                         <input
-                            className = 'Profileinputs'
-                            placeholder = 'First Name' 
+                            className = 'Profileinputs' 
                             value = {this.state.firstName}
                             onChange = {e => this.handleChange('firstName', e.target.value)}/>
                     </div>
                     <div>
+                        <p className = 'Profileprompts'>Last Name</p>
                         <input
-                            className = 'Profileinputs'
-                            placeholder = 'Last Name' 
+                            className = 'Profileinputs' 
                             value = {this.state.lastName}
                             onChange = {e => this.handleChange('lastName', e.target.value)}/>
                     </div>
                     <div>
+                        <p className = 'Profileprompts'>Email</p>
                         <input
                             className = 'Profileinputs' 
-                            placeholder = 'Email'
                             value = {this.state.email}
                             onChange = {e => this.handleChange('email', e.target.value)}/>
                     </div>
                     <div>
+                        <p className = 'Profileprompts'>Edit Your Rate</p>
                         <input
-                            className = 'Profileinputs'
-                            placeholder = 'New Rate' 
+                            className = 'Profileinputs' 
                             value = {this.state.price}
                             onChange = {e => this.handleChange('price', e.target.value)}/>
                     </div>
                     <div>
+                        <p className = 'Profileprompts'>Edit Your Description</p>
                         <textarea
                             className = 'Tutordescriptionbox'
-                            placeholder = 'Update your Description' 
                             value = {this.state.tutorDescription}
                             onChange = {e => this.handleChange('tutorDescription', e.target.value)}/>
+                    </div>
+                    <div>
+                    <Link to = '/uploadtutorphoto'><button className = 'Profilebuttons'>Change Profile Photo</button></Link>
                     </div>
                     <div>
                         <Link to = '/addsubject'><button className = 'Profilebuttons'>Add a Subject</button></Link>
