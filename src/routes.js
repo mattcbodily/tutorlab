@@ -7,6 +7,7 @@ import Home from './components/Home/Home';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import Subjects from './components/Subjects/Subjects';
+import AddNewSubject from './components/Register/AddNewSubject';
 import TutorList from './components/TutorList/TutorList';
 import TutorView from './components/TutorView/TutorView';
 import StudentProfile from './components/Profiles/StudentProfile';
@@ -32,6 +33,7 @@ export default (
         <Route path = '/about' component = {About}/>
         <Route path = '/contact' component = {Contact}/>
         <Route path = '/subjects' component = {Subjects}/>
+        <Route path = '/addsubject' component = {AddNewSubject}/>
         <Route path = '/tutors/:subject' component = {TutorList}/>
         <Route path = '/tutor/:subject/:tutorid' component = {TutorView}/>
         <Route path = '/studentprofile/:studentid' component = {StudentProfile}/>

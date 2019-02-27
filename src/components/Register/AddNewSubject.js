@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import RegisterSubjectDisplay from './../SubjectDisplay/RegisterSubjectDisplay';
+import AddNewSubjectDisplay from './../SubjectDisplay/AddNewSubjectDisplay';
 import { updateTutor } from './../../ducks/reducer';
 
-class RegisterTutorStepTwo extends Component {
+class AddNewSubject extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -36,15 +35,13 @@ class RegisterTutorStepTwo extends Component {
     render(){
         const subjectList = this.state.subjects.map((subjectObj, i) => {
             return(
-                <RegisterSubjectDisplay key = {i}
+                <AddNewSubjectDisplay key = {i}
                                 subjects = {subjectObj}/>
             )
         })
         return(
             <div>
-                <h1>Create Your Account</h1>
-                <h1>Step Two</h1>
-                <p>What do you teach?</p>
+                <p>Select a subject</p>
                 {subjectList}
             </div>
         )
@@ -62,4 +59,4 @@ const mapDispatchToProps = {
     updateTutor
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RegisterTutorStepTwo);
+export default connect(mapStateToProps, mapDispatchToProps)(AddNewSubject);

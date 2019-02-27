@@ -142,6 +142,9 @@ class TutorProfile extends Component {
                             onChange = {e => this.handleChange('tutorDescription', e.target.value)}/>
                     </div>
                     <div>
+                        <Link to = '/addsubject'><button>Add a Subject</button></Link>
+                    </div>
+                    <div>
                         <button  id = 'Profilebuttons' onClick = {() => this.updateTutorInfo()}>Submit</button>
                     </div>
                     <div>
