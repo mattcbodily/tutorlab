@@ -9,5 +9,11 @@
     width: 74%;
     border-radius: 5px;
     font-size: 15px;
-    text-align: center;
+}
+
+.Tutordescriptionbox {
+    height: 75px;
+    width: 74%;
+    border-radius: 5px;
+    font-size: 15px;
 }

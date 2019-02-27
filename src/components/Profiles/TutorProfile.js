@@ -15,7 +15,7 @@ class TutorProfile extends Component {
             firstName: '',
             lastName: '',
             email: '',
-            price: 0,
+            price: '',
             tutorDescription: '',
             editProfile: false
         }
@@ -145,8 +145,8 @@ class TutorProfile extends Component {
                             onChange = {e => this.handleChange('price', e.target.value)}/>
                     </div>
                     <div>
-                        <input
-                            className = 'Profileinputs'
+                        <textarea
+                            className = 'Tutordescriptionbox'
                             placeholder = 'Update your Description' 
                             value = {this.state.tutorDescription}
                             onChange = {e => this.handleChange('tutorDescription', e.target.value)}/>

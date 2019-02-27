@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import './Nav.css'
 
 class Nav extends Component {
     render(){
         const {student, tutor} = this.props;
         return (
-            <div>
+            <div className = 'Navbar'>
                 {student.id ? (
                 <div>
                     <Link to = '/home'>Home</Link>

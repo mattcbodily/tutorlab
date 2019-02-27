@@ -13,7 +13,7 @@ class RegisterTutor extends Component {
             lastName: '',
             email: '',
             password: '',
-            price: 0,
+            price: '',
             tutorDescription: ''
         }
     }
@@ -68,8 +68,8 @@ class RegisterTutor extends Component {
                     value = {price}
                     onChange = {e => this.handleChange('price', e.target.value)}/>
                 <p className = 'Authprompts'>Tell us about yourself and your teaching experience</p>
-                <input 
-                    className = 'Authinputs'
+                <textarea 
+                    className = 'Registerdescriptionbox'
                     value = {tutorDescription}
                     onChange = {e => this.handleChange('tutorDescription', e.target.value)}/>
                 <div>
