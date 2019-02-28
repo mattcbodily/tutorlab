@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const { json } = require('body-parser');
+const path = require('path');
 const massive = require('massive');
 const sessions = require('express-session');
 const aws = require('aws-sdk');
@@ -11,6 +12,11 @@ const mc = require('./controllers/mainController');
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env;
 
 const app = express();
+
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 const io = socket(
     app.listen(SERVER_PORT, () => console.log(`Coding is happening on port ${SERVER_PORT}`))
