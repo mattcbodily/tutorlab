@@ -10,6 +10,7 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
+            search: '',
             subjects: []
         }
     }
@@ -30,6 +31,12 @@ class Home extends Component {
         return this.getSubjects()
     }
 
+    handleChange(val){
+        this.setState({
+            search: val
+        })
+    }
+
     getSubjects(){
         axios.get('/api/subjects')
         .then(res => {
@@ -39,15 +46,10 @@ class Home extends Component {
         })
     }
 
-    // logout = () => {
-    //     axios.post('/auth/logout')
+    // searchSubject(){
+    //     axios.get(`/api/searchsubject/?${this.state.search}`)
     //     .then(res => {
-    //         this.props.updateStudent({});
-    //         this.props.updateTutor({});
-    //         this.props.history.push('/');
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
+
     //     })
     // }
 
@@ -65,7 +67,9 @@ class Home extends Component {
             <Nav />
                 <div>
                     <p>Welcome! Start by searching for a subject to learn.</p>
-                    <input />
+                    <input 
+                        value = {this.state.search}
+                        onChange = {(e) => this.handleChange(e.target.value)}/>
                     <div>
                         <button>Search</button>
                     </div>
@@ -75,7 +79,6 @@ class Home extends Component {
                     {subjectList}
                 </div>
                 View more subjects <Link to ='/subjects'>here.</Link>
-                {/* <button onClick = {() => this.logout()}>Log out</button> */}
             </div>
         )
     }

@@ -255,5 +255,12 @@ module.exports = {
         req.app.get('db').upload_tutor_profile_pic([profile_pic, tutor])
         .then(res.sendStatus(200))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
-    }
+    },
+
+    // searchSubject: (req, res) => {
+    //     const {subject} = req.query;
+    //     req.app.get('db').search_subject([subject])
+    //     .then(subject => res.status(200).send(subject))
+    //     .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    // }
 }
