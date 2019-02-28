@@ -14,9 +14,7 @@ const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, S3_BUCKET, AWS_ACCESS_KEY
 const app = express();
 
 
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-});
+app.use( express.static( `${__dirname}/../build` ) );
 
 const io = socket(
     app.listen(SERVER_PORT, () => console.log(`Coding is happening on port ${SERVER_PORT}`))
