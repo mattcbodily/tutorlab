@@ -30,12 +30,21 @@ const TutorProfileDisplay = props => {
                 </div>
             </div>) : (
             <div>
-                <Link to = '/uploadtutorphoto'><button>Add a Photo</button></Link>
-                <div className = 'Infobox'>
+                <div>
+                    <Link to = '/uploadtutorphoto'><button className = 'Addaphoto'>Add a Photo</button></Link>
                     <p className = 'Profilename'>{props.tutor.first_name} {props.tutor.last_name}</p>
-                    <p>Email: {props.tutor.email}</p>
-                    <p>Rate: ${props.tutor.price}</p>
-                    <p>{props.tutor.tutor_description}</p>
+                    <div className = 'Profiledescriptionbox'>
+                        <span className = 'Profiledescriptions'>Email: </span>
+                        <span>{props.tutor.email}</span>
+                    </div>
+                    <div className = 'Profiledescriptionbox'>
+                        <span className = 'Profiledescriptions'>Rate: </span>    
+                        <span>${props.tutor.price}</span>
+                    </div>
+                    <div className = 'Profiledescriptionbox'>
+                        <span className = 'Profiledescriptions'>About Me:</span>
+                        <p className = 'Tutordescriptiondisplay'>{props.tutor.tutor_description}</p>
+                    </div>
                 </div>
             </div>
             )

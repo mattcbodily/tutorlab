@@ -21,7 +21,7 @@ const StudentProfileDisplay = props => {
                 </div>
             </div>) : (
             <div>
-                <Link to = '/uploadphoto'><button>Add a Photo</button></Link>
+                <Link to = '/uploadphoto'><button className = 'Addaphoto'>Add a Photo</button></Link>
                 <p className = 'Profilename'>{props.student.first_name} {props.student.last_name}</p>
                 <div className = 'Studentprofiledescriptionbox'>
                         <span class = 'Profiledescriptions'>Email: </span>

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { v4 as randomString } from 'uuid';
 import Dropzone from 'react-dropzone';
 import { GridLoader } from 'react-spinners';
+import Nav from './../Nav/Nav';
 
 class UploadTutorProfilePic extends Component {
   constructor() {
@@ -67,10 +69,10 @@ class UploadTutorProfilePic extends Component {
   render() {
     const { url, isUploading } = this.state;
     return (
-      <div className="App">
-        <h1>Upload</h1>
-        <h1>{url}</h1>
-        <img src={url} alt="" width="450px" />
+      <div>
+        <Nav />
+        <p className = 'Uploadphototitle'>Add a Photo</p>
+        <img className = 'Uploadphoto' src={url} alt="" width="200px" />
 
         <Dropzone
           onDropAccepted={this.getSignedRequest}
@@ -80,23 +82,24 @@ class UploadTutorProfilePic extends Component {
             <div 
             style = {{
             position: 'relative',
-            width: 200,
-            height: 200,
-            borderWidth: 7,
-            marginTop: 100,
-            borderColor: 'rgb(102, 102, 102)',
+            width: 160,
+            height: 140,
+            borderWidth: 5,
+            marginTop: 25,
+            borderColor: 'gray',
             borderStyle: 'dashed',
             borderRadius: 5,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            fontSize: 28,}}
+            display: 'inline-block',
+            fontSize: 25,}}
             {...getRootProps()}>
               <input {...getInputProps()} />
                 {isUploading ? <GridLoader /> : <p>Drop files here, or click to select files</p>}
             </div>
           )}
         </Dropzone>
+          <div className = 'Uploadphotobuttondiv'>
+            <Link to = {`/tutorprofile/${this.props.tutor.id}`}><button className = 'Uploadphotobutton'>Submit</button></Link>
+          </div>
       </div>
     );
   }

@@ -40,7 +40,7 @@ class RegisterTutorStepTwo extends Component {
             )
         })
         return(
-            <div>
+            <div className = 'Registertutordiv'>
                 <h1>Create Your Account</h1>
                 <h1>Step Two</h1>
                 <p>What do you teach?</p>

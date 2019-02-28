@@ -6,6 +6,14 @@
     border: 1px solid gray;
 }
 
+.Addaphoto {
+    margin-top: 20px;
+    height: 40px;
+    width: 40%;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
 .Infobox {
     width: 85%;
     margin: 2px;

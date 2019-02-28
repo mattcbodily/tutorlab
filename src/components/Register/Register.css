@@ -1,11 +1,13 @@
 .Registertutordiv {
-    margin-bottom: 25px;
+    padding-bottom: 25px;
+    background-color: #F8F8F8;
 }
 
 .Registerdescriptionbox {
     height: 75px;
     width: 92%;
     border-radius: 5px;
+    font-size: 17px;
 }
 
 .Subjectbuttons {

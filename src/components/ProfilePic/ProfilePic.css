@@ -1,0 +1,27 @@
+.Uploadphototitle {
+    margin: 0px;
+    padding-top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.Uploadphoto {
+    height: 70%;
+    width: 70%;
+    margin-top: 25px;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+
+.Uploadphotobuttondiv {
+    height: 80px;
+    background-color: #F8F8F8;
+}
+
+.Uploadphotobutton {
+    height: 40px;
+    width: 175px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 17px;
+}
