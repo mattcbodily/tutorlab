@@ -79,6 +79,8 @@ app.get('/api/allsubjects', mc.getAllSubjects); //this is in the Subjects compon
 app.get('/api/locations', mc.getLocations); //this is in the register student step three component
 app.get('/api/studentprofile/:id', mc.getStudentProfile); //this is in the StudentProfile component
 app.get('/api/tutorprofile/:id', mc.getTutorProfile); //this is in the TutorProfile component
+app.get('/api/tutorsubjects/:id', mc.getTutorSubjects); //this is in the TutorProfile component
+app.get('/api/tutorlocations/:id', mc.getTutorLocations); // this is in the TutorProfile component
 app.get('/api/tutorlist/:subject', mc.getTutorList) //this is in the TutorList component
 app.get('/api/classid/:subject/:tutor', mc.getClassId) //this is in the tutorview component
 app.get('/api/pendingstudents/:id', mc.getPendingStudents) //this is in the student list component

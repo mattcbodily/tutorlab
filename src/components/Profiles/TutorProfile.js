@@ -5,12 +5,16 @@ import axios from 'axios';
 import { updateTutor } from './../../ducks/reducer';
 import Nav from './../Nav/Nav';
 import TutorProfileDisplay from './../ProfileDisplay/TutorProfileDisplay';
+import TutorSubjectDisplay from './../ProfileDisplay/TutorSubjectDisplay';
+import TutorLocationDisplay from './../ProfileDisplay/TutorLocationDisplay';
 import './Profile.css';
 
 class TutorProfile extends Component {
     constructor(props){
         super(props);
         this.state = {
+            subjects: [],
+            locations: [],
             tutor: [],
             firstName: '',
             lastName: '',
@@ -34,7 +38,27 @@ class TutorProfile extends Component {
     }
 
     componentDidMount(){
-        return this.getTutorProfile();
+        this.getTutorProfile();
+        this.getTutorSubjects();
+        this.getTutorLocations();
+    }
+
+    getTutorSubjects(){
+        axios.get(`/api/tutorsubjects/${this.props.tutor.id}`)
+        .then(res => {
+            this.setState({
+                subjects: res.data
+            })
+        })
+    }
+
+    getTutorLocations(){
+        axios.get(`/api/tutorlocations/${this.props.tutor.id}`)
+        .then(res => {
+            this.setState({
+                locations: res.data
+            })
+        })
     }
 
     getTutorProfile(){
@@ -86,6 +110,18 @@ class TutorProfile extends Component {
     }
 
     render(){
+        const tutorSubjects = this.state.subjects.map((subjectObj, i) => {
+            return(
+                <TutorSubjectDisplay key = {i}
+                                     subject = {subjectObj}/>
+            )
+        })
+        const tutorLocations = this.state.locations.map((locationObj, i) => {
+            return(
+                <TutorLocationDisplay key = {i}
+                                      location = {locationObj}/>
+            )
+        })
         const tutorProfile = this.state.tutor.map((tutorObj, i) => {
             return(
                 <TutorProfileDisplay key = {i} 
@@ -97,7 +133,17 @@ class TutorProfile extends Component {
                 {!this.state.editProfile ?
                 (<div>
                     <Nav />
-                    {tutorProfile}
+                    <div className = 'Infobox'>
+                        {tutorProfile}
+                        <div className = 'Tutorsubjectbox'>
+                            <span className = 'Profiledescriptions'>What I Teach:</span>
+                            {tutorSubjects}
+                        </div>
+                        <div className = 'Tutorsubjectbox'>    
+                            <span className = 'Profiledescriptions'>Where I Teach:</span>
+                            {tutorLocations}
+                        </div>    
+                    </div>
                     <div>
                         <button className = 'Profilebuttons' onClick = {() => this.handleEditToggle()}>Edit Profile</button>
                     </div>

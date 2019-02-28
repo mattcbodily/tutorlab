@@ -25,6 +25,20 @@ module.exports = {
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
 
+    getTutorSubjects: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').get_tutors_subjects([id])
+        .then(subjects => res.status(200).send(subjects))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getTutorLocations: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').get_tutor_locations([id])
+        .then(locations => res.status(200).send(locations))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
     getTutorList: (req, res) => {
         const {subject} = req.params;
         req.app.get('db').get_tutor_list([subject])

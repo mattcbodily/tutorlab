@@ -1,26 +1,26 @@
 .Profilebuttons {
     height: 40px;
-    width: 75%;
+    width: 86%;
     border-radius: 5px;
     font-size: 16px;
 }
 
 .Profileprompts {
     text-align: left;    
-    margin-left: 13%;
+    margin-left: 9%;
     font-weight: bold;
 }
 
 .Profileinputs {
     height: 40px;
-    width: 74%;
+    width: 84%;
     border-radius: 5px;
     font-size: 15px;
 }
 
 .Tutordescriptionbox {
     height: 75px;
-    width: 74%;
+    width: 84%;
     border-radius: 5px;
     font-size: 15px;
 }

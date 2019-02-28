@@ -13,14 +13,20 @@ const StudentProfileDisplay = props => {
                         alt = 'Profile Pic'/>
                 </div>
                 <div>
-                    <p>{props.student.first_name} {props.student.last_name}</p>
-                    <p>{props.student.email}</p>
+                    <p className = 'Profilename'>{props.student.first_name} {props.student.last_name}</p>
+                    <div className = 'Studentprofiledescriptionbox'>
+                        <span class = 'Profiledescriptions'>Email: </span>
+                        <span>{props.student.email}</span>
+                    </div>
                 </div>
             </div>) : (
             <div>
                 <Link to = '/uploadphoto'><button>Add a Photo</button></Link>
-                <p>{props.student.first_name} {props.student.last_name}</p>
-                <p>{props.student.email}</p>
+                <p className = 'Profilename'>{props.student.first_name} {props.student.last_name}</p>
+                <div className = 'Studentprofiledescriptionbox'>
+                        <span class = 'Profiledescriptions'>Email: </span>
+                        <span>{props.student.email}</span>
+                </div>
             </div>
             )
         }

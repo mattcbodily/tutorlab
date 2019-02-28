@@ -92,7 +92,9 @@ class StudentProfile extends Component {
                 {!this.state.editProfile ?
                 (<div>
                     <Nav />
-                    {studentProfile}
+                    <div className = 'Infobox'>
+                        {studentProfile}
+                    </div>
                     <div>
                         <button className = 'Profilebuttons' onClick = {() => this.handleEditToggle()}>Update Info</button>
                     </div>
@@ -110,23 +112,23 @@ class StudentProfile extends Component {
                 <div>
                     <Nav />
                     <div>
+                        <p className = 'Profileprompts'>First Name</p>
                         <input
-                            className = 'Profileinputs'
-                            placeholder = 'First Name' 
+                            className = 'Profileinputs' 
                             value = {this.state.firstName}
                             onChange = {e => this.handleChange('firstName', e.target.value)}/>
                     </div>
                     <div>
+                        <p className = 'Profileprompts'>Last Name</p>
                         <input
                             className = 'Profileinputs' 
-                            placeholder = 'Last Name'
                             value = {this.state.lastName}
                             onChange = {e => this.handleChange('lastName', e.target.value)}/>
                     </div>
                     <div>
+                        <p className = 'Profileprompts'>Email</p>
                         <input
                             className = 'Profileinputs'
-                            placeholder = 'Email'
                             value = {this.state.email}
                             onChange = {e => this.handleChange('email', e.target.value)}/>
                     </div>
