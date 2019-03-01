@@ -13,9 +13,10 @@
 }
 
 .Searchprompt {
-    padding-top: 40px;
+    padding-top: 35px;
     margin-left: 90px;
     margin-right: 90px;
+    font-weight: bold;
 }
 
 .Searchinput {

@@ -1,0 +1,42 @@
+.Tutordisplaydiv {
+    display: inline-block;
+}
+
+.Tutorlistdisplaybox {
+    height: 75px;
+    width: 300px;
+    display: flex;
+    text-align: left;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: #F1F1F1;
+}
+
+.Tutorlistnopicture {
+    height: 75px;
+    width: 300px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: left;
+    background-color: #F1F1F1;
+}
+
+.Tutorlistpicture {
+    height: 75px;
+    width: 75px;
+    border-right: 1px solid gray;
+    border-radius: 5px;
+}
+
+.Tutorlistinfo {
+    margin: 5px;
+    width: 200px;
+}
+
+.Nopictureinfo {
+    margin: 5px;
+}
+
+a:link {
+    text-decoration: none;
+}

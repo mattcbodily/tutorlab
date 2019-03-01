@@ -45,7 +45,6 @@ app.get('/api/signs3', (req, res) => {
     const s3Params = {
         Bucket: S3_BUCKET,
         Key: fileName,
-        // Expires: 60,
         ContentType: fileType,
         ACL: 'public-read'
     };
@@ -95,7 +94,8 @@ app.get('/api/studentinfo/:student/:tutor', mc.getStudentRoomInfo); //this is in
 app.get('/api/studentroom/:student/:tutor/:classid', mc.getStudentRoomId); // this is in the student sockets display component
 app.get('/api/tutorstudentroom/:tutor/:classid/:tutor_student', mc.getTutorStudentRoomId); //this is in the tutor student socket room component
 app.get('/api/tutorinfo/:student/:tutor', mc.getTutorStudentRoomInfo); // this is in the tutor student sockets component
-app.get('/api/searchsubject/:subject') // this is in the home component
+app.get('/api/searchsubject/:subject', mc.searchSubject) // this is in the home component
+app.get('/api/currentsubject/:subject', mc.getCurrentSubject) // this is in the tutorlist component
 
 app.post('/api/addclass', mc.addClass); //this is in the register subject display component
 app.post('/api/addlocation', mc.addTutorLocation); //this is in the location display component

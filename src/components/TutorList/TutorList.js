@@ -3,17 +3,21 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Nav from './../Nav/Nav';
 import TutorDisplay from './../TutorDisplay/TutorDisplay';
+import TutorListSubjectDisplay from './../TutorDisplay/TutorListSubjectDisplay';
+import './TutorList.css';
 
 class TutorList extends Component {
     constructor(props){
         super(props);
         this.state = {
-            tutors: []
+            tutors: [],
+            subject: []
         }
     }
 
     componentDidMount(){
-        this.getTutorList()
+        this.getTutorList();
+        this.getCurrentSubject();
     }
 
     getTutorList(){
@@ -25,7 +29,22 @@ class TutorList extends Component {
         })
     }
 
+    getCurrentSubject(){
+        axios.get(`/api/currentsubject/${this.props.match.params.subject}`)
+        .then(res => {
+            this.setState({
+                subject: res.data
+            })
+        })
+    }
+
     render(){
+        const currentSubject = this.state.subject.map((subjectObj, i) => {
+            return(
+                <TutorListSubjectDisplay key = {i}
+                                         subject = {subjectObj}/>
+            )
+        })
         const listedTutors = this.state.tutors.map((tutorObj, i) => {
             return(
                 <TutorDisplay key = {i} 
@@ -36,8 +55,7 @@ class TutorList extends Component {
         return(
             <div>
                 <Nav />
-                <p>{this.props.match.params.subject}</p>
-                <p>Select a tutor</p>
+                {currentSubject}
                 {listedTutors}
                 <p>Back to <Link to = '/subjects'>subjects</Link></p>
             </div>

@@ -262,5 +262,12 @@ module.exports = {
         req.app.get('db').search_subject([subject])
         .then(subject => res.status(200).send(subject))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+
+    getCurrentSubject: (req, res) => {
+        const {subject} = req.params;
+        req.app.get('db').get_current_subject([subject])
+        .then(subject => res.status(200).send(subject))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }

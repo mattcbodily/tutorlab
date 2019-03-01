@@ -6,6 +6,7 @@ import TutorViewDisplay from './TutorViewDisplay';
 import TutorLocationDisplay from './../ProfileDisplay/TutorLocationDisplay';
 import LessonRequest from './../LessonRequest/LessonRequest';
 import TutorLessonRequest from './../LessonRequest/TutorLessonRequest';
+import './TutorView.css';
 
 class TutorView extends Component {
     constructor(props){
@@ -78,24 +79,30 @@ class TutorView extends Component {
             )
         })
         return(
-            <div>
+            <div className = 'Tutorviewdiv'>
                 {this.props.student.id ?
                 (<div>
                     <Nav />
-                    <div>
+                    <div className = 'Infobox'>
                         {tutorProfile}
-                        {tutorLocations}
-                        {lessonRequest}
+                        <div className = 'Tutorsubjectbox'>    
+                            <span className = 'Profiledescriptions'>Where I Teach:</span>
+                            {tutorLocations}
+                        </div>   
                     </div>
+                        {lessonRequest}
                 </div>
                 ) : (
                 <div>    
                     <Nav />
-                    <div>
+                    <div className = 'Infobox'>
                         {tutorProfile}
-                        {tutorLocations}
-                        {tutorLessonRequest}
+                        <div className = 'Tutorsubjectbox'>    
+                            <span className = 'Profiledescriptions'>Where I Teach:</span>
+                            {tutorLocations}
+                        </div>   
                     </div>
+                        {tutorLessonRequest}
                 </div>
                 )
             }

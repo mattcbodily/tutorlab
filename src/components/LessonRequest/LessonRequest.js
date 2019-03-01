@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './LessonRequest.css';
 
 class LessonRequest extends Component {
     handleLessonRequest(){
@@ -14,8 +15,8 @@ class LessonRequest extends Component {
 
     render(){
         return(
-            <div>
-                <Link to = '/home'><button onClick = {() => this.handleLessonRequest()}>Request a Lesson</button></Link>
+            <div className = 'Lessonrequestdiv'>
+                <Link to = '/home'><button className = 'Profilebuttons' onClick = {() => this.handleLessonRequest()}>Request a Lesson</button></Link>
             </div>
         )
     }
