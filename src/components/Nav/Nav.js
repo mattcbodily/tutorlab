@@ -11,15 +11,17 @@ class Nav extends Component {
                 {student.id ? (
                 <div>
                     <Link to = '/home'>Home</Link>
+                    <Link to = '/subjects'>Subjects</Link>
+                    <Link to = {`/studentprofile/${student.id}`}>Profile</Link>
                     <Link to = '/about'>About</Link>
                     <Link to = '/contact'>Contact</Link>
-                    <Link to = {`/studentprofile/${student.id}`}>Profile</Link>
                 </div> ) : (
                 <div>
                     <Link to = '/home'>Home</Link>
+                    <Link to = '/subjects'>Subjects</Link>
+                    <Link to = {`/tutorprofile/${tutor.id}`}>Profile</Link>
                     <Link to = '/about'>About</Link>
                     <Link to = '/contact'>Contact</Link>
-                    <Link to = {`/tutorprofile/${tutor.id}`}>Profile</Link>
                 </div>  
                 )
             }

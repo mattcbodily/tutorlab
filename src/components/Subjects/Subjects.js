@@ -3,6 +3,7 @@ import axios from 'axios';
 import Nav from './../Nav/Nav';
 import SubjectDisplay from './../SubjectDisplay/SubjectDisplay';
 import { Link } from 'react-router-dom';
+import './Subjects.css';
 
 class Subjects extends Component {
     constructor(props){
@@ -33,9 +34,9 @@ class Subjects extends Component {
             )
         })
         return(
-            <div>
+            <div className = 'Subjectsdiv'>
                 <Nav />
-                <p>Select a subject below</p>
+                <p className = 'Subjectheader'>Select a subject below</p>
                 {subjectList}
                 <div>
                     Back to <Link to = '/home'>home</Link>

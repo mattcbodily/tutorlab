@@ -1,0 +1,57 @@
+.Homediv {
+    background-color: #F8F8F8;
+}
+
+.Searchdiv {
+    Height: 250px;
+    background-image: url('https://s3-us-west-1.amazonaws.com/webucationbucket/HomeImage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+.Searchprompt {
+    padding-top: 40px;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+.Searchinput {
+    height: 30px;
+    width: 50%;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.Searchbutton {
+    height: 30px;
+    width: 51%;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.Popularsubjects {
+    font-weight: bold;
+}
+
+.Homesubjectdiv {
+    height: 200px;
+    width: 300px;
+    margin-top: 10px;
+    display: inline-block;
+    border: 1px solid gray;
+    background-color: #F1F1F1;
+}
+
+.Homesubjectpictures {
+    height: 170px;
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+
+.Subjectnames {
+    margin: 0px;
+}

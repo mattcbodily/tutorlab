@@ -5,14 +5,17 @@ import Nav from './../Nav/Nav';
 import axios from 'axios';
 import SubjectDisplay from './../SubjectDisplay/SubjectDisplay';
 import {updateStudent, updateTutor} from './../../ducks/reducer';
+import './Home.css';
 
 class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
             search: '',
-            subjects: []
+            subjects: [],
+            searchedSubject: []
         }
+        this.searchSubject = this.searchSubject.bind(this);
     }
 
     componentDidMount(){
@@ -35,6 +38,7 @@ class Home extends Component {
         this.setState({
             search: val
         })
+        this.searchSubject();
     }
 
     getSubjects(){
@@ -46,14 +50,17 @@ class Home extends Component {
         })
     }
 
-    // searchSubject(){
-    //     axios.get(`/api/searchsubject/?${this.state.search}`)
-    //     .then(res => {
-
-    //     })
-    // }
+    searchSubject(){
+        axios.get(`/api/searchsubject/${this.state.search}`)
+        .then(res => {
+            this.setState({
+                searchedSubject: res.data
+            })
+        })
+    }
 
     render(){
+        console.log(this.state.searchedSubject)
         const subjectList = this.state.subjects.map((subjectObj, i) => {
             return(
                 <SubjectDisplay key = {i}
@@ -63,19 +70,20 @@ class Home extends Component {
             )
         })
         return(
-            <div>
+            <div className = 'Homediv'>
             <Nav />
-                <div>
-                    <p>Welcome! Start by searching for a subject to learn.</p>
-                    <input 
+                <div className = 'Searchdiv'>
+                    <p className = 'Searchprompt'>Welcome! Start by searching for a subject to learn.</p>
+                    <input
+                        className = 'Searchinput' 
                         value = {this.state.search}
                         onChange = {(e) => this.handleChange(e.target.value)}/>
                     <div>
-                        <button>Search</button>
+                        <button className = 'Searchbutton'>Search</button>
                     </div>
                 </div>
                 <div>
-                    <p>Popular Subjects</p>
+                    <p className = 'Popularsubjects'>Popular Subjects</p>
                     {subjectList}
                 </div>
                 View more subjects <Link to ='/subjects'>here.</Link>

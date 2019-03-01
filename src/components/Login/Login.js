@@ -114,7 +114,7 @@ class Login extends Component {
                     <div>
                         <button className = 'Authbuttons' onClick = {() => this.loginTutor()}>Log In</button>
                     </div>
-                    <p>Signing up as a tutor? <Link to = '/registertutor'>Sign up here.</Link></p>
+                    <p className = 'Loginlinks'>Signing up as a tutor? <Link to = '/registertutor'>Sign up here.</Link></p>
                 </div>
             </div>
         )

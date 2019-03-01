@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import Nav from './../Nav/Nav';
 import TutorViewDisplay from './TutorViewDisplay';
+import TutorLocationDisplay from './../ProfileDisplay/TutorLocationDisplay';
 import LessonRequest from './../LessonRequest/LessonRequest';
 import TutorLessonRequest from './../LessonRequest/TutorLessonRequest';
 
@@ -11,13 +12,15 @@ class TutorView extends Component {
         super(props);
         this.state = {
             tutor: [],
-            class: []
+            class: [],
+            locations: []
         }
     }
 
     componentDidMount(){
         this.getClassId();
         this.getTutorProfile();
+        this.getTutorLocations();
     }
 
     getClassId(){
@@ -37,6 +40,15 @@ class TutorView extends Component {
             })
         })
     }
+
+    getTutorLocations(){
+        axios.get(`/api/tutorlocations/${this.props.match.params.tutorid}`)
+        .then(res => {
+            this.setState({
+                locations: res.data
+            })
+        })
+    }
     
     render(){
         const lessonRequest = this.state.class.map((classObj, i) => {
@@ -52,6 +64,13 @@ class TutorView extends Component {
                                   tutor = {tutorObj}/>
             )
         })
+
+        const tutorLocations = this.state.locations.map((locationObj, i) => {
+            return(
+                <TutorLocationDisplay key = {i}
+                                      location = {locationObj}/> 
+            )
+        })
         const tutorLessonRequest = this.state.class.map((classObj, i) => {
             return (
                 <TutorLessonRequest key = {i}
@@ -65,6 +84,7 @@ class TutorView extends Component {
                     <Nav />
                     <div>
                         {tutorProfile}
+                        {tutorLocations}
                         {lessonRequest}
                     </div>
                 </div>
@@ -73,6 +93,7 @@ class TutorView extends Component {
                     <Nav />
                     <div>
                         {tutorProfile}
+                        {tutorLocations}
                         {tutorLessonRequest}
                     </div>
                 </div>

@@ -131,7 +131,7 @@ class TutorProfile extends Component {
         return(
             <div>
                 {!this.state.editProfile ?
-                (<div>
+                (<div className = 'Profilediv'>
                     <Nav />
                     <div className = 'Infobox'>
                         {tutorProfile}

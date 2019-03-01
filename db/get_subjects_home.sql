@@ -1,1 +1,1 @@
-select * from subjects limit 3;
+select * from subjects limit 9;

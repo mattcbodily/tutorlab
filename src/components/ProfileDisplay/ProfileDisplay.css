@@ -1,3 +1,7 @@
+.Profilediv {
+    background-color: #F8F8F8;
+}
+
 .Profilepicture {
     height: 70%;
     width: 70%;
@@ -19,7 +23,7 @@
     margin: 2px;
     display: inline-block;
     border-radius: 5px;
-    border: 1px solid gray;
+    border: 1px solid #57BDE1;
     background-color: #F1F1F1;
 }
 
