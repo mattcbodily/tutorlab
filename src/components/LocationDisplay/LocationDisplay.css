@@ -1,0 +1,13 @@
+.Addlocationdiv {
+    width: 90%;
+    display: inline-block;
+    margin-top: 5px;
+    padding-bottom: 10px;
+    border: 1px solid gray;
+    background-color: #F1F1F1;
+}
+
+.Locationnames {
+    font-weight: bold;
+    font-size: 20px;
+}

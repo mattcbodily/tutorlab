@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './LocationDisplay.css';
 
 class AddLocationDisplay extends Component {
     handleAddLocation(){
@@ -14,8 +15,8 @@ class AddLocationDisplay extends Component {
 
     render(){
         return(
-            <div>
-                <p>{this.props.locations.lesson_location_name}</p>
+            <div className = 'Addlocationdiv'>
+                <p className = 'Locationnames'>{this.props.locations.lesson_location_name}</p>
                 <Link to = {`/tutorprofile/${this.props.tutor.id}`}><button className = 'Subjectbuttons' onClick = {() => this.handleAddLocation()}>Select</button></Link>
             </div>
         )

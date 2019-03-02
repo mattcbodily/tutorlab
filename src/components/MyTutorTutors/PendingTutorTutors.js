@@ -14,9 +14,29 @@ class PendingTutorTutors extends Component {
     render(){
         return(
             <div>
-                <p>{this.props.tutors.first_name} {this.props.tutors.last_name} {this.props.tutors.email}</p>
-                <Link to = {`/mytutormessage/${this.props.tutors.tutor_id}`}><button>Message</button></Link>
-                <button onClick = {() => this.handleDeleteRequest()}>Delete Request</button>
+                {this.props.tutors.profile_pic ?
+                (<div className = 'Studentsdiv'>
+                    <img
+                        className = 'Studentlistpic'
+                        src = {this.props.tutors.profile_pic}
+                        alt = 'Tutor Profile Pic'/>
+                    <p className = 'Studentlistname'>{this.props.tutors.first_name} {this.props.tutors.last_name}</p> 
+                    <p>{this.props.tutors.email}</p>
+                    <div className = 'Studentlistbuttondiv'>
+                        <Link to = {`/mytutormessage/${this.props.tutors.tutor_id}`}><button className = 'Messagelistbutton'>Message</button></Link>
+                        <button className = 'Droplistbutton' onClick = {() => this.handleDeleteRequest()}>Delete Request</button>
+                    </div>
+                </div>) :(
+                <div className = 'Studentsdiv'>
+                    <p className = 'Studentlistname'>{this.props.tutors.first_name} {this.props.tutors.last_name}</p> 
+                    <p>{this.props.tutors.email}</p>
+                    <div className = 'Studentlistbuttondiv'>
+                        <Link to = {`/mytutormessage/${this.props.tutors.tutor_id}`}><button className = 'Messagelistbutton'>Message</button></Link>
+                        <button className = 'Droplistbutton' onClick = {() => this.handleDeleteRequest()}>Delete Request</button>
+                    </div>
+                </div>
+                )
+                }
             </div>
         )
     }

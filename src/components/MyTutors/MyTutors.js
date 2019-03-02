@@ -60,15 +60,15 @@ class MyTutors extends Component {
                 {this.state.pendingTutors.length ?
                 (<div>
                     <Nav />
-                    <p>Pending Requests</p>
+                    <p className = 'Studentlistprompts'>Pending Requests</p>
                     {pendingList}
-                    <p>Your Tutors</p>
+                    <p className = 'Studentlistprompts'>Your Tutors</p>
                     {tutorList}
                     Back to <Link to = '/studentprofile/:studentid'>profile</Link>
                 </div>) : (
                 <div>
                     <Nav />
-                    <p>Your Tutors</p>
+                    <p className = 'Studentlistprompts'>Your Tutors</p>
                     {tutorList}
                     Back to <Link to = '/studentprofile/:studentid'>profile</Link>
                 </div>

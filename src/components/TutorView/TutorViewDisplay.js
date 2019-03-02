@@ -12,7 +12,9 @@ const TutorViewDisplay = props => {
                         alt = 'Profile Pic'/>
                 </div>
                 <div>
-                    <p className = 'Profilename'>{props.tutor.first_name} {props.tutor.last_name}</p>
+                    <div>
+                        <p className = 'Profilename'>{props.tutor.first_name} {props.tutor.last_name}</p>
+                    </div>
                     <div className = 'Profiledescriptionbox'>
                         <span className = 'Profiledescriptions'>Email: </span>
                         <span>{props.tutor.email}</span>
@@ -29,7 +31,9 @@ const TutorViewDisplay = props => {
             </div>) : (
             <div>
                 <div>
-                    <p className = 'Profilename'>{props.tutor.first_name} {props.tutor.last_name}</p>
+                    <div>
+                        <p className = 'Profilename'>{props.tutor.first_name} {props.tutor.last_name}</p>
+                    </div>
                     <div className = 'Profiledescriptionbox'>
                         <span className = 'Profiledescriptions'>Email: </span>
                         <span>{props.tutor.email}</span>

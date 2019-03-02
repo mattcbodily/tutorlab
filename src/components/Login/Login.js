@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateStudent, updateTutor } from './../../ducks/reducer';
+import AuthNav from './../Nav/AuthNav';
 import './Login.css';
 
 class Login extends Component {
@@ -75,7 +76,8 @@ class Login extends Component {
         const {email, password, tutorEmail, tutorPassword} = this.state;
         return(
             <div>
-                    <h1>Welcome</h1>
+                <AuthNav />
+                <h1>Welcome</h1>
                 <div className = 'Studentloginbox'>
                     <h3>Student Login</h3>
                     <p className = 'Authprompts'>Email Address</p>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { updateStudent } from './../../ducks/reducer';
+import AuthNav from './../Nav/AuthNav';
 
 class RegisterStudent extends Component {
     constructor(props){
@@ -37,6 +38,7 @@ class RegisterStudent extends Component {
         const { firstName, lastName, email, password } = this.state;
         return(
         <div>
+            <AuthNav />
             <h1>Create Your Account</h1>
             <p className = 'Authprompts'>First Name</p>
             <input

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { updateTutor } from './../../ducks/reducer';
 import './Register.css'
+import AuthNav from './../Nav/AuthNav';
 
 class RegisterTutor extends Component {
     constructor(props){
@@ -40,6 +41,7 @@ class RegisterTutor extends Component {
         const {firstName, lastName, email, password, price, tutorDescription} = this.state;
         return(
             <div className = 'Registertutordiv'>
+                <AuthNav />
                 <h1>Create Your Account</h1>
                 <p className = 'Authprompts'>First Name</p>
                 <input 

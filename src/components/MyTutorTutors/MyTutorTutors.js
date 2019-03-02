@@ -55,13 +55,24 @@ class MyTutorTutors extends Component {
             )
         })
         return(
-            <div>
-                <Nav />
-                <p>Pending Requests</p>
-                {pendingList}
-                <p>Your Tutors</p>
-                {tutorList}
-                Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
+            <div className = 'Mytutorsdiv'>
+                {this.state.pendingTutors.length ?
+                (<div>
+                    <Nav />
+                    <p className = 'Studentlistprompts'>Pending Requests</p>
+                    {pendingList}
+                    <p className = 'Studentlistprompts'>Your Tutors</p>
+                    {tutorList}
+                    Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
+                </div>) : (
+                <div>
+                    <Nav />
+                    <p className = 'Studentlistprompts'>Your Tutors</p>
+                    {tutorList}
+                    Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
+                </div>
+                )
+                }
             </div>
         )
     }

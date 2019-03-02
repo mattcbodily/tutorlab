@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import RegisterSubjectDisplay from './../SubjectDisplay/RegisterSubjectDisplay';
 import { updateTutor } from './../../ducks/reducer';
+import AuthNav from './../Nav/AuthNav';
 
 class RegisterTutorStepTwo extends Component {
     constructor(props){
@@ -41,6 +42,7 @@ class RegisterTutorStepTwo extends Component {
         })
         return(
             <div className = 'Registertutordiv'>
+                <AuthNav />
                 <h1>Create Your Account</h1>
                 <h1>Step Two</h1>
                 <p>What do you teach?</p>

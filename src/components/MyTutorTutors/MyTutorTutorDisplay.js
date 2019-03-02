@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class MyTutorTutorDisplay extends Component {
@@ -13,8 +14,29 @@ class MyTutorTutorDisplay extends Component {
     render(){
         return(
             <div>
-                <p>{this.props.tutors.first_name} {this.props.tutors.last_name} {this.props.tutors.email}</p>
-                <button onClick = {() => this.handleDropTutor()}>Drop Tutor</button>
+                {this.props.tutors.profile_pic ?
+                (<div className = 'Studentsdiv'>
+                    <img
+                        className = 'Studentlistpic'
+                        src = {this.props.tutors.profile_pic}
+                        alt = 'Tutor Profile Pic'/>
+                    <p className = 'Studentlistname'>{this.props.tutors.first_name} {this.props.tutors.last_name}</p> 
+                    <p>{this.props.tutors.email}</p>
+                    <div className = 'Studentlistbuttondiv'>
+                        <Link to = {`/mytutormessage/${this.props.tutors.tutor_id}`}><button className = 'Messagelistbutton'>Message</button></Link>
+                        <button className = 'Droplistbutton' onClick = {() => this.handleDropTutor()}>Drop Tutor</button>
+                    </div>
+                </div>) : (
+                <div className = 'Studentsdiv'>
+                    <p className = 'Studentlistname'>{this.props.tutors.first_name} {this.props.tutors.last_name}</p> 
+                    <p>{this.props.tutors.email}</p>
+                    <div className = 'Studentlistbuttondiv'>
+                        <Link to = {`/mytutormessage/${this.props.tutors.tutor_id}`}><button className = 'Messagelistbutton'>Message</button></Link>
+                        <button className = 'Droplistbutton' onClick = {() => this.handleDropTutor()}>Drop Tutor</button>
+                    </div>
+                </div>
+                )
+                }    
             </div>
         )
     }

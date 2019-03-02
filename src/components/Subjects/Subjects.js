@@ -36,6 +36,7 @@ class Subjects extends Component {
         return(
             <div className = 'Subjectsdiv'>
                 <Nav />
+                <h1>Subjects</h1>
                 <p className = 'Subjectheader'>Select a subject below</p>
                 {subjectList}
                 <div>

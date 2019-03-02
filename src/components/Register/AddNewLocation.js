@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import AddLocationDisplay from './../LocationDisplay/AddLocationDisplay';
+import Nav from './../Nav/Nav';
 
 class AddNewLocation extends Component {
     constructor(props){
@@ -32,8 +34,10 @@ class AddNewLocation extends Component {
         })
         return(
             <div>
-                <p>Select a Location</p>
+                <Nav />
+                <h1>Add a Location</h1>
                 {locationList}
+                Back to <Link to = '/home'>home</Link>
             </div>
         )
     }

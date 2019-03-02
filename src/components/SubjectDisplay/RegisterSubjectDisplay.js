@@ -14,9 +14,15 @@ class RegisterSubjectDisplay extends Component {
 
     render(){
         return (
-            <div>
-                <p>{this.props.subjects.subject_name}</p>
-                <Link to = '/registertutorlocation'><button className = 'Subjectbuttons' onClick = {() => this.handleAddClass()}>Select</button></Link>
+            <div className = 'Homesubjectdiv'
+                 onClick = {() => this.handleAddClass()}>
+                <Link to = '/registertutorlocation'> 
+                <img
+                    className = 'Homesubjectpictures'
+                    src = {this.props.subjects.subject_pic}
+                    alt = 'Subject Pic'/>
+                <p className = 'Subjectnames'>{this.props.subjects.subject_name}</p>
+                </Link>
             </div>
         )
     }

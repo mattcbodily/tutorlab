@@ -9,19 +9,29 @@ class Nav extends Component {
         return (
             <div className = 'Navbar'>
                 {student.id ? (
-                <div>
-                    <Link to = '/home'>Home</Link>
-                    <Link to = '/subjects'>Subjects</Link>
-                    <Link to = {`/studentprofile/${student.id}`}>Profile</Link>
-                    <Link to = '/about'>About</Link>
-                    <Link to = '/contact'>Contact</Link>
+                <div className = 'Navdiv'>
+                    <div className = 'Websitenamediv'>
+                        <span className = 'Websitename'>Teachio</span>
+                    </div>
+                    <div className = 'Linkdiv'>
+                        <Link className = 'Navlinks' to = '/home'>Home</Link>
+                        <Link className = 'Navlinks' to = '/subjects'>Subjects</Link>
+                        <Link className = 'Navlinks' to = {`/studentprofile/${student.id}`}>Profile</Link>
+                        <Link className = 'Biglinks' to = '/about'>About</Link>
+                        <Link className = 'Biglinks' to = '/contact'>Contact</Link>
+                    </div>
                 </div> ) : (
-                <div>
-                    <Link to = '/home'>Home</Link>
-                    <Link to = '/subjects'>Subjects</Link>
-                    <Link to = {`/tutorprofile/${tutor.id}`}>Profile</Link>
-                    <Link to = '/about'>About</Link>
-                    <Link to = '/contact'>Contact</Link>
+                <div className = 'Navdiv'>
+                    <div>
+                        <span className = 'Websitename'>Teachio</span>
+                    </div>
+                    <div  className = 'Linkdiv'>
+                        <Link className = 'Navlinks' to = '/home'>Home</Link>
+                        <Link className = 'Navlinks' to = '/subjects'>Subjects</Link>
+                        <Link className = 'Navlinks' to = {`/tutorprofile/${tutor.id}`}>Profile</Link>
+                        <Link className = 'Biglinks' to = '/about'>About</Link>
+                        <Link className = 'Biglinks' to = '/contact'>Contact</Link>
+                    </div>
                 </div>  
                 )
             }

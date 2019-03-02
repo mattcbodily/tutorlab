@@ -14,8 +14,8 @@ class LocationDisplay extends Component {
 
     render(){
         return(
-            <div>
-                <p>{this.props.locations.lesson_location_name}</p>
+            <div className = 'Addlocationdiv'>
+                <p className = 'Locationnames'>{this.props.locations.lesson_location_name}</p>
                 <Link to = '/home'><button className = 'Subjectbuttons' onClick = {() => this.handleAddLocation()}>Select</button></Link>
             </div>
         )

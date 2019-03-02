@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import AddNewSubjectDisplay from './../SubjectDisplay/AddNewSubjectDisplay';
 import { updateTutor } from './../../ducks/reducer';
+import Nav from './../Nav/Nav';
 
 class AddNewSubject extends Component {
     constructor(props){
@@ -40,9 +42,12 @@ class AddNewSubject extends Component {
             )
         })
         return(
-            <div>
-                <p>Select a subject</p>
+            <div className = 'Addnewsubjectdiv'>
+                <Nav />
+                <h1>Add a Subject</h1>
+                <h3>Select a subject</h3>
                 {subjectList}
+                Back to <Link to = '/home'>home</Link>
             </div>
         )
     }
