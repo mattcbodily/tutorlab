@@ -50,3 +50,31 @@
 .Biglinks {
     display: none;
 }
+
+@media(min-width: 750px) {
+    .Navbar {
+        height: 50px;
+    }
+    .Websitename {
+        font-size: 40px;
+    }
+    .Linkdiv {
+        width: 315px;
+        padding-top: 10px;
+    }
+    .Navlinks {
+        font-size: 18px;
+    }
+    .Biglinks {
+        font-size: 18px;
+        display: inline;
+        color: #333334;
+    }
+    .Authnavdiv {
+        height: 50px;
+    }
+    .Authnavtext {
+        margin-left: 10px;
+        font-size: 40px;
+    }
+}

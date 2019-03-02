@@ -77,47 +77,51 @@ class Login extends Component {
         return(
             <div>
                 <AuthNav />
-                <h1>Welcome</h1>
-                <div className = 'Studentloginbox'>
-                    <h3>Student Login</h3>
-                    <p className = 'Authprompts'>Email Address</p>
-                    <input
-                        className = 'Authinputs'
-                        value = {email}
-                        onChange = {e => this.handleChange('email', e.target.value)}
-                    />
-                    <p className = 'Authprompts'>Password</p>
-                    <input
-                        className = 'Authinputs'
-                        type = 'password' 
-                        value = {password}
-                        onChange = {e => this.handleChange('password', e.target.value)}
-                    />
-                    <div>
-                        <button className = 'Authbuttons' onClick = {() => this.loginStudent()}>Log In</button>
+                <h1 className = 'Welcomeback'>Welcome Back</h1>
+                <div className = 'Authdoubleflex'>
+                    <div className = 'Authflexdiv'>
+                        <div className = 'Studentloginbox'>
+                            <h3 className = 'Studentloginprompt'>Student Login</h3>
+                            <p className = 'Authprompts'>Email Address</p>
+                            <input
+                                className = 'Authinputs'
+                                value = {email}
+                                onChange = {e => this.handleChange('email', e.target.value)}
+                            />
+                            <p className = 'Authprompts'>Password</p>
+                            <input
+                                className = 'Authinputs'
+                                type = 'password' 
+                                value = {password}
+                                onChange = {e => this.handleChange('password', e.target.value)}
+                            />
+                            <div>
+                                <button className = 'Authbuttons' onClick = {() => this.loginStudent()}>Log In</button>
+                            </div>
+                            <p className = 'Loginlinks'>Don't have an account? <Link to = '/registerstudent'>Sign up here.</Link></p>
+                        </div>
+                        <div className = 'Tutorloginbox'> 
+                            <h3 className = 'Studentloginprompt'>Tutor Login</h3>
+                            <p className = 'Authprompts'>Email Address</p>
+                            <input
+                                className = 'Authinputs' 
+                                value = {tutorEmail}
+                                onChange = {e => this.handleChange('tutorEmail', e.target.value)}
+                            />
+                            <p className = 'Authprompts'>Password</p>
+                            <input
+                                className = 'Authinputs'
+                                type = 'password' 
+                                value = {tutorPassword}
+                                onChange = {e => this.handleChange('tutorPassword', e.target.value)}
+                            />
+                            <div>
+                                <button className = 'Authbuttons' onClick = {() => this.loginTutor()}>Log In</button>
+                            </div>
+                            <p className = 'Loginlinks'>Signing up as a tutor? <Link to = '/registertutor'>Sign up here.</Link></p>
+                        </div>
                     </div>
-                    <p>Don't have an account? <Link to = '/registerstudent'>Sign up here.</Link></p>
-                </div>
-                <div className = 'Tutorloginbox'> 
-                    <h3>Tutor Login</h3>
-                    <p className = 'Authprompts'>Email Address</p>
-                    <input
-                        className = 'Authinputs' 
-                        value = {tutorEmail}
-                        onChange = {e => this.handleChange('tutorEmail', e.target.value)}
-                    />
-                    <p className = 'Authprompts'>Password</p>
-                    <input
-                        className = 'Authinputs'
-                        type = 'password' 
-                        value = {tutorPassword}
-                        onChange = {e => this.handleChange('tutorPassword', e.target.value)}
-                    />
-                    <div>
-                        <button className = 'Authbuttons' onClick = {() => this.loginTutor()}>Log In</button>
-                    </div>
-                    <p className = 'Loginlinks'>Signing up as a tutor? <Link to = '/registertutor'>Sign up here.</Link></p>
-                </div>
+                </div>    
             </div>
         )
     }
