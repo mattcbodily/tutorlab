@@ -5,7 +5,13 @@ const Contact = props => {
     return(
         <div>
             <Nav />
-            I am the contact component
+            <h1>Contact Us</h1>
+            <div className = 'Aboutdiv'>
+                <p className = 'Contactprompt'>Phone Number: </p>
+                <p>000-0000</p>
+                <p className = 'Contactprompt'>Email: </p>
+                <p>teachio@teachio.co</p>
+            </div>
         </div>
     )
 }

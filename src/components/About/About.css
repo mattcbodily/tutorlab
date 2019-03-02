@@ -1,0 +1,9 @@
+.Aboutdiv {
+    width: 90%;
+    text-align: left;
+    display: inline-block;
+}
+
+.Contactprompt {
+    font-weight: bold;
+}
