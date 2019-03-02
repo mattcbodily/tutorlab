@@ -45,9 +45,11 @@ class AddNewSubject extends Component {
             <div className = 'Addnewsubjectdiv'>
                 <Nav />
                 <h1>Add a Subject</h1>
-                <h3>Select a subject</h3>
-                {subjectList}
-                Back to <Link to = '/home'>home</Link>
+                <h3>Select a subject below</h3>
+                <div className = 'Homesubjectflexdiv'>
+                    {subjectList}
+                </div>
+                <p className = 'Loginlinks'>Back to <Link to = '/home'>home</Link></p>
             </div>
         )
     }

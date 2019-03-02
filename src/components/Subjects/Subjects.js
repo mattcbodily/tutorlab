@@ -38,9 +38,11 @@ class Subjects extends Component {
                 <Nav />
                 <h1>Subjects</h1>
                 <p className = 'Subjectheader'>Select a subject below</p>
-                {subjectList}
+                <div className = 'Homesubjectflexdiv'>
+                    {subjectList}
+                </div>
                 <div>
-                    Back to <Link to = '/home'>home</Link>
+                    <p className = 'Loginlinks'>Back to <Link to = '/home'>home</Link></p>
                 </div>
             </div>
         )

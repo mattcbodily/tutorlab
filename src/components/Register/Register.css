@@ -1,5 +1,6 @@
 .Addnewsubjectdiv {
     background-color: #F8F8F8;
+    padding-bottom: 10px;
 }
 
 .Registertutordiv {
@@ -31,5 +32,9 @@
         border-radius: 5px;
         border: 1px solid gray;
         background-color: #F1F1F1;
+    }
+    .Registerlocationcomputerview {
+        width: 55%;
+        display: inline-block;
     }
 }

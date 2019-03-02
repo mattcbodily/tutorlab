@@ -36,8 +36,10 @@ class AddNewLocation extends Component {
             <div>
                 <Nav />
                 <h1>Add a Location</h1>
-                {locationList}
-                Back to <Link to = '/home'>home</Link>
+                <div className = 'Registerlocationcomputerview'>
+                    {locationList}
+                </div>
+                <p className = 'Loginlinks'>Back to <Link to = '/home'>home</Link></p>
             </div>
         )
     }

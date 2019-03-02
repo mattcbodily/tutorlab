@@ -44,9 +44,10 @@ class RegisterTutorStepTwo extends Component {
             <div className = 'Registertutordiv'>
                 <AuthNav />
                 <h1>Create Your Account</h1>
-                <h1>Step Two</h1>
-                <p>What do you teach?</p>
-                {subjectList}
+                <h3>What do you teach?</h3>
+                <div className = 'Homesubjectflexdiv'>
+                    {subjectList}
+                </div>    
             </div>
         )
     }

@@ -81,11 +81,11 @@ class Home extends Component {
                         <button className = 'Searchbutton'>Search</button>
                     </div>
                 </div>
-                <div>
-                    <p className = 'Popularsubjects'>Popular Subjects</p>
+                <p className = 'Popularsubjects'>Popular Subjects</p>
+                <div className = 'Homesubjectflexdiv'>
                     {subjectList}
                 </div>
-                View more subjects <Link to ='/subjects'>here.</Link>
+                <p className = 'Loginlinks'>View more subjects <Link to ='/subjects'>here.</Link></p>
             </div>
         )
     }

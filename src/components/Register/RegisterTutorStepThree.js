@@ -34,10 +34,11 @@ class RegisterTutorStepThree extends Component {
         return(
             <div>
                 <AuthNav />
-                <h1>Create Your Account</h1>
-                <h1>Step Three</h1>
-                <p>Where do you teach?</p>
-                {locationList}
+                <div className = 'Registerlocationcomputerview'>
+                    <h1>Create Your Account</h1>
+                    <h3>Where do you teach?</h3>
+                    {locationList}
+                </div>
             </div>
         )
     }

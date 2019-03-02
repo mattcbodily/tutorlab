@@ -56,3 +56,45 @@
 .Subjectnames {
     margin: 0px;
 }
+
+@media (min-width: 750px) {
+    .Searchdiv {
+        height: 325px;
+    }
+    .Searchprompt {
+        font-size: 20px;
+        padding-top: 60px;
+        margin-left: 225px;
+        margin-right: 225px;
+    }
+    .Searchinput {
+        height: 40px;
+    }
+    .Searchbutton {
+        font-size: 20px
+    }
+    .Popularsubjects {
+        font-size: 25px;
+    }
+    .Homesubjectflexdiv {
+        margin: 0px 30px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}
+
+@media(min-width: 1050px){
+    .Homediv {
+        padding-bottom: 10px;
+    }
+    .Searchinput {
+        height: 30px;
+        width: 33%;
+        font-size: 17px;
+    }
+    .Searchbutton {
+        width: 33%;
+        font-size: 15px;
+    }
+}
