@@ -1,0 +1,62 @@
+.Socketsdiv {
+    background-color: #F8F8F8;
+}
+
+.Messagesdiv {
+    width: 90%;
+    margin-top: 5px;
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: #F1F1F1;
+}
+
+.Usermessage {
+    height: 28px;
+    margin-bottom: 4px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.Notusermessage {
+    height: 28px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.Usermessagebox {
+    height: 40px;
+    padding: 4px 6px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border-radius: 15px;
+    background-color: #57BDE1;
+}
+
+.Notusermessagebox {
+    height: 40px;
+    padding: 4px 6px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border-radius: 15px;
+    background-color: #858585;
+}
+
+.Messageinput {
+    height: 30px;
+    width: 82%;
+    font-size: 15px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.Messagebutton {
+    height: 34px;
+    margin-top: 1px;
+    width: 16%;
+    font-size: 15px;
+    border-radius: 0px 5px 5px 0px;
+}
