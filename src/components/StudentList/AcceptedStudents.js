@@ -13,9 +13,29 @@ class AcceptedStudents extends Component {
     render(){
         return(
             <div>
-                <p>{this.props.student.first_name} {this.props.student.last_name} {this.props.student.email}</p>
-                <Link to = {`/studentmessage/${this.props.student.student_id}`}><button>Message</button></Link>
-                <button onClick = {() => this.handleDropStudent()}>Drop Student</button>
+                {this.props.student.profile_pic ?
+                (<div className = 'Studentsdiv'>
+                    <img
+                        className = 'Studentlistpic' 
+                        src = {this.props.student.profile_pic} 
+                        alt = 'Student Profile Pic'/>
+                    <p className = 'Studentlistname'>{this.props.student.first_name} {this.props.student.last_name}</p> 
+                    <p>{this.props.student.email}</p>
+                    <div className = 'Studentlistbuttondiv'>
+                        <Link to = {`/studentmessage/${this.props.student.student_id}`}><button className = 'Messagelistbutton'>Message</button></Link>
+                        <button className = 'Droplistbutton' onClick = {() => this.handleDropStudent()}>Drop Student</button>
+                    </div>
+                </div>) : (
+                <div className = 'Studentsdiv'>
+                    <p className = 'Studentlistname'>{this.props.student.first_name} {this.props.student.last_name}</p> 
+                    <p>{this.props.student.email}</p>
+                    <div className = 'Studentlistbuttondiv'>
+                        <Link to = {`/studentmessage/${this.props.student.student_id}`}><button className = 'Messagelistbutton'>Message</button></Link>
+                        <button className = 'Droplistbutton' onClick = {() => this.handleDropStudent()}>Drop Student</button>
+                    </div>
+                </div>
+                )
+                }
             </div>
         )
     }

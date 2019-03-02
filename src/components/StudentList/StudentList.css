@@ -1,0 +1,56 @@
+.Studentlistdiv {
+    background-color: #F8F8F8;
+}
+
+.Studentlistprompts {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.Studentsdiv {
+    width: 300px;
+    margin-top: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid gray;
+    background-color: #F1F1F1;
+    box-shadow: 2px 2px 1px gray;
+}
+
+.Studentlistpic {
+    height: 125px;
+    width: 125px;
+    margin-top: 5px;
+    border: 1px solid gray;
+    border-radius: 50%;
+}
+
+.Studentlistbuttondiv {
+    margin-bottom: 5px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.Studentlistname {
+    margin: 5px;
+    font-weight: bold;
+}
+
+.Messagelistbutton {
+    height: 30px;
+    border-radius: 5px 0px 0px 5px;
+    border: none;
+    border-right: 1px solid white;
+}
+
+.Studentlistbutton {
+    height: 30px;
+    border: none;
+    border-right: 1px solid white;
+}
+
+.Droplistbutton {
+    height: 30px;
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+}

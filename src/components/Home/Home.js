@@ -60,7 +60,6 @@ class Home extends Component {
     }
 
     render(){
-        console.log(this.state.searchedSubject)
         const subjectList = this.state.subjects.map((subjectObj, i) => {
             return(
                 <SubjectDisplay key = {i}

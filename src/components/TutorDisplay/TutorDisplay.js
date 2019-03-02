@@ -14,7 +14,7 @@ class TutorDisplay extends Component {
                     </div>
                     <div>
                         <p className = 'Tutorlistinfo'>Name: {this.props.tutors.first_name} {this.props.tutors.last_name}</p> 
-                        <p className = 'Tutorlistinfo'> Email: {this.props.tutors.email}</p>
+                        <p className = 'Tutorlistinfo'>Email: {this.props.tutors.email}</p>
                         <p className = 'Tutorlistinfo'>Cost: ${this.props.tutors.price}</p>
                     </div>
                 </div>    

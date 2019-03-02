@@ -20,10 +20,31 @@ class PendingStudents extends Component {
     render(){
         return(
             <div>
-                <p>{this.props.student.first_name} {this.props.student.last_name} {this.props.student.email}</p>
-                <Link to = {`/studentmessage/${this.props.student.student_id}`}><button>Message</button></Link>
-                <button onClick = {() => this.handleAcceptRequest()}>Accept</button>
-                <button onClick = {() => this.handleDeleteRequest()}>Decline</button>
+                {this.props.student.profile_pic ?
+                (<div className = 'Studentsdiv'>
+                    <img
+                        className = 'Studentlistpic' 
+                        src = {this.props.student.profile_pic} 
+                        alt = 'Student Profile Pic'/>
+                    <p className = 'Studentlistname'>{this.props.student.first_name} {this.props.student.last_name}</p> 
+                    <p>{this.props.student.email}</p>
+                    <div className = 'Studentlistbuttondiv'>
+                        <Link to = {`/studentmessage/${this.props.student.student_id}`}><button className = 'Messagelistbutton'>Message</button></Link>
+                        <button className = 'Studentlistbutton' onClick = {() => this.handleAcceptRequest()}>Accept</button>
+                        <button className = 'Droplistbutton' onClick = {() => this.handleDeleteRequest()}>Decline</button>
+                    </div>
+                </div>) : (
+                <div className = 'Studentsdiv'>
+                    <p className = 'Studentlistname'>{this.props.student.first_name} {this.props.student.last_name}</p> 
+                    <p>{this.props.student.email}</p>
+                    <div className = 'Studentlistbuttondiv'>
+                        <Link to = {`/studentmessage/${this.props.student.student_id}`}><button className = 'Messagelistbutton'>Message</button></Link>
+                        <button className = 'Studentlistbutton' onClick = {() => this.handleAcceptRequest()}>Accept</button>
+                        <button className = 'Droplistbutton' onClick = {() => this.handleDeleteRequest()}>Decline</button>
+                    </div>
+                </div>
+                )
+                }
             </div>
         )
     }

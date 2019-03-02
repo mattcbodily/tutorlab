@@ -7,6 +7,7 @@ import PendingStudents from './PendingStudents';
 import AcceptedStudents from './AcceptedStudents';
 import PendingTutorStudents from './PendingTutorStudents';
 import AcceptedTutorStudents from './AcceptedTutorStudents';
+import './StudentList.css';
 
 class StudentList extends Component {
     constructor(props){
@@ -97,15 +98,27 @@ class StudentList extends Component {
             )
         })
         return(
-            <div>
-                <Nav />
-                <p>Pending Student Requests</p>
-                {pendingList}
-                {pendingTutorStudentList}
-                <p>Your Students</p>
-                {acceptedList}
-                {acceptedTutorStudentList}
-                Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
+            <div className = 'Studentlistdiv'>
+                {(this.state.pendingStudents.length || this.state.pendingTutorStudents.length) ?
+                (<div>
+                    <Nav />
+                    <p className = 'Studentlistprompts'>Pending Student Requests</p>
+                    {pendingList}
+                    {pendingTutorStudentList}
+                    <p className = 'Studentlistprompts'>Your Students</p>
+                    {acceptedList}
+                    {acceptedTutorStudentList}
+                    Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
+                </div>) : (
+                <div>
+                    <Nav />
+                    <p className = 'Studentlistprompts'>Your Students</p>
+                    {acceptedList}
+                    {acceptedTutorStudentList}
+                    Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
+                </div>
+                )
+            }
             </div>
         )
     }

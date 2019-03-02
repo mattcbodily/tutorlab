@@ -4,21 +4,25 @@
 
 .Tutorlistdisplaybox {
     height: 75px;
-    width: 300px;
+    width: 310px;
+    margin-top: 5px;
     display: flex;
     text-align: left;
     border: 1px solid gray;
     border-radius: 5px;
     background-color: #F1F1F1;
+    box-shadow: 2px 2px 1px gray;
 }
 
 .Tutorlistnopicture {
     height: 75px;
-    width: 300px;
+    width: 310px;
+    margin-top: 5px;
     border: 1px solid gray;
     border-radius: 5px;
     text-align: left;
     background-color: #F1F1F1;
+    box-shadow: 2px 2px 1px gray;
 }
 
 .Tutorlistpicture {
