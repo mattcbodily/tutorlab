@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
+import Nav from './../Nav/Nav';
+import TutorSocketsMessages from './TutorSocketsMessages';
 
 class TutorSocketsDisplay extends Component {
     constructor(props) {
@@ -75,28 +77,37 @@ class TutorSocketsDisplay extends Component {
     }
 
     render(){
+        const mappedMessages = this.state.messages.map((messageObj, i) => {
+            return (
+                <TutorSocketsMessages key = {i}
+                                      message = {messageObj}/>
+            )
+        })
         return(
-            <div>
-                {this.state.joined ? <h1>My Room: {this.state.room}</h1> : null}
-                <div>
-                    {this.state.messages.map(messageObj => <h2 key = {messageObj.id}>{messageObj.message}</h2>)}
+            <div className = 'Socketsdiv'>
+                <Nav />
+                <h1>Send a Message</h1>
+                <div className = 'Messagesdiv'>
+                    <div>
+                        {mappedMessages}
+                    </div>
+                    {
+                        this.state.joined
+                            ?
+                            <div>
+                                <input className = 'Messageinput' value = {this.state.input} onChange = {e => {
+                                    this.setState({
+                                        input: e.target.value
+                                    })
+                                }} />
+                                <button className = 'Messagebutton' onClick = {this.sendMessage}>Send</button>
+                            </div>
+                            :
+                            <div>
+                                Loading...
+                            </div>
+                    }
                 </div>
-                {
-                    this.state.joined
-                        ?
-                        <div>
-                            <input value = {this.state.input} onChange = {e => {
-                                this.setState({
-                                    input: e.target.value
-                                })
-                            }} />
-                            <button onClick = {this.sendMessage}>Send</button>
-                        </div>
-                        :
-                        <div>
-                            Loading...
-                        </div>
-                }
             </div>
         )
     }

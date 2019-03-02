@@ -85,7 +85,7 @@ class StudentSocketsDisplay extends Component {
             )
         })
         return(
-            <div className = 'Sockectsdiv'>
+            <div className = 'Socketsdiv'>
                 <Nav />
                 <h1>Send a Message</h1>
                 <div className = 'Messagesdiv'>

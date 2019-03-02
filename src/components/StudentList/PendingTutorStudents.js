@@ -23,7 +23,7 @@ class PendingTutorStudents extends Component {
                 {this.props.tutor.profile_pic ?
                 (<div className = 'Studentsdiv'>
                     <img
-                        className = 'Student Profile Pic' 
+                        className = 'Studentlistpic' 
                         src = {this.props.tutor.profile_pic} 
                         alt = 'Student Profile Pic'/>
                     <p className = 'Studentlistname'>{this.props.tutor.first_name} {this.props.tutor.last_name}</p> 
