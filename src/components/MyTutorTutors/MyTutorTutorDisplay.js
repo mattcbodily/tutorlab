@@ -28,6 +28,7 @@ class MyTutorTutorDisplay extends Component {
                     </div>
                 </div>) : (
                 <div className = 'Studentsdiv'>
+                    <div className = 'Studentlistcomputerviewdiv'></div>
                     <p className = 'Studentlistname'>{this.props.tutors.first_name} {this.props.tutors.last_name}</p> 
                     <p>{this.props.tutors.email}</p>
                     <div className = 'Studentlistbuttondiv'>

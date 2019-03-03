@@ -55,7 +55,7 @@ class MyTutorTutors extends Component {
             )
         })
         return(
-            <div className = 'Mytutorsdiv'>
+            <div className = 'Studentlistdiv'>
                 {this.state.pendingTutors.length ?
                 (<div>
                     <Nav />
@@ -63,13 +63,13 @@ class MyTutorTutors extends Component {
                     {pendingList}
                     <p className = 'Studentlistprompts'>Your Tutors</p>
                     {tutorList}
-                    Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
+                    <p className = 'Loginlinks'>Back to <Link to = '/tutorprofile/:tutorid'>profile</Link></p>
                 </div>) : (
                 <div>
                     <Nav />
                     <p className = 'Studentlistprompts'>Your Tutors</p>
                     {tutorList}
-                    Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
+                    <p className = 'Loginlinks'>Back to <Link to = '/tutorprofile/:tutorid'>profile</Link></p>
                 </div>
                 )
                 }

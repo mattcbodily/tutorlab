@@ -35,6 +35,7 @@ class PendingTutorStudents extends Component {
                     </div>
                 </div>) : (
                 <div className = 'Studentsdiv'>
+                    <div className = 'Studentlistcomputerviewdiv'></div>
                     <p className = 'Studentlistname'>{this.props.tutor.first_name} {this.props.tutor.last_name}</p> 
                     <p>{this.props.tutor.email}</p>
                     <div className = 'Studentlistbuttondiv'>

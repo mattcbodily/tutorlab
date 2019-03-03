@@ -103,19 +103,25 @@ class StudentList extends Component {
                 (<div>
                     <Nav />
                     <p className = 'Studentlistprompts'>Pending Student Requests</p>
-                    {pendingList}
-                    {pendingTutorStudentList}
+                    <div className = 'Studentlistflexdiv'>
+                        {pendingList}
+                        {pendingTutorStudentList}
+                    </div>    
                     <p className = 'Studentlistprompts'>Your Students</p>
-                    {acceptedList}
-                    {acceptedTutorStudentList}
-                    Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
+                    <div className = 'Studentlistflexdiv'>
+                        {acceptedList}
+                        {acceptedTutorStudentList}
+                    </div>
+                    <p className = 'Loginlinks'>Back to <Link to = '/tutorprofile/:tutorid'>profile</Link></p>
                 </div>) : (
                 <div>
                     <Nav />
                     <p className = 'Studentlistprompts'>Your Students</p>
-                    {acceptedList}
-                    {acceptedTutorStudentList}
-                    Back to <Link to = '/tutorprofile/:tutorid'>profile</Link>
+                    <div className = 'Studentlistflexdiv'>
+                        {acceptedList}
+                        {acceptedTutorStudentList}
+                    </div>
+                    <p className = 'Loginlinks'>Back to <Link to = '/tutorprofile/:tutorid'>profile</Link></p>
                 </div>
                 )
             }

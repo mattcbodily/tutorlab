@@ -5,7 +5,6 @@ import axios from 'axios';
 import Nav from './../Nav/Nav';
 import MyTutorsDisplay from './MyTutorsDisplay';
 import PendingTutors from './PendingTutors';
-import './MyTutors.css'
 
 class MyTutors extends Component {
     constructor(props){
@@ -56,7 +55,7 @@ class MyTutors extends Component {
             )
         })
         return(
-            <div className = 'Mytutorsdiv'>
+            <div className = 'Studentlistdiv'>
                 {this.state.pendingTutors.length ?
                 (<div>
                     <Nav />
@@ -64,13 +63,13 @@ class MyTutors extends Component {
                     {pendingList}
                     <p className = 'Studentlistprompts'>Your Tutors</p>
                     {tutorList}
-                    Back to <Link to = '/studentprofile/:studentid'>profile</Link>
+                    <p className = 'Loginlinks'>Back to <Link to = '/studentprofile/:studentid'>profile</Link></p>
                 </div>) : (
                 <div>
                     <Nav />
                     <p className = 'Studentlistprompts'>Your Tutors</p>
                     {tutorList}
-                    Back to <Link to = '/studentprofile/:studentid'>profile</Link>
+                    <p className = 'Loginlinks'>Back to <Link to = '/studentprofile/:studentid'>profile</Link></p>
                 </div>
                 )
                 }
