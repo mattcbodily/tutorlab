@@ -60,7 +60,7 @@
         font-size: 20px;
     }
     .Loginlinks {
-        font-size: 20px;
+        font-size: 15px;
     }
 }
 
@@ -100,8 +100,5 @@
     }
     .Authbuttons {
         font-size: 17px;
-    }
-    .Loginlinks {
-        font-size: 15px;
     }
 }
