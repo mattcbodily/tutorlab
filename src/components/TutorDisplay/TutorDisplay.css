@@ -1,3 +1,9 @@
+.Tutorlistsubjectpictures {
+    height: 170px;
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+
 .Tutordisplaydiv {
     display: inline-block;
 }
@@ -43,4 +49,66 @@
 
 a:link {
     text-decoration: none;
+}
+
+@media(min-width: 750px) {
+    .Tutordisplayflexdiv {
+        margin: 0px 25px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .Tutorlistsubjectpictures {
+        height: 225px;
+        width: 90%;
+        margin-top: 5px;
+    }
+    .Tutorlistdisplaybox {
+        height: 200px;
+        width: 225px;
+        margin: 5px 5px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .Nopicturecomputerview {
+        height: 60px;
+    }
+    .Tutorlistnopicture {
+        height: 200px;
+        width: 225px;
+        margin: 5px 5px;
+        text-align: center;
+    }
+    .Tutorlistpicture {
+        height: 90px;
+        width: 90px;
+        border-radius: 50%;
+    }
+}
+
+@media(min-width: 1050px) {
+    .Tutorlistsubjectpictures {
+        display: none;
+    }
+    .Tutordisplaycomputerview {
+        height: 100vh;
+        width: 100%;
+        display: inline-block;
+        background-image: url('https://s3-us-west-1.amazonaws.com/webucationbucket/board-2167844_1920.jpg');
+        background-repeat: no-repeat;
+    }
+    .Tutorlistsubjectnameprompt {
+        margin-bottom: 5px;
+        color: #F8F8F8;
+        font-size: 35px;
+        font-weight: bold;
+    }
+    .Selectatutor {
+        font-size: 20px;
+        color: #F8F8F8;
+    }
+    .Tutordisplayflexdiv {
+        justify-content: center;
+    }
 }

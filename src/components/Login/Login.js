@@ -75,7 +75,7 @@ class Login extends Component {
     render(){
         const {email, password, tutorEmail, tutorPassword} = this.state;
         return(
-            <div>
+            <div className = 'Loginhomediv'>
                 <AuthNav />
                 <h1 className = 'Welcomeback'>Welcome Back</h1>
                 <div className = 'Authdoubleflex'>
@@ -121,7 +121,7 @@ class Login extends Component {
                             <p className = 'Loginlinks'>Signing up as a tutor? <Link to = '/registertutor'>Sign up here.</Link></p>
                         </div>
                     </div>
-                </div>    
+                </div> 
             </div>
         )
     }

@@ -1,3 +1,11 @@
+.Loginhomediv {
+    height: 100vh;
+    background-image: url('https://s3-us-west-1.amazonaws.com/webucationbucket/board-2167844_1920.jpg');
+    background-repeat: no-repeat;
+}
+.Welcomeback {
+    color: #F8F8F8;
+}
 .Authprompts {
     margin-top: 25px;
     margin-bottom: 10px;
@@ -66,10 +74,10 @@
 
 @media (min-width: 1050px) {
     .Welcomeback {
+        margin-top: 0px;
         margin-bottom: 3%;
     }
     .Authdoubleflex {
-        height: 100%;
         display: flex;
         justify-content: center;
     }

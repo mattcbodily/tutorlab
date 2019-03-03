@@ -5,7 +5,7 @@ import './TutorDisplay.css';
 class TutorDisplay extends Component {
     render(){
         return (
-            <div className = 'Tutordisplaydiv'>
+            <div classNanem = 'Tutordisplayflexdiv'>
                 {this.props.tutors.profile_pic ?
                 (<Link to = {`/tutor/${this.props.subject}/${this.props.tutors.tutor_id}`}>
                 <div className = 'Tutorlistdisplaybox'>
@@ -21,6 +21,7 @@ class TutorDisplay extends Component {
                 </Link>) : (
                 <Link to = {`/tutor/${this.props.subject}/${this.props.tutors.tutor_id}`}>
                 <div className = 'Tutorlistnopicture'>
+                    <div className = 'Nopicturecomputerview'></div>
                     <p className = 'Nopictureinfo'>Name: {this.props.tutors.first_name} {this.props.tutors.last_name}</p>
                     <p className = 'Nopictureinfo'>Email: {this.props.tutors.email}</p>
                     <p className = 'Nopictureinfo'>Cost: ${this.props.tutors.price}</p>

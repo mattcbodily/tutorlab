@@ -45,6 +45,8 @@
     display: inline-block;
     border: 1px solid gray;
     background-color: #F1F1F1;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px gray;
 }
 
 .Homesubjectpictures {

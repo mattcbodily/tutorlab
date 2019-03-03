@@ -55,8 +55,12 @@ class TutorList extends Component {
         return(
             <div>
                 <Nav />
-                {currentSubject}
-                {listedTutors}
+                <div className = 'Tutordisplaycomputerview'>
+                    {currentSubject}
+                    <div className = 'Tutordisplayflexdiv'>
+                        {listedTutors}
+                    </div>
+                </div>    
                 <p>Back to <Link to = '/subjects'>subjects</Link></p>
             </div>
         )
