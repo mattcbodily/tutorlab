@@ -112,32 +112,37 @@ class StudentProfile extends Component {
                 </div>) : (
                 <div>
                     <Nav />
-                    <div>
-                        <p className = 'Profileprompts'>First Name</p>
-                        <input
-                            className = 'Profileinputs' 
-                            value = {this.state.firstName}
-                            onChange = {e => this.handleChange('firstName', e.target.value)}/>
-                    </div>
-                    <div>
-                        <p className = 'Profileprompts'>Last Name</p>
-                        <input
-                            className = 'Profileinputs' 
-                            value = {this.state.lastName}
-                            onChange = {e => this.handleChange('lastName', e.target.value)}/>
-                    </div>
-                    <div>
-                        <p className = 'Profileprompts'>Email</p>
-                        <input
-                            className = 'Profileinputs'
-                            value = {this.state.email}
-                            onChange = {e => this.handleChange('email', e.target.value)}/>
-                    </div>
-                    <div>
-                        <button className = 'Profilebuttons' onClick = {() => this.updateStudentInfo()}>Submit</button>
-                    </div>
-                    <div>
-                        <button className = 'Profilebuttons' onClick = {() => this.handleEditToggle()}>Cancel</button>
+                    <div className = 'Profilecomputerviewdiv'>
+                        <div>
+                            <p className = 'Profileprompts'>First Name</p>
+                            <input
+                                className = 'Profileinputs' 
+                                value = {this.state.firstName}
+                                onChange = {e => this.handleChange('firstName', e.target.value)}/>
+                        </div>
+                        <div>
+                            <p className = 'Profileprompts'>Last Name</p>
+                            <input
+                                className = 'Profileinputs' 
+                                value = {this.state.lastName}
+                                onChange = {e => this.handleChange('lastName', e.target.value)}/>
+                        </div>
+                        <div>
+                            <p className = 'Profileprompts'>Email</p>
+                            <input
+                                className = 'Profileinputs'
+                                value = {this.state.email}
+                                onChange = {e => this.handleChange('email', e.target.value)}/>
+                        </div>
+                        <div>
+                            <Link to = '/uploadphoto'><button className = 'Profilebuttons'>Add a Photo</button></Link>
+                        </div>
+                        <div>
+                            <button className = 'Profilebuttons' onClick = {() => this.updateStudentInfo()}>Submit</button>
+                        </div>
+                        <div>
+                            <button className = 'Profilebuttons' onClick = {() => this.handleEditToggle()}>Cancel</button>
+                        </div>
                     </div>
                 </div>
                 )

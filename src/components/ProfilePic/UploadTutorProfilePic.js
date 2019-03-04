@@ -72,7 +72,10 @@ class UploadTutorProfilePic extends Component {
       <div>
         <Nav />
         <p className = 'Uploadphototitle'>Add a Photo</p>
-        <img className = 'Uploadphoto' src={url} alt="" width="200px" />
+        <div className = 'Uploadphotodisplaydiv'>
+        <div>
+          <img className = 'Uploadphoto' src={url} alt="" width="200px" />
+        </div>
 
         <Dropzone
           onDropAccepted={this.getSignedRequest}
@@ -83,14 +86,14 @@ class UploadTutorProfilePic extends Component {
             style = {{
             position: 'relative',
             width: 160,
-            height: 140,
+            height: 80,
             borderWidth: 5,
             marginTop: 25,
             borderColor: 'gray',
             borderStyle: 'dashed',
             borderRadius: 5,
             display: 'inline-block',
-            fontSize: 25,}}
+            fontSize: 17,}}
             {...getRootProps()}>
               <input {...getInputProps()} />
                 {isUploading ? <GridLoader /> : <p>Drop files here, or click to select files</p>}
@@ -99,6 +102,7 @@ class UploadTutorProfilePic extends Component {
         </Dropzone>
           <div className = 'Uploadphotobuttondiv'>
             <Link to = {`/tutorprofile/${this.props.tutor.id}`}><button className = 'Uploadphotobutton'>Submit</button></Link>
+          </div>
           </div>
       </div>
     );

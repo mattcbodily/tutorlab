@@ -1,3 +1,8 @@
+.Uploadphotodisplaydiv {
+    height: 600px;
+    display: inline-block;
+}
+
 .Uploadphototitle {
     margin: 0px;
     padding-top: 10px;
@@ -28,14 +33,8 @@
 
 @media (min-width: 750px) {
     .Uploadphoto {
-        height: 50%;
-        width: 50%;
-    }
-}
-
-@media (min-width: 1050px) {
-    .Uploadphoto {
-        height: 150px;
-        width: 150px;
+        height: 200px;
+        width: 200px;
+        display: inline-block;
     }
 }
