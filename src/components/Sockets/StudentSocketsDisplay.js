@@ -87,7 +87,7 @@ class StudentSocketsDisplay extends Component {
         return(
             <div className = 'Socketsdiv'>
                 <Nav />
-                <h1>Send a Message</h1>
+                <h1 className = 'Socketssendamessage'>Send a Message</h1>
                 <div className = 'Messagesdiv'>
                     <div>
                         {mappedMessages}

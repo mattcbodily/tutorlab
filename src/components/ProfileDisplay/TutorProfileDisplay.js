@@ -7,13 +7,13 @@ const TutorProfileDisplay = props => {
         <div>
         {props.tutor.profile_pic ?
             (<div>
-                <div>
+                <div className = 'Profilepicturediv'>
                     <img
                         className = 'Profilepicture' 
                         src = {props.tutor.profile_pic} 
                         alt = 'Profile Pic'/>
                 </div>
-                <div>
+                <div className = 'Profileinformationdiv'>
                     <p className = 'Profilename'>{props.tutor.first_name} {props.tutor.last_name}</p>
                     <div className = 'Profiledescriptionbox'>
                         <span className = 'Profiledescriptions'>Email: </span>

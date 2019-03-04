@@ -83,26 +83,30 @@ class TutorView extends Component {
                 {this.props.student.id ?
                 (<div>
                     <Nav />
-                    <div className = 'Infobox'>
-                        {tutorProfile}
-                        <div className = 'Tutorsubjectbox'>    
-                            <span className = 'Profiledescriptions'>Where I Teach:</span>
-                            {tutorLocations}
-                        </div>   
-                    </div>
-                        {lessonRequest}
+                    <div className = 'Profilecomputerviewdiv'>
+                        <div className = 'Infobox'>
+                            {tutorProfile}
+                            <div className = 'Tutorsubjectbox'>    
+                                <span className = 'Profiledescriptions'>Where I Teach:</span>
+                                {tutorLocations}
+                            </div>   
+                        </div>
+                            {lessonRequest}
+                    </div>    
                 </div>
                 ) : (
                 <div>    
                     <Nav />
-                    <div className = 'Infobox'>
-                        {tutorProfile}
-                        <div className = 'Tutorsubjectbox'>    
-                            <span className = 'Profiledescriptions'>Where I Teach:</span>
-                            {tutorLocations}
-                        </div>   
-                    </div>
-                        {tutorLessonRequest}
+                    <div className = 'Profilecomputerviewdiv'>
+                        <div className = 'Infobox'>
+                            {tutorProfile}
+                            <div className = 'Tutorsubjectbox'>    
+                                <span className = 'Profiledescriptions'>Where I Teach:</span>
+                                {tutorLocations}
+                            </div>   
+                        </div>
+                            {tutorLessonRequest}
+                    </div>        
                 </div>
                 )
             }

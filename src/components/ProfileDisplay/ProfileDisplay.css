@@ -57,3 +57,58 @@
 .Profilesubjectnames {
     margin: 2px 0px;
 }
+
+@media (min-width: 750px) {
+    .Infobox {
+        margin-top: 10px;
+    }
+    .Profilepicture {
+        height: 50%;
+        width: 50%;
+    }
+}
+
+@media(min-width: 1050px) {
+    .Profilediv {
+        height: 110vh;
+        background-image: url('https://s3-us-west-1.amazonaws.com/webucationbucket/board-2167844_1920.jpg');
+        background-repeat: no-repeat;
+    }
+    .Studentprofilediv {
+        height: 100vh;
+        background-image: url('https://s3-us-west-1.amazonaws.com/webucationbucket/board-2167844_1920.jpg');
+        background-repeat: no-repeat;
+    }
+    .Profilecomputerviewdiv {
+        width: 60%;
+        margin-top: 10px;
+        padding-bottom: 10px;
+        display: inline-block;
+        border: 1px solid #57BDE1;
+        border-radius: 5px;
+        background-color: #F1F1F1;
+    }
+    .Studentprofilecomputerviewdiv {
+        width: 60%;
+        margin-top: 8%;
+        padding-bottom: 10px;
+        display: inline-block;
+        border: 1px solid #57BDE1;
+        border-radius: 5px;
+        background-color: #F1F1F1;
+    }
+    .Infobox {
+        border: none;
+        background-color: none;
+    }
+    .Profilepicture {
+        height: 150px;
+        width: 150px;
+    }
+    .Profiledescriptionbox {
+        margin: 8px 10px;
+    }
+    .Profilesubjectnames {
+        margin: 0px;
+    }
+}

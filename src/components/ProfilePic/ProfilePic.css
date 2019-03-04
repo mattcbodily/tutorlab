@@ -25,3 +25,17 @@
     margin-top: 20px;
     font-size: 17px;
 }
+
+@media (min-width: 750px) {
+    .Uploadphoto {
+        height: 50%;
+        width: 50%;
+    }
+}
+
+@media (min-width: 1050px) {
+    .Uploadphoto {
+        height: 150px;
+        width: 150px;
+    }
+}

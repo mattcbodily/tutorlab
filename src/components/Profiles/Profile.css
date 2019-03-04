@@ -24,3 +24,17 @@
     border-radius: 5px;
     font-size: 15px;
 }
+
+@media(min-width: 1050px) {
+    .Profileinputs {
+        width: 82%;
+    }
+    .Tutordescriptionbox {
+        width: 82%;
+    }
+    .Profilebuttons {
+        height: 25px;
+        width: 40%;
+        font-weight: 500;
+    }
+}

@@ -90,24 +90,25 @@ class StudentProfile extends Component {
         return(
             <div>
                 {!this.state.editProfile ?
-                (<div>
+                (<div className = 'Studentprofilediv'>
                     <Nav />
-                    <div className = 'Infobox'>
-                        {studentProfile}
+                    <div className = 'Studentprofilecomputerviewdiv'>
+                        <div className = 'Infobox'>
+                            {studentProfile}
+                        </div>
+                        <div>
+                            <button className = 'Profilebuttons' onClick = {() => this.handleEditToggle()}>Update Info</button>
+                        </div>
+                        <div>
+                            <Link to = {`/tutorlist/${this.props.student.id}`}><button className = 'Profilebuttons'>Your Tutors</button></Link>
+                        </div>
+                        <div>
+                            <button className = 'Profilebuttons' onClick = {() => this.deleteAccount()}>Delete Account</button>
+                        </div>
+                        <div>
+                            <button className = 'Profilebuttons' onClick = {() => this.logout()}>Log Out</button>
+                        </div>
                     </div>
-                    <div>
-                        <button className = 'Profilebuttons' onClick = {() => this.handleEditToggle()}>Update Info</button>
-                    </div>
-                    <div>
-                        <Link to = {`/tutorlist/${this.props.student.id}`}><button className = 'Profilebuttons'>Your Tutors</button></Link>
-                    </div>
-                    <div>
-                        <button className = 'Profilebuttons' onClick = {() => this.deleteAccount()}>Delete Account</button>
-                    </div>
-                    <div>
-                        <button className = 'Profilebuttons' onClick = {() => this.logout()}>Log Out</button>
-                    </div>
-                    Back to <Link to = '/home'>home</Link>
                 </div>) : (
                 <div>
                     <Nav />

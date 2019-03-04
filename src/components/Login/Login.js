@@ -77,7 +77,10 @@ class Login extends Component {
         return(
             <div className = 'Loginhomediv'>
                 <AuthNav />
-                <h1 className = 'Welcomeback'>Welcome Back</h1>
+                <div className = 'Welcomebackdiv'>
+                    <h1 className = 'Welcomeback'>Welcome to Teachio</h1>
+                    <h3 className = 'Findtutorsonline'>Find Tutors Online</h3>
+                </div>
                 <div className = 'Authdoubleflex'>
                     <div className = 'Authflexdiv'>
                         <div className = 'Studentloginbox'>

@@ -71,6 +71,14 @@
 }
 
 @media(min-width: 1050px) {
+    .Socketsdiv {
+        height: 100vh;
+        background-image: url('https://s3-us-west-1.amazonaws.com/webucationbucket/board-2167844_1920.jpg');
+        background-repeat: no-repeat;
+    }
+    .Socketssendamessage {
+        color: #F8F8F8;
+    }
     .Messagesdiv {
         width: 75%;
     }

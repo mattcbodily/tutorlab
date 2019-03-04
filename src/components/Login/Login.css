@@ -1,10 +1,5 @@
 .Loginhomediv {
     height: 100vh;
-    background-image: url('https://s3-us-west-1.amazonaws.com/webucationbucket/board-2167844_1920.jpg');
-    background-repeat: no-repeat;
-}
-.Welcomeback {
-    color: #F8F8F8;
 }
 .Authprompts {
     margin-top: 25px;
@@ -50,8 +45,10 @@
 }
 
 @media (min-width: 750px) {
-    .Welcomeback {
+    .Welcomebackdiv {
         margin-top: 20px;
+    }
+    .Welcomeback {
         font-size: 40px;
     }
     .Studentloginprompt {
@@ -73,9 +70,19 @@
 }
 
 @media (min-width: 1050px) {
-    .Welcomeback {
+    .Loginhomediv {
+        background-image: url('https://s3-us-west-1.amazonaws.com/webucationbucket/board-2167844_1920.jpg');
+        background-repeat: no-repeat;
+    }
+    .Welcomebackdiv{
         margin-top: 0px;
         margin-bottom: 3%;
+    }
+    .Welcomeback {
+        color: #F8F8F8;
+    }
+    .Findtutorsonline {
+        color: #F8F8F8;
     }
     .Authdoubleflex {
         display: flex;
