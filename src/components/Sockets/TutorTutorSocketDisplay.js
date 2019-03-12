@@ -94,7 +94,7 @@ class TutorTutorSocketDisplay extends Component {
                     {
                         this.state.joined
                             ?
-                            <div>
+                            <div className = 'Socketsinputdiv'>
                                 <input className = 'Messageinput' value = {this.state.input} onChange = {e => {
                                     this.setState({
                                         input: e.target.value

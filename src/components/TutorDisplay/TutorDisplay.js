@@ -5,7 +5,7 @@ import './TutorDisplay.css';
 class TutorDisplay extends Component {
     render(){
         return (
-            <div classNanem = 'Tutordisplayflexdiv'>
+            <div className = 'Tutordisplayflexdiv'>
                 {this.props.tutors.profile_pic ?
                 (<Link to = {`/tutor/${this.props.subject}/${this.props.tutors.tutor_id}`}>
                 <div className = 'Tutorlistdisplaybox'>
@@ -13,8 +13,8 @@ class TutorDisplay extends Component {
                         <img className = 'Tutorlistpicture' src = {this.props.tutors.profile_pic} alt = 'Tutor Pic'/>
                     </div>
                     <div>
-                        <p className = 'Tutorlistinfo'>Name: {this.props.tutors.first_name} {this.props.tutors.last_name}</p> 
-                        <p className = 'Tutorlistinfo'>Email: {this.props.tutors.email}</p>
+                        <p className = 'Tutorlistinfo'>{this.props.tutors.first_name} {this.props.tutors.last_name}</p> 
+                        <p className = 'Tutorlistinfo'>{this.props.tutors.email}</p>
                         <p className = 'Tutorlistinfo'>Cost: ${this.props.tutors.price}</p>
                     </div>
                 </div>    
@@ -22,8 +22,8 @@ class TutorDisplay extends Component {
                 <Link to = {`/tutor/${this.props.subject}/${this.props.tutors.tutor_id}`}>
                 <div className = 'Tutorlistnopicture'>
                     <div className = 'Nopicturecomputerview'></div>
-                    <p className = 'Nopictureinfo'>Name: {this.props.tutors.first_name} {this.props.tutors.last_name}</p>
-                    <p className = 'Nopictureinfo'>Email: {this.props.tutors.email}</p>
+                    <p className = 'Nopictureinfo'>{this.props.tutors.first_name} {this.props.tutors.last_name}</p>
+                    <p className = 'Nopictureinfo'>{this.props.tutors.email}</p>
                     <p className = 'Nopictureinfo'>Cost: ${this.props.tutors.price}</p>
                 </div>    
                 </Link>

@@ -6,11 +6,15 @@ class TutorSocketsMessages extends Component {
         return (
             <div>
                 {this.props.message.student ?
-                (<div className = 'Usermessage'>
-                    <span className = 'Usermessagebox'>{this.props.message.message}</span>
+                (<div className = 'Usermessagedisplay'>
+                    <div className = 'Usermessage'>
+                        <div className = 'Usermessagebox'>{this.props.message.message}</div>
+                    </div>
                 </div>) : (
-                <div className = 'Notusermessage'>
-                    <span className = 'Notusermessagebox'>{this.props.message.message}</span>
+                <div className = 'Notusermessagedisplay'>
+                    <div className = 'Notusermessage'>
+                        <div className = 'Notusermessagebox'>{this.props.message.message}</div>
+                    </div>
                 </div>)
                 }   
             </div>

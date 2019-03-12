@@ -12,38 +12,57 @@
     background-color: #F1F1F1;
 }
 
+.Usermessagedisplay {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Notusermessagedisplay {
+    display: flex;
+    justify-content: flex-start;
+}
+
 .Usermessage {
-    height: 25px;
-    margin-top: 7px;
-    margin-right: 10px;
-    text-align: right;
+    min-height: 20px;
+    max-width: 60%;
+    margin-top: 5px;
+    margin-right: 5px;
 }
 
 .Notusermessage {
-    height: 25px;
-    margin-top: 7px;
-    margin-left: 10px;
+    min-height: 20px;
+    max-width: 60%;
+    margin-top: 5px;
+    margin-left: 5px;
     text-align: left;
 }
 
 .Usermessagebox {
-    height: 40px;
+    min-height: 20px;
+    margin: 0px;
     padding: 6px 8px;
     font-size: 16px;
     font-weight: bold;
     color: white;
     border-radius: 15px;
     background-color: #57BDE1;
+    word-wrap: normal;
+    text-align: left;
 }
 
 .Notusermessagebox {
-    height: 40px;
+    min-height: 20px;
     padding: 6px 8px;
+    margin: 0px;
     font-size: 16px;
     font-weight: bold;
     color: white;
     border-radius: 15px;
     background-color: #858585;
+}
+
+.Socketsinputdiv {
+    margin-top: 5px;
 }
 
 .Messageinput {
